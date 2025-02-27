@@ -1,10 +1,9 @@
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
 	return (
 		<main>
-			<h1>Hello World!</h1>
-			<ContactForm />
+			<ContactSection />
 		</main>
 	);
 }
