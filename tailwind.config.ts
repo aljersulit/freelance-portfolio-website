@@ -10,6 +10,10 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				montserrat: ["var(--font-montserrat)"],
+				notoSerifDisplay: ["var(--font-noto-serif-display)"],
+			},
 			colors: {
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
@@ -61,4 +65,6 @@ export default {
 	},
 	plugins: [animate],
 } satisfies Config;
+
+
 
