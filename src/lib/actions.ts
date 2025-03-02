@@ -4,37 +4,60 @@ import { sendEmail } from "@/lib/nodemailer";
 import { z } from "zod";
 
 const FormSchema = z.object({
-	name: z.string(),
-	email: z.string(),
-	company: z.string().nullable(),
-	message: z.string(),
+	firstname: z.string().min(1, { message: "Please enter your first name." }),
+	lastname: z.string().min(1, { message: "Please enter your last name." }),
+	email: z
+		.string()
+		.nonempty({ message: "Please enter your email." })
+		.email({ message: "Invalid email" }),
+	company: z.string().optional(),
+	message: z.string().min(1, { message: "Please enter your message." }),
 });
 
-export type State = {
-	errors?: {
-		name?: string[];
-		company?: string[];
+export type FormState = {
+	errors: {
+		firstname?: string[];
+		lastname?: string[];
 		email?: string[];
+		message?: string[];
 	};
-	message?: string | null;
+	status: {
+		type?: "Success" | "Error";
+		message?: string;
+	};
+	contactFormData: {
+		firstname: string;
+		lastname: string;
+		email: string;
+		message: string;
+	};
 };
 
-export async function sendContactEmail(prevState: State, formData: FormData) {
-	const validatedFields = FormSchema.safeParse({
-		name: formData.get("name"),
-		company: formData.get("company"),
-		email: formData.get("email"),
-		message: formData.get("message"),
-	});
+export async function sendContactEmail(
+	prevState: FormState,
+	formData: FormData
+): Promise<FormState> {
+	const contactFormData = {
+		firstname: formData.get("firstname") as string,
+		lastname: formData.get("lastname") as string,
+		email: formData.get("email") as string,
+		message: formData.get("message") as string,
+	};
+	const validatedFields = FormSchema.safeParse(contactFormData);
 
 	if (!validatedFields.success) {
 		return {
+			...prevState,
 			errors: validatedFields.error.flatten().fieldErrors,
-			message: "Missing Fields. Failed to Send Email.",
+			status: {
+				type: "Error",
+				message: "Missing or invalid fields. Failed to send email.",
+			},
+			contactFormData,
 		};
 	}
 
-	const { name, email, company, message } = validatedFields.data;
+	const { firstname, lastname, email, message } = validatedFields.data;
 
 	// const adminMailOptions = {
 	// 	from: process.env.GMAIL_USER,
@@ -52,8 +75,8 @@ export async function sendContactEmail(prevState: State, formData: FormData) {
 		from: `AljoyDigital<${process.env.GMAIL_USER}>`,
 		to: email,
 		subject: "Thank you for contacting me!",
-		text: `Dear ${name},\n\nThank you for reaching out. I have received your message and will get back to you as soon as possible.\n\nYour Message:\n${message}`,
-		html: `<p>Dear ${name},</p><p>Thank you for reaching out. I have received your message and will get back to you as soon as possible.</p><p><strong>Your Message:</strong><br>${message}</p>`,
+		text: `Dear ${firstname} ${lastname},\n\nThank you for reaching out. I have received your message and will get back to you as soon as possible.\n\nYour Message:\n${message}`,
+		html: `<p>Dear ${firstname} ${lastname},</p><p>Thank you for reaching out. I have received your message and will get back to you as soon as possible.</p><p><strong>Your Message:</strong><br>${message}</p>`,
 	};
 
 	try {
@@ -61,15 +84,19 @@ export async function sendContactEmail(prevState: State, formData: FormData) {
 		const userEmailRes = await sendEmail(userMailOptions);
 		// console.log("Admin", adminMailRes);
 		console.log("User", userEmailRes);
-		return { message: "Email sent successfully!" };
+		return {
+			...prevState,
+			status: { type: "Success", message: "Email sent successfully!" },
+		};
 	} catch (error) {
 		console.error("Error sending emails:", error);
 		return {
-			message: "Failed to send email. Please try again.",
+			...prevState,
+			status: {
+				type: "Error",
+				message: "Failed to send email. Please try again.",
+			},
 		};
 	}
+
 }
-
-
-
-

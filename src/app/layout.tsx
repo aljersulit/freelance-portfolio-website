@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
+
 const montserrat = Montserrat({
 	subsets: ["latin"],
 	display: "swap",
@@ -30,10 +32,12 @@ export default function RootLayout({
 				className={`${notoSerifDisplay.variable} ${montserrat.variable} antialiased`}
 			>
 				{children}
+				<Toaster />
 			</body>
 		</html>
 	);
 }
+
 
 
 

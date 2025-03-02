@@ -58,7 +58,19 @@ export async function sendEmail(mailOptions: nodemailer.SendMailOptions) {
 			};
 		}
 
-		const transporter = nodemailer.createTransport(mailConfig);
+		const transporter = nodemailer.createTransport({
+			host: "smtp.gmail.com",
+			port: 587,
+			secure: false,
+			auth: {
+				type: "OAuth2",
+				user: process.env.GMAIL_USER,
+				clientId: process.env.GOOGLE_CLIENT_ID,
+				clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+				refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+				accessToken: accessToken as string,
+			},
+		});
 
 		const result = await transporter.sendMail(mailOptions);
 		return result;
@@ -66,4 +78,5 @@ export async function sendEmail(mailOptions: nodemailer.SendMailOptions) {
 		throw error;
 	}
 }
+
 
