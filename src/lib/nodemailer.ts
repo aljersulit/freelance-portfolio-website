@@ -1,34 +1,82 @@
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+import nodemailer from "nodemailer";
+import oAuth2Client from "@/lib/oauth2";
 
-const oAuth2Client = new google.auth.OAuth2(
-  process.env.GOOGLE_CLIENT_ID,
-  process.env.GOOGLE_CLIENT_SECRET,
-  process.env.REDIRECT_URI
-);
+interface OAuth2TransportOptions extends nodemailer.TransportOptions {
+	host: string;
+	port: number;
+	secure: boolean;
+	auth: {
+		type: "OAuth2";
+		user: string | undefined;
+		clientId: string | undefined;
+		clientSecret: string | undefined;
+		refreshToken: string | undefined;
+		accessToken: string;
+	};
+}
 
-oAuth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+interface EtherealEmailTestTransportOptions
+	extends nodemailer.TransportOptions {
+	host: string;
+	port: number;
+	auth: {
+		user: string;
+		pass: string;
+	};
+}
 
 export async function sendEmail(mailOptions: nodemailer.SendMailOptions) {
-  try {
-    const accessToken = await oAuth2Client.getAccessToken();
+	try {
+		const accessToken = await oAuth2Client.getAccessToken();
 
-    let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        type: "OAuth2",
-        user: process.env.GMAIL_USER,
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-        accessToken: accessToken as string,
-      },
-    });
+		let mailConfig:
+			| OAuth2TransportOptions
+			| EtherealEmailTestTransportOptions;
 
-    await transporter.sendMail(mailOptions);
-    return { success: true, message: 'Email sent successfully' };
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return { success: false, message: 'Failed to send email' };
-  }
+		if (process.env.NODE_ENV === "production") {
+			mailConfig = {
+				host: "smtp.gmail.com",
+				port: 587,
+				secure: false,
+				auth: {
+					type: "OAuth2",
+					user: process.env.GMAIL_USER,
+					clientId: process.env.GOOGLE_CLIENT_ID,
+					clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+					refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+					accessToken: accessToken as string,
+				},
+			};
+		} else {
+			mailConfig = {
+				host: "smtp.ethereal.email",
+				port: 587,
+				auth: {
+					user: "jett.hoppe65@ethereal.email",
+					pass: "wSXuMczctQzpXCV9pS",
+				},
+			};
+		}
+
+		const transporter = nodemailer.createTransport({
+			host: "smtp.gmail.com",
+			port: 587,
+			secure: false,
+			auth: {
+				type: "OAuth2",
+				user: process.env.GMAIL_USER,
+				clientId: process.env.GOOGLE_CLIENT_ID,
+				clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+				refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+				accessToken: accessToken as string,
+			},
+		});
+
+		const result = await transporter.sendMail(mailOptions);
+		return result;
+	} catch (error) {
+		throw error;
+	}
 }
+
+
