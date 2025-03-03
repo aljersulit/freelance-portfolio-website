@@ -52,7 +52,7 @@ export default function ContactForm() {
             <input
               type='text'
               name='firstname'
-              className='mt-1 block w-full border-[1px] border-border bg-secondary leading-10'
+              className='mt-1 block w-full rounded-sm border-[1px] border-border bg-secondary px-2 text-lg leading-10'
               defaultValue={!errors.firstname ? contactFormData.firstname : ''}
               aria-describedby='firstname-error'
             />
@@ -67,7 +67,7 @@ export default function ContactForm() {
             <input
               type='text'
               name='lastname'
-              className='mt-1 block w-full border-[1px] border-border bg-secondary leading-10'
+              className='mt-1 block w-full rounded-sm border-[1px] border-border bg-secondary px-2 text-lg leading-10'
               defaultValue={!errors.lastname ? contactFormData.lastname : ''}
               aria-describedby='lastname-error'
             />
@@ -83,7 +83,7 @@ export default function ContactForm() {
           <input
             type='text'
             name='email'
-            className='mt-1 block w-full border-[1px] border-border bg-secondary leading-10'
+            className='mt-1 block w-full rounded-sm border-[1px] border-border bg-secondary px-2 text-lg leading-10'
             defaultValue={!errors.email ? contactFormData.email : ''}
             aria-describedby='email-error'
           />
@@ -99,7 +99,7 @@ export default function ContactForm() {
         <textarea
           id='message'
           name='message'
-          className='mt-2 block h-40 w-full resize-none border-[1px] border-border bg-secondary'
+          className='mt-2 block h-40 w-full resize-none rounded-sm border-[1px] border-border bg-secondary px-2 py-1 text-lg'
           defaultValue={!errors.message ? contactFormData.firstname : ''}
           aria-labelledby='form-message-error'
         />
