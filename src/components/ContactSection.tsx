@@ -1,4 +1,4 @@
-import ContactForm from "./ContactForm"
+import ContactForm from './ContactForm';
 
 export default function ContactSection() {
   return (
@@ -15,4 +15,3 @@ export default function ContactSection() {
     </section>
   );
 }
-

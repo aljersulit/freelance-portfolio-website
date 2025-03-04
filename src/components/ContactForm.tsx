@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect } from 'react';
 import { sendContactEmail, FormState } from '@/lib/actions';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -36,8 +36,7 @@ export default function ContactForm() {
       default:
         toast(message);
     }
-    console.log(formState);
-  }, [formState.status]);
+  }, [status]);
 
   return (
     <form
@@ -58,7 +57,7 @@ export default function ContactForm() {
             />
           </Label>
           <div id='firstname-error' aria-live='polite' aria-atomic='true'>
-            {errors?.firstname && <p className='mt-2 text-sm text-red-500'>{errors?.firstname[0]}</p>}
+            {errors?.firstname && <p className='mt-2 text-xs text-red-500'>{errors?.firstname[0]}</p>}
           </div>
         </div>
         <div className='flex-1'>
@@ -73,7 +72,7 @@ export default function ContactForm() {
             />
           </Label>
           <div id='lastname-error' aria-live='polite' aria-atomic='true'>
-            {errors?.lastname && <p className='mt-2 text-sm text-red-500'>{errors?.lastname[0]}</p>}
+            {errors?.lastname && <p className='mt-2 text-xs text-red-500'>{errors?.lastname[0]}</p>}
           </div>
         </div>
       </div>
@@ -89,7 +88,7 @@ export default function ContactForm() {
           />
         </Label>
         <div id='email-error' aria-live='polite' aria-atomic='true'>
-          {errors?.email && <p className='mt-2 text-sm text-red-500'>{errors?.email[0]}</p>}
+          {errors?.email && <p className='mt-2 text-xs text-red-500'>{errors?.email[0]}</p>}
         </div>
       </div>
       <div>
@@ -104,7 +103,7 @@ export default function ContactForm() {
           aria-labelledby='form-message-error'
         />
         <div id='form-message-error' aria-live='polite' aria-atomic='true'>
-          {errors?.message && <p className='mt-2 text-sm text-red-500'>{errors?.message[0]}</p>}
+          {errors?.message && <p className='mt-2 text-xs text-red-500'>{errors?.message[0]}</p>}
         </div>
       </div>
       <Button

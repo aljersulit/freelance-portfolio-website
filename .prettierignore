@@ -1,5 +1,31 @@
-node_modules
-.next
-public
-.turbo
-*.lock
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+.turbo/
+
+# Public assets (if you don't want them formatted)
+public/
+
+# Lock files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Build output and cache directories
+build/
+dist/
+coverage/
+.cache/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+
+# Temporary files or logs
+*.log
+*.tmp
+
+components/ui/*
