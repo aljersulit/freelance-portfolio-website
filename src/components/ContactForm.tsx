@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect } from 'react';
 import { sendContactEmail, FormState } from '@/lib/actions';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';

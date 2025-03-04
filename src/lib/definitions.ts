@@ -3,4 +3,4 @@ export type ContactForm = {
   email: string;
   company: string | null;
   message: string;
-}
+};
