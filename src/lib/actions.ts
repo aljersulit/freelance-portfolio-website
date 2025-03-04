@@ -80,12 +80,14 @@ export async function sendContactEmail(prevState: FormState, formData: FormData)
     console.log('User', userEmailRes);
     return {
       ...prevState,
+      errors: {},
       status: { type: 'Success', message: 'Email sent successfully!' },
     };
   } catch (error) {
     console.error('Error sending emails:', error);
     return {
       ...prevState,
+      errors: {},
       status: {
         type: 'Error',
         message: 'Failed to send email. Please try again.',
