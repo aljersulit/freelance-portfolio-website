@@ -38,13 +38,19 @@ export default function Hero() {
   return (
     <section className='relative'>
       <Navbar />
-      <div className='flex justify-center items-center gap-10'>
+      <div className='flex items-center justify-center gap-10'>
         <div className='w-[425px]'>
-          <Image src='/hero_profile_photo.jpg' alt='My profile photo'width={800} height={800} className='h-full w-full rounded-sm object-cover relative z-10'/>
+          <Image
+            src='/hero_profile_photo.jpg'
+            alt='My profile photo'
+            width={800}
+            height={800}
+            className='relative z-10 h-full w-full rounded-sm object-cover'
+          />
         </div>
-        
+
         <header className='w-[480px]'>
-          <h1 className='uppercase font-notoSerifDisplay text-4xl mb-8'>Stand out. Get noticed. Grow your brand.</h1>
+          <h1 className='mb-8 font-notoSerifDisplay text-4xl uppercase'>Stand out. Get noticed. Grow your brand.</h1>
           <p className='pr-20 text-sm'>
             Welcome to Aljoy Digital! Your go-to partner for expert digital marketing and creative content. I help
             brands grow, connect, and thrive with tailored strategies that drive real results. Let&apos;s elevate your
@@ -52,7 +58,7 @@ export default function Hero() {
           </p>
         </header>
       </div>
-      <Wavy className='absolute w-full bottom-0 z-0' />
+      <Wavy className='absolute bottom-0 z-0 w-full text-secondary' />
       <SocialLogoLinks socialLinks={SOCIAL_LINKS} className='absolute bottom-2 right-6' />
     </section>
   );
