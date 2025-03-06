@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function ContactSection() {
   return (
-    <section>
+    <section id='contact'>
       <header className='flex h-[650px] flex-col justify-center bg-[#f5f5f5] pt-14'>
         <h2 className='pl-24 font-notoSerifDisplay text-7xl uppercase tracking-wider'>Ready to elevate your brand?</h2>
         <div className='mt-4 flex items-center justify-center gap-24'>

@@ -46,14 +46,14 @@ const SERVICES_LIST: TServices[] = [
 
 export default function Services() {
   return (
-    <section className='bg-secondary py-20'>
+    <section id='services' className='bg-secondary py-20'>
       <h2 className='text-center font-notoSerifDisplay text-7xl'>My Services</h2>
-      <ul className='flex gap-8 justify-center flex-wrap mt-16 font-semibold'>
-        {SERVICES_LIST.map((service, i)=>(
+      <ul className='mt-16 flex flex-wrap justify-center gap-8 font-semibold'>
+        {SERVICES_LIST.map((service, i) => (
           <div className='border-2 border-border' key={service.title + i}>
-            <h3 className='bg-primary text-primary-foreground text-center p-4 text-2xl'>{service.title}</h3>
+            <h3 className='bg-primary p-4 text-center text-2xl text-primary-foreground'>{service.title}</h3>
             <ul className='p-8'>
-              {service.subservices.map((subservice, i)=>(
+              {service.subservices.map((subservice, i) => (
                 <li key={subservice + i}>{subservice}</li>
               ))}
             </ul>
