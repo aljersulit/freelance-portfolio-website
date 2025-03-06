@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='scrollbar-thin scrollbar-track-secondary scrollbar-thumb-accent scroll-smooth'>
       <body className={`${notoSerifDisplay.variable} ${montserrat.variable} antialiased`}>
         {children}
         <Toaster />
