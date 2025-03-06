@@ -32,6 +32,8 @@ const NAVLINKS = [
 
 export default function Navbar() {
   const [scrollDirection, setScrollDirection] = useState('down');
+  const [activeSection, setActiveSection] = useState<string | null>();
+
   const [isNavbarBgTransparent, setIsNavbarBgTransparent] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +67,33 @@ export default function Navbar() {
     }
   });
 
-  console.log(isNavbarBgTransparent);
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[data-main]');
+
+    const handleScroll = () => {
+      sections.forEach((section) => {
+        if (section instanceof HTMLElement) {
+          let top = window.scrollY;
+          let offset = section.offsetTop - 150;
+          let height = section.offsetHeight;
+          let id = section.getAttribute('id');
+
+          if (top >= offset && top < offset + height) {
+            setActiveSection(id);
+          }
+        }
+      });
+      if (window.scrollY === 0) {
+        setActiveSection(null);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <motion.nav
@@ -82,7 +110,13 @@ export default function Navbar() {
       <ul className='flex gap-8 pr-12 text-lg font-semibold'>
         {NAVLINKS.map((nav, i) => {
           return (
-            <li key={nav.title + i}>
+            <li
+              key={nav.title + i}
+              className={cn(
+                'relative before:pointer-events-none before:absolute before:-bottom-[6px] before:left-0 before:right-0 before:block before:border-primary',
+                nav.title.toLowerCase() === activeSection && 'border-b-2 before:border-b-2',
+              )}
+            >
               <Link href={nav.link}>{nav.title}</Link>
             </li>
           );
