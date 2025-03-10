@@ -7,9 +7,9 @@ export default function Testimonials() {
   const rotations = TESTIMONIALS.map(() => Math.floor(Math.random() * 21) - 10);
 
   return (
-    <section id='testimonials' className='bg-secondary pb-14'>
+    <section id='testimonials' data-main className='bg-secondary pb-14'>
       <h2 className='text-center font-notoSerifDisplay text-7xl'>Testimonials</h2>
       <AnimatedTestimonials testimonials={TESTIMONIALS} rotations={rotations} />
     </section>
-  )
+  );
 }

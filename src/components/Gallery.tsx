@@ -21,7 +21,7 @@ const PROJECT_LIST: TProject[] = [
 
 export default function Gallery() {
   return (
-    <section id='gallery' className='relative py-60'>
+    <section id='gallery' data-main className='relative py-60'>
       <h2 className='relative z-10 text-center font-notoSerifDisplay text-7xl'>Featured Projects</h2>
       <ul className='relative z-10 mt-16 flex flex-wrap justify-center gap-8 font-semibold'>
         {PROJECT_LIST.map((project, i) => (

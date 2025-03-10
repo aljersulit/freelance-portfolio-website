@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <section id='#about' className='bg-secondary py-20'>
-      <div className='w-3/4 mx-auto space-y-10'>
+    <section id='about' data-main className='bg-secondary py-20'>
+      <div className='mx-auto w-3/4 space-y-10'>
         <h2 className='font-notoSerifDisplay text-7xl'>Hi, I&apos;m Aljoy!</h2>
         <p className='text-xl'>
           I&apos;m a freelance digital marketer and content designer passionate about helping brands thrive in the
@@ -19,11 +19,19 @@ export default function About() {
         </p>
         <p className='text-xl'>Let&apos;s bring your brand to life and make an impact in the digital world!</p>
       </div>
-      <div className='w-[452px] h-[670px] mx-auto mt-14 relative'>
-        <div className='w-[378px] h-[481px] bg-primary ml-auto'/>
+      <div className='relative mx-auto mt-14 h-[670px] w-[452px]'>
+        <div className='ml-auto h-[481px] w-[378px] bg-primary' />
         <div className='absolute bottom-0'>
-          <Image src='/about_photo.jpg' alt='My sideview photo' width={600} height={800} className='w-[378px] h-[440px] object-cover' />
-          <Link href="#" className='px-8 py-2 mt-8 mx-auto border-4 text-xl font-semibold block w-max'>Read more about me</Link>
+          <Image
+            src='/about_photo.jpg'
+            alt='My sideview photo'
+            width={600}
+            height={800}
+            className='h-[440px] w-[378px] object-cover'
+          />
+          <Link href='#' className='mx-auto mt-8 block w-max border-4 px-8 py-2 text-xl font-semibold'>
+            Read more about me
+          </Link>
         </div>
       </div>
     </section>

@@ -36,9 +36,9 @@ const SOCIAL_LINKS: TSocialLinks[] = [
 
 export default function Hero() {
   return (
-    <section className='relative'>
+    <section id='home' className='relative h-dvh'>
       <Navbar />
-      <div className='flex items-center justify-center gap-10'>
+      <div className='flex h-full items-center justify-center gap-10'>
         <div className='w-[425px]'>
           <Image
             src='/hero_profile_photo.jpg'
