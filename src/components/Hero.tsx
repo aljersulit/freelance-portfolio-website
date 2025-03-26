@@ -1,88 +1,41 @@
 import Image from 'next/image';
 
+import Link from 'next/link';
+
 import { cn } from '@/lib/utils';
-
-import Navbar from '@/components/Navbar';
-import Wavy from '@/components/svg/Wavy';
-
-type TSocialLinks = {
-  title: string;
-  href: string;
-  svg: string;
-}
-
-const SOCIAL_LINKS: TSocialLinks[] = [
-  {
-    title: "Gmail",
-    href: "mailto:aljoysulit@gmail.com",
-    svg: "/mail-alt-svgrepo-com.svg",
-  },
-  {
-    title: "Linkedin",
-    href: "https://www.linkedin.com/in/aljoysulit",
-    svg: "/linkedin-161-svgrepo-com.svg",
-  },
-  {
-    title: "Facebook",
-    href: "https://www.facebook.com/aljoyalfarosulit",
-    svg: "/facebook-176-svgrepo-com.svg",
-  },
-  {
-    title: "Instagram",
-    href: "https://www.instagram.com/aljoyalfs",
-    svg: "/instagram-svgrepo-com.svg",
-  }
-]
 
 export default function Hero() {
   return (
     <section id='home' className='relative h-dvh'>
-      <Navbar />
-      <div className='flex h-full items-center justify-center gap-10'>
-        <div className='w-[425px]'>
-          <Image
-            src='/hero_profile_photo.jpg'
-            alt='My profile photo'
-            width={800}
-            height={800}
-            className='relative z-10 h-full w-full rounded-sm object-cover'
-          />
+      <div className='flex h-full justify-center pt-24'>
+        <div className='pt-20'>
+          <div className='h-full'>
+            <Image
+              src='/hero_profile.png'
+              alt='My profile photo'
+              width={463}
+              height={648}
+              className='relative z-10 h-full w-full rounded-sm object-cover'
+            />
+          </div>
         </div>
 
-        <header className='w-[480px]'>
-          <h1 className='mb-8 font-notoSerifDisplay text-4xl uppercase'>Stand out. Get noticed. Grow your brand.</h1>
-          <p className='pr-20 text-sm'>
-            Welcome to Aljoy Digital! Your go-to partner for expert digital marketing and creative content. I help
-            brands grow, connect, and thrive with tailored strategies that drive real results. Let&apos;s elevate your
-            digital presence!
+        <header className='flex w-[762px] flex-col justify-center'>
+          <h2 className='font-playfairDisplay mb-2 text-3xl'>Hi, I&apos;m Aljoy!</h2>
+          <h1 className='font-roboto mb-9 text-balance text-6xl'>
+            Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
+          </h1>
+          <p className='font-workSans mb-11 pr-20 text-xl text-muted-foreground'>
+            Elevating your brand with strategic marketing and stunning visuals.
           </p>
+          <Link
+            href='/#services'
+            className='font-workSans block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground'
+          >
+            Learn More
+          </Link>
         </header>
       </div>
-      <Wavy className='absolute bottom-0 z-0 w-full text-secondary' />
-      <SocialLogoLinks socialLinks={SOCIAL_LINKS} className='absolute bottom-2 right-6' />
     </section>
   );
-}
-
-type SocialLogoLinksProps = {
-  className?: string;
-  socialLinks: TSocialLinks[];
-}
-
-function SocialLogoLinks({className, socialLinks}: SocialLogoLinksProps) {
-  
-
-  return (
-    <ul className={cn('flex flex-col gap-2', className)}>
-      {
-        socialLinks.map((social, i) => (
-          <li key={social.title + i} className='w-7 h-7 border border-border'>
-            <a href={social.href} title={social.title} className='h-full flex justify-center items-center'>
-              <Image src={social.svg} alt={`${social.title} logo`} width={25} height={25} className='w-3 h-3' />
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  )
 }

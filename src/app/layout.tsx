@@ -1,19 +1,32 @@
 import type { Metadata } from 'next';
-import { Montserrat, Noto_Serif_Display } from 'next/font/google';
+import { Outfit, Work_Sans, Playfair_Display, Roboto } from 'next/font/google';
 import './globals.css';
 
 import { Toaster } from '@/components/ui/sonner';
 
-const montserrat = Montserrat({
+const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-outfit',
 });
 
-const notoSerifDisplay = Noto_Serif_Display({
+const workSans = Work_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-noto-serif-display',
+  variable: '--font-work-sans',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair-display',
+});
+
+const roboto = Roboto({
+  weight: ['500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto',
 });
 
 export const metadata: Metadata = {
@@ -27,8 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scrollbar-thin scrollbar-track-secondary scrollbar-thumb-accent scroll-smooth'>
-      <body className={`${notoSerifDisplay.variable} ${montserrat.variable} antialiased`}>
+    <html lang='en' className='scroll-smooth scrollbar-thin scrollbar-track-secondary scrollbar-thumb-accent'>
+      <body
+        className={`${outfit.variable} ${workSans.variable} ${playfairDisplay.variable} ${roboto.variable} antialiased`}
+      >
         {children}
         <Toaster />
       </body>
