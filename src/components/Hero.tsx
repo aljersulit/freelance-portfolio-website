@@ -49,7 +49,7 @@ function MarqueeSlidingLink() {
   ];
 
   return (
-    <div className='absolute bottom-0 left-0 right-0 flex h-[3.7rem] items-center bg-foreground text-2xl text-secondary-foreground'>
+    <div className='absolute bottom-0 left-0 right-0 flex h-[3.7rem] items-center bg-foreground text-2xl text-accent-foreground'>
       <Marquee autoFill={true} className='overflow-y-hidden'>
         {SERVICES.map((service, i) => (
           <span key={i} className='flex items-center'>

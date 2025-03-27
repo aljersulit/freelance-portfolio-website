@@ -11,6 +11,7 @@ const outfit = Outfit({
 });
 
 const workSans = Work_Sans({
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-work-sans',
@@ -42,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth scrollbar-thin scrollbar-track-secondary scrollbar-thumb-accent'>
       <body
-        className={`${outfit.variable} ${workSans.variable} ${playfairDisplay.variable} ${roboto.variable} antialiased`}
+        className={`${workSans.variable} ${outfit.variable} ${playfairDisplay.variable} ${roboto.variable} antialiased`}
       >
         {children}
         <Toaster />

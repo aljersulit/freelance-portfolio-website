@@ -4,21 +4,20 @@ import { useState, useEffect, useRef } from 'react';
 import { useScroll, useMotionValueEvent, useSpring, motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 const NAVLINKS = [
   {
-    title: 'About',
-    link: '/#about',
+    title: 'Works',
+    link: '/#works',
   },
   {
     title: 'Services',
     link: '/#services',
   },
   {
-    title: 'Gallery',
-    link: '/#gallery',
+    title: 'About',
+    link: '/#about',
   },
   {
     title: 'Testimonials',
@@ -100,24 +99,27 @@ export default function Navbar() {
       style={{ y }}
       ref={navRef}
       className={cn(
-        'fixed top-0 z-[100] flex h-24 w-full items-center justify-between border border-solid border-[rgba(255,255,255,0.175)] px-6 transition-colors duration-700',
+        'fixed top-0 z-[100] flex h-24 w-full items-center justify-between border-b border-b-slate-300 px-6 text-secondary-foreground transition-colors duration-700',
         !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
       )}
     >
-      <Link href='/#home'>
-        <Image src='/top_logo.png' alt='Aljoy digital home logo' width={598} height={171} className='w-32' priority />
+      <Link href='/#home' className='font-outfit text-xl font-bold uppercase'>
+        Aljoy Digital
       </Link>
-      <ul className='flex gap-8 pr-12 text-lg font-semibold'>
-        {NAVLINKS.map((nav, i) => {
+      <ul className='flex pr-12 font-workSans text-lg font-medium'>
+        {NAVLINKS.map((nav, i, arr) => {
           return (
             <li
               key={nav.title + i}
               className={cn(
                 'relative before:pointer-events-none before:absolute before:-bottom-[6px] before:left-0 before:right-0 before:block before:border-primary',
-                nav.title.toLowerCase() === activeSection && 'border-b-2 before:border-b-2',
+                i === arr.length - 1 && 'ml-[1.38rem] rounded-md border border-secondary-foreground',
+                nav.title.toLowerCase() === activeSection && 'text-accent-foreground',
               )}
             >
-              <Link href={nav.link}>{nav.title}</Link>
+              <Link href={nav.link} className='px-[1.38rem] py-3'>
+                {nav.title}
+              </Link>
             </li>
           );
         })}
