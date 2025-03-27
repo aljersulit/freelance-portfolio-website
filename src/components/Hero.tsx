@@ -1,6 +1,7 @@
 import Image from 'next/image';
-
 import Link from 'next/link';
+
+import Marquee from "react-fast-marquee";
 
 import { cn } from '@/lib/utils';
 
@@ -9,7 +10,6 @@ export default function Hero() {
     <section id='home' className='relative h-dvh'>
       <div className='flex h-full justify-center pt-24'>
         <div className='pt-20'>
-          <div className='h-full'>
             <Image
               src='/hero_profile.png'
               alt='My profile photo'
@@ -17,7 +17,6 @@ export default function Hero() {
               height={648}
               className='relative z-10 h-full w-full rounded-sm object-cover'
             />
-          </div>
         </div>
 
         <header className='flex w-[762px] flex-col justify-center'>
@@ -35,6 +34,11 @@ export default function Hero() {
             Learn More
           </Link>
         </header>
+      </div>
+      <div className='absolute bottom-0'>
+        <Marquee>
+          I can be a React component, multiple React components, or just some text.
+        </Marquee>
       </div>
     </section>
   );
