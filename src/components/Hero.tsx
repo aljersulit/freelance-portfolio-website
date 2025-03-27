@@ -5,12 +5,13 @@ import Marquee from 'react-fast-marquee';
 
 export default function Hero() {
   return (
-    <section id='home' className='relative h-dvh'>
-      <div className='flex h-full justify-center pt-24'>
+    <section id='home' className='relative flex h-dvh'>
+      <div className='mt-24 flex w-full justify-center bg-[url(/yellow_gradient.png),url(/purple_gradient.png)] bg-[position:var(--hero-gradient-positions)] bg-no-repeat'>
         <div className='pb-[3.7rem] pt-20'>
           <Image
             src='/hero_profile.png'
             alt='My profile photo'
+            priority
             width={463}
             height={648}
             className='relative z-10 h-full w-full rounded-sm object-cover'
@@ -68,10 +69,11 @@ function MarqueeSlidingLink() {
 
 function OverlayBackgroundImg() {
   return (
-    <div className='absolute inset-y-0 left-0 flex items-end pb-[3.7rem]'>
+    <div className='absolute inset-y-0 left-0 flex items-end pb-[3.7rem] opacity-15'>
       <Image
         src='/hero_background_profile.png'
         alt='My sideview photo'
+        priority
         width={471}
         height={727}
         className='object-cover'
