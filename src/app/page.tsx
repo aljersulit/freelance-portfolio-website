@@ -1,11 +1,21 @@
-import { Button } from "@/components/ui/button";
+import Hero from '@/components/Hero';
+import Navbar from '@/components/Navbar';
+import Banner from '@/components/Banner';
+import Services from '@/components/Services';
 
 export default function Home() {
-	return (
-		<main>
-			<h1>Hello World!</h1>
-			<Button variant="default">Button</Button>
-		</main>
-	);
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <Banner />
+      <Services />
+      {/* <About />
+      <Services />
+      <Gallery />
+      <Testimonials />
+      <ContactSection />
+      <Footer /> */}
+    </main>
+  );
 }
-
