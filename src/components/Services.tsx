@@ -1,65 +1,71 @@
 import React from 'react';
+import Image from 'next/image';
+import AgribankPhPreview from '../../public/AgribankPH_Preview.png';
+import RopaMarketPreview from '../../public/Ropa_Market_Preview.png';
+import AgripayPreview from '../../public/Agripay_Preview.png';
+import { roboto, playfairDisplay } from '@/app/font';
 
-type TServices = {
-  title: string;
-  subservices: string[];
-};
-
-const SERVICES_LIST: TServices[] = [
+const WORKS = [
   {
-    title: 'Social Media Management',
-    subservices: [
-      'Social Media Strategy and Planning',
-      'Content Management and Curation',
-      'Competitor Analysis',
-      'Social Media Advertisement',
-      'Audience Research',
-      'Audience Engagement',
-      'Account Growth and Optimization',
-      'Analytics and Reporting',
-    ],
+    projectName: 'Agribank Ph',
+    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
+    description:
+      'A financial institution dedicated to empowering Filipino farmers, entrepreneurs, and individuals through accessible banking solutions.',
+    previewPhoto: AgribankPhPreview,
+    href: 'https://www.behance.net/gallery/213195203/Banking-and-Finance',
   },
   {
-    title: 'Graphic Design',
-    subservices: [
-      'Logo and Layouts',
-      'Branding & Identity Design',
-      'Social Media Graphics',
-      'Marketing & Promotional Materials',
-      'Presentation & Document Design',
-      'Print & Merchandise Design',
-    ],
+    projectName: 'Ropa Market',
+    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
+    description: 'A platform offering repossessed motorcycles at affordable prices with flexible financing options.',
+    previewPhoto: RopaMarketPreview,
+    href: 'https://www.behance.net/gallery/213690051/Automotive',
   },
   {
-    title: 'Video Edit',
-    subservices: [
-      'Raw Footage Review & Organization',
-      'Video Editing & Enhancement',
-      'Graphics & Animation',
-      'Special Effects & Enhancements',
-      'Captions & Subtitles',
-      'Platform-Specific Exports',
-      'Revisions & Final Delivery',
-    ],
+    projectName: 'Agripay',
+    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design'],
+    description: 'A digital payment platform providing innovative financial solutions for seamless transactions.',
+    previewPhoto: AgripayPreview,
+    href: 'https://www.behance.net/gallery/213693381/Social-Media-Post-Digital-Payment-Service',
   },
 ];
 
 export default function Services() {
   return (
-    <section id='services' data-main className='bg-secondary py-20'>
-      <h2 className='text-center font-notoSerifDisplay text-7xl'>My Services</h2>
-      <ul className='mt-16 flex flex-wrap justify-center gap-8 font-semibold'>
-        {SERVICES_LIST.map((service, i) => (
-          <div className='border-2 border-border' key={service.title + i}>
-            <h3 className='bg-primary p-4 text-center text-2xl text-primary-foreground'>{service.title}</h3>
-            <ul className='p-8'>
-              {service.subservices.map((subservice, i) => (
-                <li key={subservice + i}>{subservice}</li>
+    <section className='rounded-[3.3rem] bg-secondary px-20 pt-24'>
+      <header className='mb-6'>
+        <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
+      </header>
+      {WORKS.map((work, i) => (
+        <article key={i} className='flex border-t border-t-stone-300 py-20'>
+          <div className='flex-1'>
+            <h3 className={`${playfairDisplay.className} mb-3 mt-10 text-[38px] uppercase`}>{work.projectName}</h3>
+            <ul className='flex gap-[6px]'>
+              {work.utilizedSkills.map((skill, i) => (
+                <li
+                  key={skill + i}
+                  className={`${roboto.className} bg-list rounded-full px-[14px] py-[9px] text-xs text-primary-foreground`}
+                >
+                  {skill}
+                </li>
               ))}
             </ul>
+            <p className='mt-9 w-[542px] text-wrap text-lg text-muted-foreground'>{work.description}</p>
+            <a
+              href={work.href}
+              className='mt-9 block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`Visit the ${work.href}`}
+            >
+              View More
+            </a>
           </div>
-        ))}
-      </ul>
+          <div className='flex-1'>
+            <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
+          </div>
+        </article>
+      ))}
     </section>
   );
 }

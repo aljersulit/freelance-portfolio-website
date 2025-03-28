@@ -1,12 +1,7 @@
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Gallery from '@/components/Gallery';
-import Testimonials from '@/components/Testimonials';
 import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
+import Services from '@/components/Services';
 
 export default function Home() {
   return (
@@ -14,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Banner />
+      <Services />
       {/* <About />
       <Services />
       <Gallery />

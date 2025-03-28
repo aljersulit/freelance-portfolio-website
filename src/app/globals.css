@@ -16,7 +16,7 @@ body {
     --popover-foreground: 240 10% 3.9%;
     --primary: #9999FF;
     --primary-foreground: #F2F2F2;
-    --secondary: 45, 21%, 93%;
+    --secondary: #F0EEE9;
     --secondary-foreground: #3A3C5B;
     --muted: 177, 16%, 32%;
     --muted-foreground: #727272;
@@ -24,6 +24,7 @@ body {
     --accent-foreground: #E2F26B;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+    --list: #B7B7B7;
     --border: 177, 16%, 25%;
     --input: 177, 16%, 25%;
     --ring: 77, 15%, 54%;

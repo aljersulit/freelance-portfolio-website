@@ -11,12 +11,6 @@ export default {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   outfit: ['var(--font-outfit)'],
-      //   workSans: ['var(--font-workSans)'],
-      //   playfairDisplay: ['var(--font-playfair-display)'],
-      //   roboto: ['var(--font-roboto)'],
-      // },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
@@ -33,7 +27,7 @@ export default {
           foreground: 'var(--primary-foreground)',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
+          DEFAULT: 'var(--secondary)',
           foreground: 'var(--secondary-foreground)',
         },
         muted: {
@@ -48,6 +42,7 @@ export default {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        list: 'var(--list)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
