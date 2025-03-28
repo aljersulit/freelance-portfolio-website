@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 import Marquee from 'react-fast-marquee';
 
+import { playfairDisplay, roboto } from '@/app/font';
+
 export default function Hero() {
   return (
     <section id='home' className='relative flex h-dvh'>
@@ -19,16 +21,16 @@ export default function Hero() {
         </div>
 
         <header className='flex w-[762px] flex-col justify-center'>
-          <h2 className='mb-2 font-playfairDisplay text-3xl'>Hi, I&apos;m Aljoy!</h2>
-          <h1 className='mb-9 text-balance font-roboto text-6xl'>
+          <h2 className={`${playfairDisplay.className} playfairDisplay mb-2 text-3xl`}>Hi, I&apos;m Aljoy!</h2>
+          <h1 className={`${roboto.className} mb-9 text-balance text-6xl`}>
             Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
           </h1>
-          <p className='mb-11 pr-20 font-workSans text-xl text-muted-foreground'>
+          <p className='mb-11 pr-20 text-xl text-muted-foreground'>
             Elevating your brand with strategic marketing and stunning visuals.
           </p>
           <Link
             href='/#services'
-            className='block w-max rounded-xl bg-primary px-8 py-2 font-workSans text-2xl text-primary-foreground'
+            className='block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground'
           >
             Learn More
           </Link>

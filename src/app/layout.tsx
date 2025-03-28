@@ -4,31 +4,7 @@ import './globals.css';
 
 import { Toaster } from '@/components/ui/sonner';
 
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-outfit',
-});
-
-const workSans = Work_Sans({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-work-sans',
-});
-
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair-display',
-});
-
-const roboto = Roboto({
-  weight: ['500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-});
+import { workSans } from '@/app/font';
 
 export const metadata: Metadata = {
   title: 'Aljoydigital',
@@ -42,9 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='scroll-smooth scrollbar-thin scrollbar-track-secondary scrollbar-thumb-accent'>
-      <body
-        className={`${workSans.variable} ${outfit.variable} ${playfairDisplay.variable} ${roboto.variable} antialiased`}
-      >
+      <body className={`${workSans.className} antialiased`}>
         {children}
         <Toaster />
       </body>

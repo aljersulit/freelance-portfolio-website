@@ -6,12 +6,14 @@ import Services from '@/components/Services';
 import Gallery from '@/components/Gallery';
 import Testimonials from '@/components/Testimonials';
 import Navbar from '@/components/Navbar';
+import Banner from '@/components/Banner';
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <Banner />
       {/* <About />
       <Services />
       <Gallery />

@@ -11,12 +11,12 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        outfit: ['var(--font-outfit)'],
-        workSans: ['var(--font-workSans)'],
-        playfairDisplay: ['var(--font-playfair-display)'],
-        roboto: ['var(--font-roboto)'],
-      },
+      // fontFamily: {
+      //   outfit: ['var(--font-outfit)'],
+      //   workSans: ['var(--font-workSans)'],
+      //   playfairDisplay: ['var(--font-playfair-display)'],
+      //   roboto: ['var(--font-roboto)'],
+      // },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
