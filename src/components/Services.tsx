@@ -32,7 +32,7 @@ const WORKS = [
 
 export default function Services() {
   return (
-    <section className='rounded-[3.3rem] bg-secondary px-20 pt-24'>
+    <section className='rounded-[3.3rem] bg-secondary px-20 py-24'>
       <header className='mb-6'>
         <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
       </header>
@@ -44,7 +44,7 @@ export default function Services() {
               {work.utilizedSkills.map((skill, i) => (
                 <li
                   key={skill + i}
-                  className={`${roboto.className} bg-list rounded-full px-[14px] py-[9px] text-xs text-primary-foreground`}
+                  className={`${roboto.className} rounded-full bg-list px-[14px] py-[9px] text-xs text-primary-foreground`}
                 >
                   {skill}
                 </li>
