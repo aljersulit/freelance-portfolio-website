@@ -37,7 +37,7 @@ export default function Services() {
         <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
       </header>
       {WORKS.map((work, i) => (
-        <article key={i} className='flex border-t border-t-stone-300 py-20'>
+        <article key={i} className='flex border-t-2 border-t-stone-300 py-20'>
           <div className='flex-1'>
             <h3 className={`${playfairDisplay.className} mb-3 mt-10 text-[38px] uppercase`}>{work.projectName}</h3>
             <ul className='flex gap-[6px]'>
