@@ -9,9 +9,10 @@ export default function About() {
   return (
     <section
       id='about'
-      className='bg-secondary bg-no-repeat px-[80px] py-[173px]'
+      className='px-[80px] py-[173px]'
       style={{
         backgroundImage: 'url(/purple_gradient_about.png), url(/yellow_gradient_about.png)',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: '619px auto',
         backgroundPosition: 'left top, right top',
       }}

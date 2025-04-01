@@ -13,9 +13,11 @@ export default function Home() {
       <main>
         <Hero />
         <Banner />
-        <Services />
-        <MyWorks />
-        <About />
+        <div className='rounded-[3.3rem] bg-secondary'>
+          <Services />
+          <MyWorks />
+          <About />
+        </div>
         <Tools />
       </main>
     </>
