@@ -52,10 +52,7 @@ export default function Tools() {
         <ul className='flex justify-center gap-[1.125rem] pt-[69px] leading-[1.2] text-primary-foreground'>
           {CARDS.map((card, i) => (
             <li key={card.txt + i}>
-              <WobbleCard
-                containerClassName='h-[259px] w-[346px] bg-primary'
-                className='flex flex-col bg-gradient-to-b from-black/15 to-black/40 px-6 py-[38px]'
-              >
+              <WobbleCard containerClassName='h-[259px] w-[346px] bg-primary' className='flex flex-col'>
                 {<card.Svg className='mx-auto h-11 w-11' />}
 
                 <div className='flex flex-1 items-center'>
