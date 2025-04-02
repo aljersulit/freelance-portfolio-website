@@ -1,5 +1,5 @@
-import { robotoFlex } from "@/app/font"
-import { WobbleCard } from "@/components/ui/wobble-card"
+import { robotoFlex } from '@/app/font';
+import { WobbleCard } from '@/components/ui/wobble-card';
 import Marquee from 'react-fast-marquee';
 import { cn } from '@/lib/utils';
 

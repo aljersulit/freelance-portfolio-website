@@ -3,7 +3,6 @@ import Portrait from '../../public/portrait_about_section.png';
 import img1list1 from '../../public/aboutme1_list1.png';
 import img1list2 from '../../public/aboutme1_list2.png';
 import { roboto } from '@/app/font';
-import { url } from 'inspector';
 
 export default function About() {
   return (
