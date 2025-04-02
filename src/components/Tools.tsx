@@ -32,7 +32,7 @@ const SOFTWARE = {
 
 export default function Tools() {
   return (
-    <section className='py-[180px]'>
+    <section className='bg-muted py-[180px]'>
       <header>
         <h3 className={`${robotoFlex.className} mx-auto w-[1062px] text-[2.5rem] text-secondary-foreground`}>
           By combining storytelling, creativity, and strategy, I help businesses stand out, grow, and connect
@@ -61,7 +61,7 @@ export default function Tools() {
                 <li
                   key={tool + i}
                   className={cn(
-                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
@@ -81,7 +81,7 @@ export default function Tools() {
                 <li
                   key={software + i}
                   className={cn(
-                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
@@ -106,7 +106,7 @@ export default function Tools() {
                 <li
                   key={software + i}
                   className={cn(
-                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
