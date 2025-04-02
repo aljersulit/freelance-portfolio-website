@@ -72,10 +72,10 @@ export default function Navbar() {
     const handleScroll = () => {
       sections.forEach((section) => {
         if (section instanceof HTMLElement) {
-          let top = window.scrollY;
-          let offset = section.offsetTop - 150;
-          let height = section.offsetHeight;
-          let id = section.getAttribute('id');
+          const top = window.scrollY;
+          const offset = section.offsetTop - 150;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
 
           if (top >= offset && top < offset + height) {
             setActiveSection(id);
@@ -106,7 +106,7 @@ export default function Navbar() {
       <Link href='/#home' className='font-outfit text-xl font-bold uppercase'>
         Aljoy Digital
       </Link>
-      <ul className='flex pr-12 font-workSans text-lg font-medium'>
+      <ul className='font-workSans flex pr-12 text-lg font-medium'>
         {NAVLINKS.map((nav, i, arr) => {
           return (
             <li

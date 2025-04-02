@@ -3,15 +3,15 @@ import Portrait from '../../public/portrait_about_section.png';
 import img1list1 from '../../public/aboutme1_list1.png';
 import img1list2 from '../../public/aboutme1_list2.png';
 import { roboto } from '@/app/font';
-import { url } from 'inspector';
 
 export default function About() {
   return (
     <section
       id='about'
-      className='bg-secondary bg-no-repeat px-[80px] py-[173px]'
+      className='px-[80px] py-[173px]'
       style={{
         backgroundImage: 'url(/purple_gradient_about.png), url(/yellow_gradient_about.png)',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: '619px auto',
         backgroundPosition: 'left top, right top',
       }}

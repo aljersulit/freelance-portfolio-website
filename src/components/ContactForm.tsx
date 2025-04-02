@@ -42,7 +42,7 @@ export default function ContactForm() {
     <form
       action={action}
       aria-labelledby='form-message'
-      className='space-y-4 font-montserrat text-sm lg:w-[28rem] xl:w-[40rem]'
+      className='font-montserrat space-y-4 text-sm lg:w-[28rem] xl:w-[40rem]'
     >
       <div className='flex gap-1'>
         <div className='flex-1'>

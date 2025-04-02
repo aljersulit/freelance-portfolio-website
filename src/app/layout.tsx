@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Outfit, Work_Sans, Playfair_Display, Roboto } from 'next/font/google';
 import './globals.css';
 
 import { Toaster } from '@/components/ui/sonner';
