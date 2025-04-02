@@ -16,15 +16,16 @@ body {
     --popover-foreground: 240 10% 3.9%;
     --primary: #9999ff;
     --primary-foreground: #f2f2f2;
-    --secondary: #ffffff;
+    --secondary: #F0EEE9;
     --secondary-foreground: #3a3c5b;
-    --muted: 177, 16%, 32%;
+    --muted: #f2f2f2;
     --muted-foreground: #727272;
     --accent: 77, 15%, 54%;
     --accent-foreground: #e2f26b;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --list: #b7b7b7;
+    --marquee-list: #ffffff;
     --border: 177, 16%, 25%;
     --input: 177, 16%, 25%;
     --ring: 77, 15%, 54%;

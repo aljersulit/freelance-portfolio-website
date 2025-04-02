@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import MyWorks from '@/components/MyWorks';
 import About from '@/components/About';
 import Tools from '@/components/Tools';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           <About />
         </div>
         <Tools />
+        <Testimonials />
       </main>
     </>
   );
