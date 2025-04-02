@@ -31,7 +31,7 @@ export default {
           foreground: 'var(--secondary-foreground)',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
+          DEFAULT: 'var(--muted)',
           foreground: 'var(--muted-foreground)',
         },
         accent: {
@@ -43,6 +43,7 @@ export default {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         list: 'var(--list)',
+        marqueeList: 'var(--marquee-list)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
