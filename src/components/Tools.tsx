@@ -72,11 +72,57 @@ export default function Tools() {
           </div>
         </Marquee>
       </div>
-      <div aria-roledescription='Software list container'>
-        <div className='flex items-center'>
-          <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Software</h4>
-          <ul className='flex h-[128px] gap-[6px]'></ul>
-        </div>
+      <div aria-roledescription='Software list container' className='mt-[10px]'>
+        <Marquee direction='right'>
+          <div className='flex items-center'>
+            <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Software</h4>
+            <ul className='flex h-[128px] gap-[6px]'>
+              {SOFTWARE.firstList.map((software, i) => (
+                <li
+                  key={software + i}
+                  className={cn(
+                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    i % 2 === 0 && 'rounded-full',
+                  )}
+                >
+                  <img
+                    src={`/${software}.svg`}
+                    alt={`${software} icon`}
+                    className={cn(
+                      'h-8',
+                      (software === 'Photoshop' || software === 'Illustrator' || software === 'Figma') && 'scale-125',
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Marquee>
+        <Marquee className='mt-[10px]'>
+          <div className='flex items-center'>
+            <h4 className={`${roboto.className} hidden px-[50px] text-7xl uppercase`}>Software second list</h4>
+            <ul className='flex h-[128px] gap-[6px]'>
+              {SOFTWARE.secondList.map((software, i) => (
+                <li
+                  key={software + i}
+                  className={cn(
+                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    i % 2 === 0 && 'rounded-full',
+                  )}
+                >
+                  <img
+                    src={`/${software}.svg`}
+                    alt={`${software} icon`}
+                    className={cn(
+                      'h-8',
+                      (software === 'Notion' || software === 'Wordpress' || software === 'Shopify') && 'scale-125',
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Marquee>
       </div>
     </section>
   );
