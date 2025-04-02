@@ -1,12 +1,10 @@
 import { robotoFlex } from "@/app/font"
 import { WobbleCard } from "@/components/ui/wobble-card"
 import Marquee from 'react-fast-marquee';
-import Asana from "@/components/svg/Asana";
-import Buffer from "@/components/svg/Buffer";
-import Meta from "@/components/svg/Meta";
+import { cn } from '@/lib/utils';
 
-import GlobalSearch from "@/components/svg/GlobalSearch";
-
+import { roboto } from '@/app/font';
+import GlobalSearch from '@/components/svg/GlobalSearch';
 
 const CARDS = [
   {
@@ -26,20 +24,11 @@ const CARDS = [
   },
 ];
 
-const TOOLS = [
-  {
-    Svg: Meta,
-    toolName: 'Meta',
-  },
-  {
-    Svg: Buffer,
-    toolName: 'Buffer',
-  },
-  {
-    Svg: Asana,
-    toolName: 'Asana',
-  },
-];
+const TOOLS = ['Meta', 'Buffer', 'Asana', 'Airtable', 'Mailchimp', 'Microsoft', 'Google'];
+const SOFTWARE = {
+  firstList: ['Capcut', 'Canva', 'Behance', 'Photoshop', 'Illustrator', 'Figma'],
+  secondList: ['Pinterest', 'Wix', 'Wordpress', 'Notion', 'Loom', 'Slack', 'Shopify'],
+};
 
 export default function Tools() {
   return (
@@ -63,21 +52,32 @@ export default function Tools() {
           ))}
         </ul>
       </header>
-      {/* <div aria-roledescription='Tools and software list'>
+      <div aria-roledescription='Tools list container' className='mt-[180px]'>
         <Marquee>
-          <div className='flex'>
-            <h4 className='uppercase'>Tools</h4>
-            <ul>
+          <div className='flex items-center'>
+            <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Tools</h4>
+            <ul className='flex h-[128px] gap-[6px]'>
               {TOOLS.map((tool, i) => (
-                <li key={tool.toolName + i}>
-                  <span>{<tool.Svg />}</span>
-                  {tool.toolName}
+                <li
+                  key={tool + i}
+                  className={cn(
+                    'flex h-[128px] w-[302px] items-center justify-center bg-secondary',
+                    i % 2 === 0 && 'rounded-full',
+                  )}
+                >
+                  <img src={`/${tool}.svg`} alt={`${tool} icon`} className='h-8' />
                 </li>
               ))}
             </ul>
           </div>
         </Marquee>
-      </div> */}
+      </div>
+      <div aria-roledescription='Software list container'>
+        <div className='flex items-center'>
+          <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Software</h4>
+          <ul className='flex h-[128px] gap-[6px]'></ul>
+        </div>
+      </div>
     </section>
   );
 }
