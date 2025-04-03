@@ -34,3 +34,42 @@ export const TESTIMONIALS = [
     src: '/man_4.avif',
   },
 ];
+
+export const NAVLINKS = [
+  {
+    title: 'Works',
+    link: '/#works',
+  },
+  {
+    title: 'Services',
+    link: '/#services',
+  },
+  {
+    title: 'About',
+    link: '/#about',
+  },
+  {
+    title: 'Testimonials',
+    link: '/#testimonials',
+  },
+  {
+    title: 'Contact',
+    link: '/#contact',
+  },
+];
+
+export const SERVICES = [
+  {
+    name: 'Social Media Management',
+  },
+  {
+    name: 'Content Creation',
+  },
+  {
+    name: 'Graphic Design',
+  },
+  {
+    name: 'Video Edit',
+  },
+];
+

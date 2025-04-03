@@ -6,28 +6,7 @@ import { cn } from '@/lib/utils';
 
 import Link from 'next/link';
 
-const NAVLINKS = [
-  {
-    title: 'Works',
-    link: '/#works',
-  },
-  {
-    title: 'Services',
-    link: '/#services',
-  },
-  {
-    title: 'About',
-    link: '/#about',
-  },
-  {
-    title: 'Testimonials',
-    link: '/#testimonials',
-  },
-  {
-    title: 'Contact',
-    link: '/#contact',
-  },
-];
+import { NAVLINKS } from '@/lib/constants';
 
 export default function Navbar() {
   const [scrollDirection, setScrollDirection] = useState('down');
@@ -103,8 +82,8 @@ export default function Navbar() {
         !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
       )}
     >
-      <Link href='/#home' className='font-outfit text-xl font-bold uppercase'>
-        Aljoy Digital
+      <Link href='/#home' className='font-outfit text-xl font-bold uppercase tracking-widest'>
+        AljoyDigital.
       </Link>
       <ul className='font-workSans flex pr-12 text-lg font-medium'>
         {NAVLINKS.map((nav, i, arr) => {
