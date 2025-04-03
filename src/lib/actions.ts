@@ -7,7 +7,11 @@ const FormSchema = z.object({
   firstname: z.string().min(1, { message: 'Please enter your first name.' }),
   lastname: z.string().min(1, { message: 'Please enter your last name.' }),
   email: z.string().nonempty({ message: 'Please enter your email.' }).email({ message: 'Invalid email' }),
-  company: z.string().optional(),
+  service: z.enum(['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing', 'All'], {
+    message: 'Please choose a service',
+    required_error: 'Please choose a service',
+    invalid_type_error: 'Please choose a service',
+  }),
   message: z.string().min(1, { message: 'Please enter your message.' }),
 });
 
@@ -69,7 +73,7 @@ export async function sendContactEmail(prevState: FormState, formData: FormData)
   // };
 
   const userMailOptions = {
-    from: `AljoyDigital<${process.env.GMAIL_USER}>`,
+    from: `AljoyDigital <${process.env.GMAIL_USER}>`,
     to: email,
     subject: 'Thank you for contacting me!',
     text: `Dear ${firstname} ${lastname},\n\nThank you for reaching out. I have received your message and will get back to you as soon as possible.\n\nYour Message:\n${message}`,

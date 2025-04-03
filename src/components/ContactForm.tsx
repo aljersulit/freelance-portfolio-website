@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { roboto } from '@/app/font';
 
 export default function ContactForm() {
@@ -95,28 +94,25 @@ export default function ContactForm() {
         </div>
       </div>
       <div className='mt-5'>
-        <Label className={`${roboto.className} text-base font-medium`}>
+        <Label htmlFor='service' className={`${roboto.className} text-base font-medium`}>
           I'm interested in...
-          <div className='mt-3'>
-            <Select
-              name='service'
-              aria-labelledby='form-service-error'
-              defaultValue={!errors.service ? contactFormData.service : ''}
-            >
-              <SelectTrigger className='mt-3 w-full rounded-md bg-input px-2 text-sm transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'>
-                <SelectValue placeholder='Select a service' />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value='Social Media Management'>Social Media Management</SelectItem>
-                <SelectItem value='Content Creation'>Content Creation</SelectItem>
-                <SelectItem value='Graphic Design'>Graphic Design</SelectItem>
-                <SelectItem value='Video Editing'>Video Editing</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <select
+            defaultValue={!errors.service ? contactFormData.service : ''}
+            name='service'
+            id='service'
+            className='mt-3 w-full rounded-md bg-input px-2 py-[0.65rem] text-sm transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
+          >
+            <option disabled value=''>
+              -- Select a service --
+            </option>
+            <option value='Social Media Management'>Social Media Management</option>
+            <option value='Content Creation'>Content Creation</option>
+            <option value='Graphic Design'>Graphic Design</option>
+            <option value='Video Editing'>Video Editing</option>
+          </select>
         </Label>
         <div id='form-service-error' aria-live='polite' aria-atomic='true'>
-          {errors?.message && <p className='mt-2 text-xs text-red-500'>{errors?.message[0]}</p>}
+          {errors?.service && <p className='mt-2 text-xs text-red-500'>{errors?.service[0]}</p>}
         </div>
       </div>
       <div className='mt-5'>
@@ -126,7 +122,6 @@ export default function ContactForm() {
         <Textarea
           id='message'
           name='message'
-          // className='mt-3 w-full rounded-md bg-input px-2 text-lg focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
           className='mt-3 h-40 resize-none rounded-md bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
           defaultValue={!errors.message ? contactFormData.firstname : ''}
           aria-labelledby='form-message-error'
