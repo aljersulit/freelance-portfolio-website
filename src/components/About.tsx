@@ -22,11 +22,11 @@ export default function About() {
         >
           About me
         </h2>
-        <div className='mt-[78px] flex gap-4'>
-          <div className='w-[460px] basis-auto'>
+        <div className='mt-[78px] flex justify-center gap-4'>
+          <div className='w-[460px]'>
             <Image src={Portrait} alt='My portrait corporate attire image' className='object-cover' />
           </div>
-          <div className='flex flex-1 flex-col justify-center'>
+          <div className='flex w-[758px] flex-col justify-center'>
             <h3 className={`${roboto.className} text-balance text-[50px] font-semibold leading-[1.2]`}>
               Digital Marketing Strategist and Creative Designer
             </h3>
@@ -47,7 +47,7 @@ export default function About() {
           </div>
         </div>
       </header>
-      <article className='flex gap-[76px] text-sm text-muted-foreground'>
+      <article className='flex justify-center gap-[76px] text-sm text-muted-foreground'>
         <div className='w-[662px] pt-[56px]'>
           <p>
             My career in digital marketing and graphic design started when i worked as a social media manager and
