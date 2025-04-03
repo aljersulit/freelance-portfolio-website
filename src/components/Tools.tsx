@@ -6,6 +6,27 @@ import { cn } from '@/lib/utils';
 import { roboto } from '@/app/font';
 import GlobalSearch from '@/components/svg/GlobalSearch';
 
+import Meta from '@/components/svg/Meta';
+import Buffer from '@/components/svg/Buffer';
+import Asana from '@/components/svg/Asana';
+import Airtable from '@/components/svg/Airtable';
+import Mailchimp from '@/components/svg/Mailchimp';
+import Microsoft from '@/components/svg/Microsoft';
+import Google from '@/components/svg/Google';
+import Capcut from '@/components/svg/Capcut';
+import Canva from '@/components/svg/Canva';
+import Behance from '@/components/svg/Behance';
+import Photoshop from '@/components/svg/Photoshop';
+import Illustrator from '@/components/svg/Illustrator';
+import Figma from '@/components/svg/Figma';
+import Pinterest from '@/components/svg/Pinterest';
+import Wix from '@/components/svg/Wix';
+import Wordpress from '@/components/svg/Wordpress';
+import Notion from '@/components/svg/Notion';
+import Loom from '@/components/svg/Loom';
+import Slack from '@/components/svg/Slack';
+import Shopify from '@/components/svg/Shopify';
+
 const CARDS = [
   {
     Svg: GlobalSearch,
@@ -24,10 +45,10 @@ const CARDS = [
   },
 ];
 
-const TOOLS = ['Meta', 'Buffer', 'Asana', 'Airtable', 'Mailchimp', 'Microsoft', 'Google'];
+const TOOLS = [Meta, Buffer, Asana, Airtable, Mailchimp, Microsoft, Google];
 const SOFTWARE = {
-  firstList: ['Capcut', 'Canva', 'Behance', 'Photoshop', 'Illustrator', 'Figma'],
-  secondList: ['Pinterest', 'Wix', 'Wordpress', 'Notion', 'Loom', 'Slack', 'Shopify'],
+  firstList: [Capcut, Canva, Behance, Photoshop, Illustrator, Figma],
+  secondList: [Pinterest, Wix, Wordpress, Notion, Loom, Slack, Shopify],
 };
 
 export default function Tools() {
@@ -57,15 +78,15 @@ export default function Tools() {
           <div className='flex items-center'>
             <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Tools</h4>
             <ul className='flex h-[128px] gap-[6px]'>
-              {TOOLS.map((tool, i) => (
+              {TOOLS.map((Tool, i) => (
                 <li
-                  key={tool + i}
+                  key={i}
                   className={cn(
                     'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
-                  <img src={`/${tool}.svg`} alt={`${tool} icon`} className='h-8' />
+                  <div>{<Tool />}</div>
                 </li>
               ))}
             </ul>
@@ -77,22 +98,15 @@ export default function Tools() {
           <div className='flex items-center'>
             <h4 className={`${roboto.className} px-[50px] text-7xl uppercase`}>Software</h4>
             <ul className='flex h-[128px] gap-[6px]'>
-              {SOFTWARE.firstList.map((software, i) => (
+              {SOFTWARE.firstList.map((Software, i) => (
                 <li
-                  key={software + i}
+                  key={i}
                   className={cn(
                     'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
-                  <img
-                    src={`/${software}.svg`}
-                    alt={`${software} icon`}
-                    className={cn(
-                      'h-8',
-                      (software === 'Photoshop' || software === 'Illustrator' || software === 'Figma') && 'scale-125',
-                    )}
-                  />
+                  <div>{<Software />}</div>
                 </li>
               ))}
             </ul>
@@ -102,22 +116,15 @@ export default function Tools() {
           <div className='flex items-center'>
             <h4 className={`${roboto.className} hidden px-[50px] text-7xl uppercase`}>Software second list</h4>
             <ul className='flex h-[128px] gap-[6px]'>
-              {SOFTWARE.secondList.map((software, i) => (
+              {SOFTWARE.secondList.map((Software, i) => (
                 <li
-                  key={software + i}
+                  key={i}
                   className={cn(
                     'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
-                  <img
-                    src={`/${software}.svg`}
-                    alt={`${software} icon`}
-                    className={cn(
-                      'h-8',
-                      (software === 'Notion' || software === 'Wordpress' || software === 'Shopify') && 'scale-125',
-                    )}
-                  />
+                  <div>{<Software />}</div>
                 </li>
               ))}
             </ul>
