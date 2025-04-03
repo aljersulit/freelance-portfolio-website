@@ -47,6 +47,7 @@ export default {
         border: 'hsl(var(--border))',
         form: 'var(--form)',
         input: 'var(--input)',
+        footer: 'var(--footer)',
         ring: 'hsl(var(--ring))',
         chart: {
           '1': 'hsl(var(--chart-1))',

@@ -44,7 +44,7 @@ export default function ContactForm() {
     <form
       action={action}
       aria-labelledby='form-message'
-      className='bg-form w-[779px] rounded-2xl px-[32px] py-[38px] text-secondary-foreground'
+      className='w-[779px] rounded-2xl bg-form px-[32px] py-[38px] text-secondary-foreground'
     >
       <div className='flex gap-1'>
         <div className='flex-1'>
@@ -95,7 +95,7 @@ export default function ContactForm() {
       </div>
       <div className='mt-5'>
         <Label htmlFor='service' className={`${roboto.className} text-base font-medium`}>
-          I'm interested in...
+          I&apos;m interested in...
           <select
             defaultValue={!errors.service ? contactFormData.service : ''}
             name='service'
