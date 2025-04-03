@@ -6,6 +6,7 @@ import MyWorks from '@/components/MyWorks';
 import About from '@/components/About';
 import Tools from '@/components/Tools';
 import Testimonials from '@/components/Testimonials';
+import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         </div>
         <Tools />
         <Testimonials />
+        <ContactSection />
       </main>
     </>
   );

@@ -45,7 +45,8 @@ export default {
         list: 'var(--list)',
         marqueeList: 'var(--marquee-list)',
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
+        form: 'var(--form)',
+        input: 'var(--input)',
         ring: 'hsl(var(--ring))',
         chart: {
           '1': 'hsl(var(--chart-1))',
