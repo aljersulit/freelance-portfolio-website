@@ -40,7 +40,7 @@ const SOCIALS: Socials[] = [
 
 export default function Footer() {
   return (
-    <footer className='bg-footer relative h-[407px] bg-[url(/footer_gradient.png)] bg-[auto_400px] bg-left-bottom bg-no-repeat pt-[75px] text-background'>
+    <footer className='relative h-[407px] bg-footer bg-[url(/footer_gradient.png)] bg-[auto_400px] bg-left-bottom bg-no-repeat pt-[75px] text-background'>
       <div className='mx-auto flex w-[1200px] justify-between'>
         <div className='flex gap-[70px]'>
           <div>

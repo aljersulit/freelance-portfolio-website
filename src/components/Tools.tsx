@@ -61,7 +61,7 @@ export default function Tools() {
                 <li
                   key={tool + i}
                   className={cn(
-                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
+                    'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
@@ -81,7 +81,7 @@ export default function Tools() {
                 <li
                   key={software + i}
                   className={cn(
-                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
+                    'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
@@ -106,7 +106,7 @@ export default function Tools() {
                 <li
                   key={software + i}
                   className={cn(
-                    'bg-marqueeList flex h-[128px] w-[302px] items-center justify-center',
+                    'flex h-[128px] w-[302px] items-center justify-center bg-marqueeList',
                     i % 2 === 0 && 'rounded-full',
                   )}
                 >
