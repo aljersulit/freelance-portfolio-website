@@ -14,7 +14,7 @@ body {
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: #9999ff;
+    --primary: #a89bf3;
     --primary-foreground: #f2f2f2;
     --secondary: #F0EEE9;
     --secondary-foreground: #3a3c5b;
@@ -27,7 +27,8 @@ body {
     --list: #b7b7b7;
     --marquee-list: #ffffff;
     --border: 177, 16%, 25%;
-    --input: 177, 16%, 25%;
+    --form: #ffffff;
+      --input: #E1E1E1;
     --ring: 77, 15%, 54%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;

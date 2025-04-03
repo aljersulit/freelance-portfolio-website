@@ -16,6 +16,7 @@ export type FormState = {
     firstname?: string[];
     lastname?: string[];
     email?: string[];
+    service?: string[];
     message?: string[];
   };
   status: {
@@ -26,6 +27,7 @@ export type FormState = {
     firstname: string;
     lastname: string;
     email: string;
+    service: string;
     message: string;
   };
 };
@@ -35,6 +37,7 @@ export async function sendContactEmail(prevState: FormState, formData: FormData)
     firstname: formData.get('firstname') as string,
     lastname: formData.get('lastname') as string,
     email: formData.get('email') as string,
+    service: formData.get('service') as string,
     message: formData.get('message') as string,
   };
   const validatedFields = FormSchema.safeParse(contactFormData);

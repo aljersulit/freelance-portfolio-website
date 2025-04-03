@@ -1,7 +1,7 @@
-import ContactForm from './ContactForm';
-import Image from 'next/image';
-
+import ContactForm from '@/components/ContactForm';
 import { playfairDisplay, roboto } from '@/app/font';
+import Mail from '@/components/svg/Mail';
+import Location from '@/components/svg/Location';
 
 export default function ContactSection() {
   return (
@@ -14,8 +14,10 @@ export default function ContactSection() {
         </h2>
       </header>
       <div className='mt-[166px]'>
-        <h2 className={`${roboto.className} text-center text-[4.375rem] text-secondary-foreground`}>Get In Touch</h2>
-        <div className='flex gap-5'>
+        <h2 className={`${roboto.className} text-center text-[4.375rem] font-semibold text-secondary-foreground`}>
+          Get In Touch
+        </h2>
+        <div className='flex justify-center gap-5'>
           <aside className='w-[413px] rounded-2xl bg-[#a89bf3] px-10 pb-[33px] pt-[58px] text-primary-foreground'>
             <h4 className={`${roboto.className} text-[3.4375rem] font-semibold leading-none`}>Want to work with me?</h4>
             <h5 className={`${roboto.className} mt-[10px] text-3xl font-medium leading-[1.1]`}>
@@ -25,10 +27,18 @@ export default function ContactSection() {
               Please fill up the form and I will get back to you shortly.
             </p>
             <address className={`${roboto.className} mt-[200px] rounded-lg bg-[#8c81cb] px-[19px] py-[22px]`}>
-              <a href='mailto:aljoysulit@gmail.com' className='text-base not-italic'>
+              <a href='mailto:aljoysulit@gmail.com' className='flex items-center gap-3 text-base not-italic'>
+                <span>
+                  <Mail className='h-5' />
+                </span>
                 aljoysulit@gmail.com
               </a>
-              <p className='mt-[15px] text-base not-italic'>Bulacan | Philippines</p>
+              <p className='mt-[15px] flex items-center gap-3 text-base not-italic'>
+                <span>
+                  <Location className='h-5' />
+                </span>
+                Bulacan | Philippines
+              </p>
             </address>
             <a
               href='#'

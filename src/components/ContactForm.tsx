@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { roboto } from '@/app/font';
 
 export default function ContactForm() {
   const initialState: FormState = {
@@ -16,6 +18,7 @@ export default function ContactForm() {
       firstname: '',
       lastname: '',
       email: '',
+      service: '',
       message: '',
     },
   };
@@ -42,16 +45,16 @@ export default function ContactForm() {
     <form
       action={action}
       aria-labelledby='form-message'
-      className='font-montserrat space-y-4 text-sm lg:w-[28rem] xl:w-[40rem]'
+      className='bg-form w-[779px] rounded-2xl px-[32px] py-[38px] text-secondary-foreground'
     >
       <div className='flex gap-1'>
         <div className='flex-1'>
-          <Label className='lg:text-sm xl:text-xl'>
+          <Label className={`${roboto.className} text-base font-medium`}>
             First Name
             <Input
               type='text'
               name='firstname'
-              className='mt-1 w-full rounded-sm border-border bg-secondary px-2 text-lg focus-visible:border-ring focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+              className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
               defaultValue={!errors.firstname ? contactFormData.firstname : ''}
               aria-describedby='firstname-error'
             />
@@ -61,12 +64,12 @@ export default function ContactForm() {
           </div>
         </div>
         <div className='flex-1'>
-          <Label className='lg:text-sm xl:text-xl'>
+          <Label className={`${roboto.className} text-base font-medium`}>
             Last Name
             <Input
               type='text'
               name='lastname'
-              className='mt-1 w-full rounded-sm border-border bg-secondary px-2 text-lg focus-visible:border-ring focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+              className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
               defaultValue={!errors.lastname ? contactFormData.lastname : ''}
               aria-describedby='lastname-error'
             />
@@ -76,13 +79,13 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
-      <div>
-        <Label className='lg:text-sm xl:text-xl'>
+      <div className='mt-5'>
+        <Label className={`${roboto.className} text-base font-medium`}>
           Email
           <Input
             type='text'
             name='email'
-            className='mt-1 w-full rounded-sm border-border bg-secondary px-2 text-lg focus-visible:border-ring focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+            className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
             defaultValue={!errors.email ? contactFormData.email : ''}
             aria-describedby='email-error'
           />
@@ -91,14 +94,40 @@ export default function ContactForm() {
           {errors?.email && <p className='mt-2 text-xs text-red-500'>{errors?.email[0]}</p>}
         </div>
       </div>
-      <div>
-        <Label htmlFor='message' className='lg:text-sm xl:text-xl'>
+      <div className='mt-5'>
+        <Label className={`${roboto.className} text-base font-medium`}>
+          I'm interested in...
+          <div className='mt-3'>
+            <Select
+              name='service'
+              aria-labelledby='form-service-error'
+              defaultValue={!errors.service ? contactFormData.service : ''}
+            >
+              <SelectTrigger className='mt-3 w-full rounded-md bg-input px-2 text-sm transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'>
+                <SelectValue placeholder='Select a service' />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value='Social Media Management'>Social Media Management</SelectItem>
+                <SelectItem value='Content Creation'>Content Creation</SelectItem>
+                <SelectItem value='Graphic Design'>Graphic Design</SelectItem>
+                <SelectItem value='Video Editing'>Video Editing</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </Label>
+        <div id='form-service-error' aria-live='polite' aria-atomic='true'>
+          {errors?.message && <p className='mt-2 text-xs text-red-500'>{errors?.message[0]}</p>}
+        </div>
+      </div>
+      <div className='mt-5'>
+        <Label htmlFor='message' className={`${roboto.className} text-base font-medium`}>
           Message
         </Label>
         <Textarea
           id='message'
           name='message'
-          className='mt-2 h-40 resize-none rounded-sm border-border bg-secondary px-2 py-1 text-lg focus-visible:border-ring focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+          // className='mt-3 w-full rounded-md bg-input px-2 text-lg focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
+          className='mt-3 h-40 resize-none rounded-md bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
           defaultValue={!errors.message ? contactFormData.firstname : ''}
           aria-labelledby='form-message-error'
         />
@@ -106,14 +135,23 @@ export default function ContactForm() {
           {errors?.message && <p className='mt-2 text-xs text-red-500'>{errors?.message[0]}</p>}
         </div>
       </div>
+      <p className={`${roboto.className} my-5 text-base font-medium`}>
+        This site is protected by reCAPTCHA and{' '}
+        <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
+          Google&apos;s Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
+          Terms
+        </a>
+        .
+      </p>
       <Button
-        variant='default'
-        size='lg'
         type='submit'
         disabled={isPending}
-        className='font-light uppercase disabled:cursor-not-allowed lg:text-base'
+        className={`${roboto.className} text-base font-bold uppercase text-primary-foreground disabled:cursor-not-allowed`}
       >
-        {isPending ? 'Sending...' : 'Send'}
+        {isPending ? 'Submitting...' : 'Submit'}
       </Button>
     </form>
   );
