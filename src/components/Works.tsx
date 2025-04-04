@@ -53,7 +53,7 @@ export default function Works() {
             <p className='mt-9 w-[542px] text-wrap text-lg text-muted-foreground'>{work.description}</p>
             <a
               href={work.href}
-              className='mt-9 block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground'
+              className='cursor-dot mt-9 block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground transition-colors hover:bg-accent'
               target='_blank'
               rel='noopener noreferrer'
               aria-label={`Visit the ${work.href}`}
