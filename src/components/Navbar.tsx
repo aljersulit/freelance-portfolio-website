@@ -86,7 +86,7 @@ export default function Navbar() {
         AljoyDigital.
       </Link>
       <ul className='font-workSans flex pr-12 text-lg font-medium'>
-        {NAVLINKS.map((nav, i, arr) => {
+        {NAVLINKS.map((nav, i) => {
           return (
             <li
               key={nav.title + i}
@@ -98,7 +98,7 @@ export default function Navbar() {
             </li>
           );
         })}
-        <li className='cursor-dot relative ml-[1.38rem] rounded-md border border-secondary-foreground transition-colors hover:border-background hover:bg-accent hover:text-primary-foreground'>
+        <li className='relative ml-[1.38rem] cursor-dot rounded-md border border-secondary-foreground transition-colors hover:border-background hover:bg-accent hover:text-primary-foreground'>
           <Link href='/#contact' className='px-[1.38rem] py-3'>
             Contact
           </Link>

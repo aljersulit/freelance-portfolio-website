@@ -44,7 +44,7 @@ export default function ContactSection() {
               href='#'
               target='_blank'
               rel='noopener noreferrer'
-              className={`${roboto.className} cursor-dot mt-[20px] block rounded-full border border-primary-foreground py-4 text-center font-bold uppercase transition-colors hover:bg-accent`}
+              className={`${roboto.className} mt-[20px] block cursor-dot rounded-full border border-primary-foreground py-4 text-center font-bold uppercase transition-colors hover:bg-accent`}
             >
               Schedule a call
             </a>

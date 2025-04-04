@@ -30,7 +30,7 @@ export default function Hero() {
           </p>
           <Link
             href='/#services'
-            className='cursor-dot block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground transition-colors hover:bg-accent'
+            className='block w-max cursor-dot rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground transition-colors hover:bg-accent'
           >
             Learn More
           </Link>
