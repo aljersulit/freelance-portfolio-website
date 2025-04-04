@@ -82,19 +82,15 @@ export default function Navbar() {
         !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
       )}
     >
-      <Link href='/#home' className='font-outfit text-xl font-bold uppercase tracking-widest'>
+      <Link href='/' className='font-outfit text-xl font-bold uppercase tracking-widest'>
         AljoyDigital.
       </Link>
       <ul className='font-workSans flex pr-12 text-lg font-medium'>
-        {NAVLINKS.map((nav, i, arr) => {
+        {NAVLINKS.map((nav, i) => {
           return (
             <li
               key={nav.title + i}
-              className={cn(
-                'relative before:pointer-events-none before:absolute before:-bottom-[6px] before:left-0 before:right-0 before:block before:border-primary',
-                i === arr.length - 1 && 'ml-[1.38rem] rounded-md border border-secondary-foreground',
-                nav.title.toLowerCase() === activeSection && 'text-accent-foreground',
-              )}
+              className={cn('relative', nav.title.toLowerCase() === activeSection && 'text-accent-foreground')}
             >
               <Link href={nav.link} className='px-[1.38rem] py-3'>
                 {nav.title}
@@ -102,6 +98,11 @@ export default function Navbar() {
             </li>
           );
         })}
+        <li className='relative ml-[1.38rem] cursor-dot rounded-md border border-secondary-foreground transition-colors hover:border-background hover:bg-accent hover:text-primary-foreground'>
+          <Link href='/#contact' className='px-[1.38rem] py-3'>
+            Contact
+          </Link>
+        </li>
       </ul>
     </motion.nav>
   );

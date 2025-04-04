@@ -35,7 +35,7 @@ export default {
           foreground: 'var(--muted-foreground)',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
+          DEFAULT: 'var(--accent)',
           foreground: 'var(--accent-foreground)',
         },
         destructive: {
@@ -61,6 +61,9 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      cursor: {
+        dot: 'url(/pointer.svg), pointer',
       },
     },
   },
