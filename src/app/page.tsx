@@ -1,8 +1,8 @@
 import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
+import Works from '@/components/Works';
 import Services from '@/components/Services';
-import MyWorks from '@/components/MyWorks';
 import About from '@/components/About';
 import Tools from '@/components/Tools';
 import Testimonials from '@/components/Testimonials';
@@ -17,8 +17,8 @@ export default function Home() {
         <Hero />
         <Banner />
         <div className='rounded-[3.3rem] bg-secondary'>
+          <Works />
           <Services />
-          <MyWorks />
           <About />
         </div>
         <Tools />

@@ -1,71 +1,74 @@
-import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import AgribankPhPreview from '../../public/AgribankPH_Preview.png';
-import RopaMarketPreview from '../../public/Ropa_Market_Preview.png';
-import AgripayPreview from '../../public/Agripay_Preview.png';
-import { roboto, playfairDisplay } from '@/app/font';
-
-const WORKS = [
-  {
-    projectName: 'Agribank Ph',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
-    description:
-      'A financial institution dedicated to empowering Filipino farmers, entrepreneurs, and individuals through accessible banking solutions.',
-    previewPhoto: AgribankPhPreview,
-    href: 'https://www.behance.net/gallery/213195203/Banking-and-Finance',
-  },
-  {
-    projectName: 'Ropa Market',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
-    description: 'A platform offering repossessed motorcycles at affordable prices with flexible financing options.',
-    previewPhoto: RopaMarketPreview,
-    href: 'https://www.behance.net/gallery/213690051/Automotive',
-  },
-  {
-    projectName: 'Agripay',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design'],
-    description: 'A digital payment platform providing innovative financial solutions for seamless transactions.',
-    previewPhoto: AgripayPreview,
-    href: 'https://www.behance.net/gallery/213693381/Social-Media-Post-Digital-Payment-Service',
-  },
-];
+import Arrow from '@/components/svg/Arrow';
+import { roboto, robotoFlex, outfit } from '@/app/font';
+import { Vortex } from '@/components/ui/vortex';
 
 export default function Services() {
   return (
-    <section className='px-20 py-24'>
-      <header className='mb-6'>
-        <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
+    <section id='services' className='relative pb-[178px] pt-44 text-primary-foreground'>
+      <Vortex
+        backgroundColor='black'
+        containerClassName='absolute inset-0'
+        rangeY={700}
+        baseHue={198}
+        rangeSpeed={0.5}
+        rangeRadius={1.2}
+      />
+      <header>
+        <h3 className={`${roboto.className} mx-auto w-[1055px] text-center text-4xl font-medium`}>
+          I help businesses cut through the noise with strategic marketing, engaging content, and proven growth
+          strategies.
+        </h3>
       </header>
-      {WORKS.map((work, i) => (
-        <article key={i} className='flex justify-center gap-[108px] border-t-2 border-t-stone-300 py-20'>
-          <div className='w-[543px]'>
-            <h3 className={`${playfairDisplay.className} mb-3 mt-10 text-[38px] uppercase`}>{work.projectName}</h3>
-            <ul className='flex gap-[6px]'>
-              {work.utilizedSkills.map((skill, i) => (
-                <li
-                  key={skill + i}
-                  className={`${roboto.className} rounded-full bg-list px-[14px] py-[9px] text-xs text-primary-foreground`}
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-            <p className='mt-9 w-[542px] text-wrap text-lg text-muted-foreground'>{work.description}</p>
+      <article className='mt-[50px] flex justify-center gap-8'>
+        <div className='flex w-[415px] flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.22)] backdrop-blur-[1.5px]'>
+          <div className='px-[22px] pt-[27px]'>
+            <h4 className={`${outfit.className} uppercase text-[#bfbbbb]`}>Social Media Management</h4>
+            <p className={`${roboto.className} mt-5 text-[22px] leading-6`}>
+              I turn social media into a powerful tool for brand growth with compelling content and smart strategies.
+            </p>
+            <Link href='/works' className={`${robotoFlex.className} mt-5 block text-lg`}>
+              How I help
+              <span className='ml-2'>
+                <Arrow className='inline w-5' />
+              </span>
+            </Link>
+          </div>
+          <div className='flex w-full justify-end'>
+            <Image
+              src='/phone_pc.png'
+              alt='Phone and pc preview'
+              width={513}
+              height={388}
+              className='w-10/12 object-contain'
+            />
+          </div>
+        </div>
+        <div className='flex w-[415px] flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.25)] backdrop-blur-[1.5px]'>
+          <div className='px-[22px] pt-[27px]'>
+            <h4 className={`${outfit.className} uppercase text-[#bfbbbb]`}>Graphic Design/Video Edit</h4>
+            <p className={`${roboto.className} mt-5 text-[22px] leading-6`}>
+              I create visually compelling designs and high-quality video edits that bring ideas to life.
+            </p>
             <a
-              href={work.href}
-              className='mt-9 block w-max rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground'
+              href='https://www.behance.net/alyssajoysulit'
               target='_blank'
               rel='noopener noreferrer'
-              aria-label={`Visit the ${work.href}`}
+              aria-label='Visit my works'
+              className={`${robotoFlex.className} mt-5 block text-lg`}
             >
-              View More
+              See my work
+              <span className='ml-2'>
+                <Arrow className='inline w-5' />
+              </span>
             </a>
           </div>
-          <div className='w-[630px]'>
-            <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
+          <div className='flex w-full justify-end'>
+            <Image src='/laptop.png' alt='Laptop preview' width={484} height={358} className='w-10/12 object-contain' />
           </div>
-        </article>
-      ))}
+        </div>
+      </article>
     </section>
   );
 }

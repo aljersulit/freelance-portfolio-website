@@ -82,7 +82,7 @@ export default function Navbar() {
         !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
       )}
     >
-      <Link href='/#home' className='font-outfit text-xl font-bold uppercase tracking-widest'>
+      <Link href='/' className='font-outfit text-xl font-bold uppercase tracking-widest'>
         AljoyDigital.
       </Link>
       <ul className='font-workSans flex pr-12 text-lg font-medium'>
