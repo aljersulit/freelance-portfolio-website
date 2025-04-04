@@ -62,6 +62,9 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      cursor: {
+        dot: 'url(/pointer.svg), pointer',
+      },
     },
   },
   plugins: [animate, tailwindScrollbar({ preferredStrategy: 'pseudoelements' })],

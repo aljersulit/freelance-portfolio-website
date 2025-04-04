@@ -44,7 +44,7 @@ export default function ContactSection() {
               href='#'
               target='_blank'
               rel='noopener noreferrer'
-              className='mt-[20px] block rounded-full border border-primary-foreground py-4 text-center uppercase'
+              className='cursor-dot mt-[20px] block rounded-full border border-primary-foreground py-4 text-center uppercase transition-colors hover:bg-[#8c81cb]'
             >
               Schedule a call
             </a>

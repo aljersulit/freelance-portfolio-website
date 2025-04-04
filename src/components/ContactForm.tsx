@@ -144,7 +144,7 @@ export default function ContactForm() {
       <Button
         type='submit'
         disabled={isPending}
-        className={`${roboto.className} text-base font-bold uppercase text-primary-foreground disabled:cursor-not-allowed`}
+        className={`${roboto.className} cursor-dot w-full rounded-full bg-[#3A3C5B] py-4 text-base font-bold uppercase text-primary-foreground hover:bg-[#8c81cb] disabled:cursor-not-allowed`}
       >
         {isPending ? 'Submitting...' : 'Submit'}
       </Button>
