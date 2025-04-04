@@ -32,7 +32,7 @@ const WORKS = [
 
 export default function Works() {
   return (
-    <section id='featured' className='px-20 py-24'>
+    <section id='works' className='px-20 py-24'>
       <header className='mb-6'>
         <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
       </header>

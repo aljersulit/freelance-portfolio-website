@@ -13,7 +13,7 @@ export default function ContactSection() {
           Let&apos;s turn your digital presence into your biggest asset!
         </h2>
       </header>
-      <div className='mt-[166px]'>
+      <div className='mt-[166px]' id='contact'>
         <h2 className={`${roboto.className} text-center text-[4.375rem] font-semibold text-secondary-foreground`}>
           Get In Touch
         </h2>
