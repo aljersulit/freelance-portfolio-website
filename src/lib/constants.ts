@@ -52,10 +52,6 @@ export const NAVLINKS = [
     title: 'Testimonials',
     link: '/#testimonials',
   },
-  {
-    title: 'Contact',
-    link: '/#contact',
-  },
 ];
 
 export const SERVICES = [

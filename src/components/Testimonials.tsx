@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Testimonials() {
   return (
-    <section className='rounded-[3.3rem] bg-secondary px-[78px] py-[98px]'>
+    <section id='testimonials' className='rounded-[3.3rem] bg-secondary px-[78px] py-[98px]'>
       <header>
         <h2
           className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-6xl uppercase text-secondary-foreground`}
