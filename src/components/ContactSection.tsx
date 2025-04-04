@@ -18,7 +18,7 @@ export default function ContactSection() {
           Get In Touch
         </h2>
         <div className='flex justify-center gap-5'>
-          <aside className='w-[413px] rounded-2xl bg-primary px-10 pb-[33px] pt-[58px] text-primary-foreground'>
+          <aside className='w-[413px] rounded-2xl bg-primary px-10 pb-[33px] pt-[58px] text-[#ffffff] text-primary-foreground'>
             <h4 className={`${roboto.className} text-[3.4375rem] font-semibold leading-none`}>Want to work with me?</h4>
             <h5 className={`${roboto.className} mt-[10px] text-3xl font-medium leading-[1.1]`}>
               I&apos;d love to here from you!
@@ -44,7 +44,7 @@ export default function ContactSection() {
               href='#'
               target='_blank'
               rel='noopener noreferrer'
-              className='cursor-dot mt-[20px] block rounded-full border border-primary-foreground py-4 text-center uppercase transition-colors hover:bg-accent'
+              className={`${roboto.className} cursor-dot mt-[20px] block rounded-full border border-primary-foreground py-4 text-center font-bold uppercase transition-colors hover:bg-accent`}
             >
               Schedule a call
             </a>
