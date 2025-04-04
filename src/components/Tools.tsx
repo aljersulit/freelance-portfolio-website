@@ -5,6 +5,8 @@ import { cn } from '@/lib/utils';
 
 import { roboto } from '@/app/font';
 import GlobalSearch from '@/components/svg/GlobalSearch';
+import Audience from '@/components/svg/Audience';
+import BusinessStat from '@/components/svg/BusinessStat';
 
 import Meta from '@/components/svg/Meta';
 import Buffer from '@/components/svg/Buffer';
@@ -34,12 +36,12 @@ const CARDS = [
     alt: 'Globe icon.',
   },
   {
-    Svg: GlobalSearch,
+    Svg: Audience,
     txt: 'Creating content that resonates with your audience',
     alt: 'Audience icon.',
   },
   {
-    Svg: GlobalSearch,
+    Svg: BusinessStat,
     txt: 'Implementing strategies that drive real growth',
     alt: 'Business stats icon',
   },
