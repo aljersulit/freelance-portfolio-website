@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { FormSchema } from '@/lib/schema';
 import { sendContactEmail } from '@/lib/actions';
+import { getCaptchaToken } from '@/lib/captcha';
 import { toast } from 'sonner';
 import { roboto } from '@/app/font';
 
@@ -17,10 +18,6 @@ import { Textarea } from '@/components/ui/textarea';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [formStatus, setFormStatus] = useState<{
-  //   success?: boolean;
-  //   message?: string;
-  // } | null>(null);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -35,20 +32,15 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof FormSchema>) {
     setIsSubmitting(true);
-    // setFormStatus(null);
 
     try {
-      const result = await sendContactEmail(values);
+      const token = await getCaptchaToken();
+      const result = await sendContactEmail(values, token);
 
       if (result.success) {
         toast.success(result.message);
 
         form.reset();
-
-        // setFormStatus({
-        //   success: true,
-        //   message: result.message,
-        // });
       } else {
         toast.error(result.message);
 
@@ -60,20 +52,10 @@ export default function ContactForm() {
             });
           });
         }
-
-        // setFormStatus({
-        //   success: false,
-        //   message: result.message,
-        // });
       }
     } catch (error) {
       console.error('Form submission error:', error);
       toast.error('An unexpected error occurred. Please try again.');
-
-      // setFormStatus({
-      //   success: false,
-      //   message: 'An unexpected error occurred. Please try again.',
-      // });
     } finally {
       setIsSubmitting(false);
     }
@@ -176,11 +158,11 @@ export default function ContactForm() {
         />
         <p className={`${roboto.className} my-5 text-base font-medium`}>
           This site is protected by reCAPTCHA and{' '}
-          <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
+          <a href='https://www.google.com/intl/en/policies/privacy/' target='_blank' className='text-[#1677F0]'>
             Google&apos;s Privacy Policy
           </a>{' '}
           and{' '}
-          <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
+          <a href='https://www.google.com/intl/en/policies/terms/' target='_blank' className='text-[#1677F0]'>
             Terms
           </a>
           .
