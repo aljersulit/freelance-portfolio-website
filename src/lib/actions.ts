@@ -1,64 +1,21 @@
 'use server';
 import { sendEmail } from '@/lib/nodemailer';
-
+import { verifyCaptchaToken } from '@/lib/captcha';
 import { z } from 'zod';
 import { FormSchema } from '@/lib/schema';
 
-// type FormState = {
-//   errors: {
-//     firstname?: string[];
-//     lastname?: string[];
-//     email?: string[];
-//     service?: string[];
-//     message?: string[];
-//   };
-//   status: {
-//     type?: 'Success' | 'Error';
-//     message?: string;
-//   };
-//   contactFormData: {
-//     firstname: string;
-//     lastname: string;
-//     email: string;
-//     service: string;
-//     message: string;
-//   };
-// };
+export async function sendContactEmail(formData: z.infer<typeof FormSchema>, token: string | null) {
+  if (!token) {
+    console.error('Token not found.');
+    return {
+      success: false,
+      message: 'Something went wrong.',
+    };
+  }
 
-export async function sendContactEmail(formData: z.infer<typeof FormSchema>) {
-  // const contactFormData = {
-  //   firstname: formData.get('firstname') as string,
-  //   lastname: formData.get('lastname') as string,
-  //   email: formData.get('email') as string,
-  //   service: formData.get('service') as string,
-  //   message: formData.get('message') as string,
-  // };
   const validatedFields = FormSchema.safeParse(formData);
 
-  // if (!token) {
-  //   return {
-  //     ...prevState,
-  //     status: {
-  //       type: 'Error',
-  //       message: 'Recaptcha Invalid',
-  //     },
-  //   };
-  // }
-
-  // if (!validatedFields.success) {
-  //   return {
-  //     ...prevState,
-  //     errors: validatedFields.error.flatten().fieldErrors,
-  //     status: {
-  //       type: 'Error',
-  //       message: 'Missing or invalid fields. Failed to send email.',
-  //     },
-  //     contactFormData,
-  //   };
-  // }
-
   if (!validatedFields.success) {
-    // Return validation errors
     return {
       success: false,
       message: 'Validation failed',
@@ -90,28 +47,25 @@ export async function sendContactEmail(formData: z.infer<typeof FormSchema>) {
 
   try {
     // const adminMailRes = await sendEmail(adminMailOptions);
+    const captchaResponse = await verifyCaptchaToken(token);
+
+    if (!captchaResponse.success) {
+      console.error(captchaResponse['error-codes']);
+      return {
+        success: false,
+        message: 'Captcha verification failed. Please try again later.',
+      };
+    }
+
     const userEmailRes = await sendEmail(userMailOptions);
     // console.log("Admin", adminMailRes);
-    console.log('User', userEmailRes);
-    // return {
-    //   ...prevState,
-    //   errors: {},
-    //   status: { type: 'Success', message: 'Email sent successfully!' },
-    // };
+    // console.log('User', userEmailRes);
     return {
       success: true,
       message: 'Your message has been sent successfully!',
     };
   } catch (error) {
     console.error('Error sending emails:', error);
-    // return {
-    //   ...prevState,
-    //   errors: {},
-    //   status: {
-    //     type: 'Error',
-    //     message: 'Failed to send email. Please try again.',
-    //   },
-    // };
     return {
       success: false,
       message: 'Failed to send message. Please try again later.',
