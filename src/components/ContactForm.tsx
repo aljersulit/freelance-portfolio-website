@@ -1,153 +1,186 @@
 'use client';
 
-import { useActionState, useEffect } from 'react';
-import { sendContactEmail, FormState } from '@/lib/actions';
+import { useState } from 'react';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { FormSchema } from '@/lib/schema';
+import { sendContactEmail } from '@/lib/actions';
+import { getCaptchaToken } from '@/lib/captcha';
 import { toast } from 'sonner';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { roboto } from '@/app/font';
 
+import { Button } from '@/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+
 export default function ContactForm() {
-  const initialState: FormState = {
-    status: {},
-    errors: {},
-    contactFormData: {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
       firstname: '',
       lastname: '',
       email: '',
-      service: '',
+      service: undefined,
       message: '',
     },
-  };
-  const [formState, action, isPending] = useActionState(sendContactEmail, initialState);
+  });
 
-  const { errors, status, contactFormData } = formState;
+  async function onSubmit(values: z.infer<typeof FormSchema>) {
+    try {
+      setIsSubmitting(true);
+      const token = await getCaptchaToken();
+      if (!token) {
+        toast.error('Something went wrong. Please try again');
+        return;
+      }
+      const result = await sendContactEmail(values, token);
 
-  useEffect(() => {
-    const { type, message } = status;
+      if (result.success) {
+        toast.success(result.message);
 
-    switch (type) {
-      case 'Success':
-        toast.success(message);
-        break;
-      case 'Error':
-        toast.error(message);
-        break;
-      default:
-        toast(message);
+        form.reset();
+      } else {
+        toast.error(result.message);
+
+        if (result.errors) {
+          (Object.entries(result.errors) as [keyof z.infer<typeof FormSchema>, string[]][]).forEach(
+            ([fieldName, errorMessages]) => {
+              form.setError(fieldName, {
+                type: 'server',
+                message: errorMessages[0] || 'Invalid input',
+              });
+            },
+          );
+        }
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [status]);
+  }
 
   return (
-    <form
-      action={action}
-      aria-labelledby='form-message'
-      className='w-[779px] rounded-2xl bg-form px-[32px] py-[38px] text-secondary-foreground'
-    >
-      <div className='flex gap-1'>
-        <div className='flex-1'>
-          <Label className={`${roboto.className} text-base font-medium`}>
-            First Name
-            <Input
-              type='text'
-              name='firstname'
-              className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
-              defaultValue={!errors.firstname ? contactFormData.firstname : ''}
-              aria-describedby='firstname-error'
-            />
-          </Label>
-          <div id='firstname-error' aria-live='polite' aria-atomic='true'>
-            {errors?.firstname && <p className='mt-2 text-xs text-red-500'>{errors?.firstname[0]}</p>}
-          </div>
-        </div>
-        <div className='flex-1'>
-          <Label className={`${roboto.className} text-base font-medium`}>
-            Last Name
-            <Input
-              type='text'
-              name='lastname'
-              className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
-              defaultValue={!errors.lastname ? contactFormData.lastname : ''}
-              aria-describedby='lastname-error'
-            />
-          </Label>
-          <div id='lastname-error' aria-live='polite' aria-atomic='true'>
-            {errors?.lastname && <p className='mt-2 text-xs text-red-500'>{errors?.lastname[0]}</p>}
-          </div>
-        </div>
-      </div>
-      <div className='mt-5'>
-        <Label className={`${roboto.className} text-base font-medium`}>
-          Email
-          <Input
-            type='text'
-            name='email'
-            className='mt-3 w-full rounded-md bg-input px-2 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
-            defaultValue={!errors.email ? contactFormData.email : ''}
-            aria-describedby='email-error'
-          />
-        </Label>
-        <div id='email-error' aria-live='polite' aria-atomic='true'>
-          {errors?.email && <p className='mt-2 text-xs text-red-500'>{errors?.email[0]}</p>}
-        </div>
-      </div>
-      <div className='mt-5'>
-        <Label htmlFor='service' className={`${roboto.className} text-base font-medium`}>
-          I&apos;m interested in...
-          <select
-            defaultValue={!errors.service ? contactFormData.service : ''}
-            name='service'
-            id='service'
-            className='mt-3 w-full rounded-md bg-input px-2 py-[0.65rem] text-sm transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
-          >
-            <option disabled value=''>
-              -- Select a service --
-            </option>
-            <option value='Social Media Management'>Social Media Management</option>
-            <option value='Content Creation'>Content Creation</option>
-            <option value='Graphic Design'>Graphic Design</option>
-            <option value='Video Editing'>Video Editing</option>
-          </select>
-        </Label>
-        <div id='form-service-error' aria-live='polite' aria-atomic='true'>
-          {errors?.service && <p className='mt-2 text-xs text-red-500'>{errors?.service[0]}</p>}
-        </div>
-      </div>
-      <div className='mt-5'>
-        <Label htmlFor='message' className={`${roboto.className} text-base font-medium`}>
-          Message
-        </Label>
-        <Textarea
-          id='message'
-          name='message'
-          className='mt-3 h-40 resize-none rounded-md bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
-          defaultValue={!errors.message ? contactFormData.firstname : ''}
-          aria-labelledby='form-message-error'
-        />
-        <div id='form-message-error' aria-live='polite' aria-atomic='true'>
-          {errors?.message && <p className='mt-2 text-xs text-red-500'>{errors?.message[0]}</p>}
-        </div>
-      </div>
-      <p className={`${roboto.className} my-5 text-base font-medium`}>
-        This site is protected by reCAPTCHA and{' '}
-        <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
-          Google&apos;s Privacy Policy
-        </a>{' '}
-        and{' '}
-        <a href='#' target='_blank' rel='noopener noreferrer' className='text-[#1677F0]'>
-          Terms
-        </a>
-        .
-      </p>
-      <Button
-        type='submit'
-        disabled={isPending}
-        className={`${roboto.className} w-full cursor-dot rounded-full bg-[#3A3C5B] py-4 text-base font-bold uppercase text-primary-foreground hover:bg-accent disabled:cursor-not-allowed`}
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='w-[779px] rounded-2xl bg-form px-[32px] py-[38px] text-secondary-foreground'
       >
-        {isPending ? 'Submitting...' : 'Submit'}
-      </Button>
-    </form>
+        <div className='flex gap-3'>
+          <FormField
+            control={form.control}
+            name='firstname'
+            render={({ field }) => (
+              <FormItem className='flex-1'>
+                <FormLabel className={`${roboto.className} text-base font-medium`}>First Name</FormLabel>
+                <FormControl>
+                  <Input
+                    className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='lastname'
+            render={({ field }) => (
+              <FormItem className='flex-1'>
+                <FormLabel className={`${roboto.className} text-base font-medium`}>Last Name</FormLabel>
+                <FormControl>
+                  <Input
+                    className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <FormField
+          control={form.control}
+          name='email'
+          render={({ field }) => (
+            <FormItem className='mt-5'>
+              <FormLabel className={`${roboto.className} text-base font-medium`}>Email</FormLabel>
+              <FormControl>
+                <Input
+                  className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='service'
+          render={({ field }) => (
+            <FormItem className='mt-5'>
+              <FormLabel className={`${roboto.className} text-base font-medium`}>I&apos;m interested in...</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger className='rounded-md bg-input transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'>
+                    <SelectValue />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value='Social Media Management'>Social Media Management</SelectItem>
+                  <SelectItem value='Content Creation'>Content Creation</SelectItem>
+                  <SelectItem value='Graphic Design'>Graphic Design</SelectItem>
+                  <SelectItem value='Video Editing'>Video Editing</SelectItem>
+                  <SelectItem value='All Services'>All Services</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name='message'
+          render={({ field }) => (
+            <FormItem className='mt-5'>
+              <FormLabel className={`${roboto.className} text-base font-medium`}>Message</FormLabel>
+              <FormControl>
+                <Textarea
+                  className='mt-3 h-[117px] resize-none rounded-md bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <p className={`${roboto.className} my-5 text-base font-medium`}>
+          This site is protected by reCAPTCHA and{' '}
+          <a href='https://www.google.com/intl/en/policies/privacy/' target='_blank' className='text-[#1677F0]'>
+            Google&apos;s Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a href='https://www.google.com/intl/en/policies/terms/' target='_blank' className='text-[#1677F0]'>
+            Terms
+          </a>
+          .
+        </p>
+        <Button
+          type='submit'
+          disabled={isSubmitting}
+          className={`${roboto.className} w-full cursor-dot rounded-full bg-[#3A3C5B] py-4 text-base font-bold uppercase text-primary-foreground hover:bg-accent disabled:cursor-not-allowed`}
+        >
+          {isSubmitting ? 'Sending...' : 'Send'}
+        </Button>
+      </form>
+    </Form>
   );
 }
