@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { FormSchema } from '@/lib/schema';
+import { sendContactEmail } from '@/lib/actions';
+import { toast } from 'sonner';
+import { roboto } from '@/app/font';
 
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -11,9 +15,13 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 
-import { roboto } from '@/app/font';
-
 export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [formStatus, setFormStatus] = useState<{
+  //   success?: boolean;
+  //   message?: string;
+  // } | null>(null);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -25,8 +33,50 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof FormSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof FormSchema>) {
+    setIsSubmitting(true);
+    // setFormStatus(null);
+
+    try {
+      const result = await sendContactEmail(values);
+
+      if (result.success) {
+        toast.success(result.message);
+
+        form.reset();
+
+        // setFormStatus({
+        //   success: true,
+        //   message: result.message,
+        // });
+      } else {
+        toast.error(result.message);
+
+        if (result.errors) {
+          Object.entries(result.errors).forEach(([key, value]) => {
+            form.setError(key as any, {
+              type: 'server',
+              message: Array.isArray(value) ? value[0] : value,
+            });
+          });
+        }
+
+        // setFormStatus({
+        //   success: false,
+        //   message: result.message,
+        // });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('An unexpected error occurred. Please try again.');
+
+      // setFormStatus({
+      //   success: false,
+      //   message: 'An unexpected error occurred. Please try again.',
+      // });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -137,9 +187,10 @@ export default function ContactForm() {
         </p>
         <Button
           type='submit'
+          disabled={isSubmitting}
           className={`${roboto.className} w-full cursor-dot rounded-full bg-[#3A3C5B] py-4 text-base font-bold uppercase text-primary-foreground hover:bg-accent disabled:cursor-not-allowed`}
         >
-          Send
+          {isSubmitting ? 'Sending...' : 'Send'}
         </Button>
       </form>
     </Form>

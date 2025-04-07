@@ -2,59 +2,67 @@
 import { sendEmail } from '@/lib/nodemailer';
 
 import { z } from 'zod';
+import { FormSchema } from '@/lib/schema';
 
-const FormSchema = z.object({
-  firstname: z.string().min(1, { message: 'Please enter your first name.' }),
-  lastname: z.string().min(1, { message: 'Please enter your last name.' }),
-  email: z.string().nonempty({ message: 'Please enter your email.' }).email({ message: 'Invalid email' }),
-  service: z.enum(['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing', 'All'], {
-    message: 'Please choose a service',
-    required_error: 'Please choose a service',
-    invalid_type_error: 'Please choose a service',
-  }),
-  message: z.string().min(1, { message: 'Please enter your message.' }),
-});
+// type FormState = {
+//   errors: {
+//     firstname?: string[];
+//     lastname?: string[];
+//     email?: string[];
+//     service?: string[];
+//     message?: string[];
+//   };
+//   status: {
+//     type?: 'Success' | 'Error';
+//     message?: string;
+//   };
+//   contactFormData: {
+//     firstname: string;
+//     lastname: string;
+//     email: string;
+//     service: string;
+//     message: string;
+//   };
+// };
 
-export type FormState = {
-  errors: {
-    firstname?: string[];
-    lastname?: string[];
-    email?: string[];
-    service?: string[];
-    message?: string[];
-  };
-  status: {
-    type?: 'Success' | 'Error';
-    message?: string;
-  };
-  contactFormData: {
-    firstname: string;
-    lastname: string;
-    email: string;
-    service: string;
-    message: string;
-  };
-};
+export async function sendContactEmail(formData: z.infer<typeof FormSchema>) {
+  // const contactFormData = {
+  //   firstname: formData.get('firstname') as string,
+  //   lastname: formData.get('lastname') as string,
+  //   email: formData.get('email') as string,
+  //   service: formData.get('service') as string,
+  //   message: formData.get('message') as string,
+  // };
+  const validatedFields = FormSchema.safeParse(formData);
 
-export async function sendContactEmail(prevState: FormState, formData: FormData): Promise<FormState> {
-  const contactFormData = {
-    firstname: formData.get('firstname') as string,
-    lastname: formData.get('lastname') as string,
-    email: formData.get('email') as string,
-    service: formData.get('service') as string,
-    message: formData.get('message') as string,
-  };
-  const validatedFields = FormSchema.safeParse(contactFormData);
+  // if (!token) {
+  //   return {
+  //     ...prevState,
+  //     status: {
+  //       type: 'Error',
+  //       message: 'Recaptcha Invalid',
+  //     },
+  //   };
+  // }
+
+  // if (!validatedFields.success) {
+  //   return {
+  //     ...prevState,
+  //     errors: validatedFields.error.flatten().fieldErrors,
+  //     status: {
+  //       type: 'Error',
+  //       message: 'Missing or invalid fields. Failed to send email.',
+  //     },
+  //     contactFormData,
+  //   };
+  // }
 
   if (!validatedFields.success) {
+    // Return validation errors
     return {
-      ...prevState,
+      success: false,
+      message: 'Validation failed',
       errors: validatedFields.error.flatten().fieldErrors,
-      status: {
-        type: 'Error',
-        message: 'Missing or invalid fields. Failed to send email.',
-      },
-      contactFormData,
     };
   }
 
@@ -85,20 +93,28 @@ export async function sendContactEmail(prevState: FormState, formData: FormData)
     const userEmailRes = await sendEmail(userMailOptions);
     // console.log("Admin", adminMailRes);
     console.log('User', userEmailRes);
+    // return {
+    //   ...prevState,
+    //   errors: {},
+    //   status: { type: 'Success', message: 'Email sent successfully!' },
+    // };
     return {
-      ...prevState,
-      errors: {},
-      status: { type: 'Success', message: 'Email sent successfully!' },
+      success: true,
+      message: 'Your message has been sent successfully!',
     };
   } catch (error) {
     console.error('Error sending emails:', error);
+    // return {
+    //   ...prevState,
+    //   errors: {},
+    //   status: {
+    //     type: 'Error',
+    //     message: 'Failed to send email. Please try again.',
+    //   },
+    // };
     return {
-      ...prevState,
-      errors: {},
-      status: {
-        type: 'Error',
-        message: 'Failed to send email. Please try again.',
-      },
+      success: false,
+      message: 'Failed to send message. Please try again later.',
     };
   }
 }
