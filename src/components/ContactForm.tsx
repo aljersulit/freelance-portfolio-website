@@ -139,6 +139,7 @@ export default function ContactForm() {
                   <SelectItem value='Content Creation'>Content Creation</SelectItem>
                   <SelectItem value='Graphic Design'>Graphic Design</SelectItem>
                   <SelectItem value='Video Editing'>Video Editing</SelectItem>
+                  <SelectItem value='All Services'>All Services</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
