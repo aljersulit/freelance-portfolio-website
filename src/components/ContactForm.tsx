@@ -45,12 +45,14 @@ export default function ContactForm() {
         toast.error(result.message);
 
         if (result.errors) {
-          Object.entries(result.errors).forEach(([key, value]) => {
-            form.setError(key as any, {
-              type: 'server',
-              message: Array.isArray(value) ? value[0] : value,
-            });
-          });
+          (Object.entries(result.errors) as [keyof z.infer<typeof FormSchema>, string[]][]).forEach(
+            ([fieldName, errorMessages]) => {
+              form.setError(fieldName, {
+                type: 'server',
+                message: errorMessages[0] || 'Invalid input',
+              });
+            },
+          );
         }
       }
     } catch (error) {
