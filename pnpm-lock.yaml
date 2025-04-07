@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@google-recaptcha/react':
+        specifier: ^2.1.1
+        version: 2.1.1(@types/react@19.0.8)(react@19.0.0)
       '@hookform/resolvers':
         specifier: ^5.0.1
         version: 5.0.1(react-hook-form@7.55.0(react@19.0.0))
@@ -84,6 +87,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.2.0
+      '@types/grecaptcha':
+        specifier: ^3.0.9
+        version: 3.0.9
       '@types/node':
         specifier: ^20
         version: 20.17.19
@@ -407,6 +413,18 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@google-recaptcha/core@1.1.0':
+    resolution: {integrity: sha512-9ENDs4gCdNUyuhGb3O6EBKmRUn8TVa1uigZcTW58VSjwzv+KHyO93ZC4O39y70oBTkm+1LJTbSHluUcVqDib1Q==}
+
+  '@google-recaptcha/react@2.1.1':
+    resolution: {integrity: sha512-csmsBt33JCsX5TVRf98n9zpfnsUpIdyRHZgEZ9xGSEgclHE1ZcqnBCFMRvHCtJAYhl/oS8YJsv+DbGViU0lnJQ==}
+    peerDependencies:
+      '@types/react': ^17.0.2 || ^18.0.0 || ^19.0.0
+      react: ^17.0.2 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@hookform/resolvers@5.0.1':
     resolution: {integrity: sha512-u/+Jp83luQNx9AdyW2fIPGY6Y7NG68eN2ZW8FOJYL+M0i4s49+refdJdOp/A9n9HFQtQs3HIDHQvX3ZET2o7YA==}
@@ -1104,6 +1122,9 @@ packages:
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  '@types/grecaptcha@3.0.9':
+    resolution: {integrity: sha512-fFxMtjAvXXMYTzDFK5NpcVB7WHnrHVLl00QzEGpuFxSAC789io6M+vjcn+g5FTEamIJtJr/IHkCDsqvJxeWDyw==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -3400,6 +3421,15 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
+  '@google-recaptcha/core@1.1.0': {}
+
+  '@google-recaptcha/react@2.1.1(@types/react@19.0.8)(react@19.0.0)':
+    dependencies:
+      '@google-recaptcha/core': 1.1.0
+      react: 19.0.0
+    optionalDependencies:
+      '@types/react': 19.0.8
+
   '@hookform/resolvers@5.0.1(react-hook-form@7.55.0(react@19.0.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
@@ -3956,6 +3986,8 @@ snapshots:
       '@types/node': 20.17.19
 
   '@types/estree@1.0.6': {}
+
+  '@types/grecaptcha@3.0.9': {}
 
   '@types/json-schema@7.0.15': {}
 
