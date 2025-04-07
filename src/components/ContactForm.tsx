@@ -31,10 +31,13 @@ export default function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof FormSchema>) {
-    setIsSubmitting(true);
-
     try {
+      setIsSubmitting(true);
       const token = await getCaptchaToken();
+      if (!token) {
+        toast.error('Something went wrong. Please try again');
+        return;
+      }
       const result = await sendContactEmail(values, token);
 
       if (result.success) {
@@ -124,7 +127,7 @@ export default function ContactForm() {
           name='service'
           render={({ field }) => (
             <FormItem className='mt-5'>
-              <FormLabel className={`${roboto.className} text-base font-medium`}>I'm interested in...</FormLabel>
+              <FormLabel className={`${roboto.className} text-base font-medium`}>I&apos;m interested in...</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger className='rounded-md bg-input transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'>

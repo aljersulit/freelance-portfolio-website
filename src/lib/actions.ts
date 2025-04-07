@@ -4,22 +4,23 @@ import { verifyCaptchaToken } from '@/lib/captcha';
 import { z } from 'zod';
 import { FormSchema } from '@/lib/schema';
 
-export async function sendContactEmail(formData: z.infer<typeof FormSchema>, token: string | null) {
-  if (!token) {
-    console.error('Token not found.');
-    return {
-      success: false,
-      message: 'Something went wrong.',
-    };
-  }
+type ContactFormResponse = {
+  success: boolean;
+  message: string;
+  errors?: Record<keyof z.infer<typeof FormSchema>, string[]>;
+};
 
+export async function sendContactEmail(
+  formData: z.infer<typeof FormSchema>,
+  token: string,
+): Promise<ContactFormResponse> {
   const validatedFields = FormSchema.safeParse(formData);
 
   if (!validatedFields.success) {
     return {
       success: false,
       message: 'Validation failed',
-      errors: validatedFields.error.flatten().fieldErrors,
+      errors: validatedFields.error.flatten().fieldErrors as Record<keyof z.infer<typeof FormSchema>, string[]>,
     };
   }
 
@@ -59,7 +60,14 @@ export async function sendContactEmail(formData: z.infer<typeof FormSchema>, tok
 
     const userEmailRes = await sendEmail(userMailOptions);
     // console.log("Admin", adminMailRes);
-    // console.log('User', userEmailRes);
+    console.log('User', userEmailRes);
+    if (!userEmailRes) {
+      return {
+        success: false,
+        message: 'Something went wrong. Please try again later.',
+      };
+    }
+
     return {
       success: true,
       message: 'Your message has been sent successfully!',
