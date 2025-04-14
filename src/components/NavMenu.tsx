@@ -52,28 +52,28 @@ export default function NavMenu({ setIsMenuVisible }: { setIsMenuVisible: (value
       initial='hidden'
       animate='visible'
       exit={{ opacity: 0 }}
-      className='fixed inset-y-2 inset-x-3 z-[100] select-none rounded-xl bg-primary px-4 pb-20 pt-5 text-black'
+      className='fixed inset-x-3 inset-y-2 z-[100] select-none rounded-xl bg-primary px-4 pb-20 pt-5 text-black md:inset-4 md:px-7 md:pt-6'
     >
       <motion.div variants={itemsVariant} className='relative flex justify-between'>
         <Link href='/' onClick={closeNavMenu}>
-          <MyLogo className='h-[45px] w-[45px]' />
+          <MyLogo className='h-[45px] w-[45px] md:h-[60px] md:w-[60px]' />
         </Link>
 
         <button
           tabIndex={0}
           aria-label='Close navigation menu'
-          className='group relative h-[30px] w-[30px] mr-2'
+          className='group relative mr-2 h-[30px] w-[30px] md:h-[45px] md:w-[45px]'
           onClick={closeNavMenu}
         >
-          <i className='absolute top-[11px] left-0 h-2 w-7 rotate-45 bg-current transition-all duration-500 ease-out group-hover:rotate-[360deg]'></i>
-          <i className='absolute top-[11px] left-0 h-2 w-7 -rotate-45 bg-current transition-all duration-500 ease-out group-hover:rotate-[360deg]'></i>
+          <i className='absolute right-0 top-[11px] h-2 w-7 rotate-45 bg-current transition-all duration-500 ease-out group-hover:rotate-[360deg] md:top-[18px] md:w-10'></i>
+          <i className='absolute right-0 top-[11px] h-2 w-7 -rotate-45 bg-current transition-all duration-500 ease-out group-hover:rotate-[360deg] md:top-[18px] md:w-10'></i>
         </button>
       </motion.div>
-      <ul className='mt-8 sm:container'>
+      <ul className='mt-8 sm:container md:mt-10'>
         {NAVLINKS.map((item, index) => (
           <motion.li key={index} className='leading-[1em]' variants={itemsVariant}>
             <Link
-              className='block border-b border-black py-4 text-3xl font-normal uppercase leading-[0.9em] xl:text-9xl'
+              className='block border-b border-black py-4 text-3xl font-normal uppercase leading-[0.9em] md:text-4xl xl:text-9xl'
               href={item.link}
               onClick={closeNavMenu}
             >
@@ -81,17 +81,17 @@ export default function NavMenu({ setIsMenuVisible }: { setIsMenuVisible: (value
             </Link>
           </motion.li>
         ))}
-        <motion.footer variants={itemsVariant} className="mt-6 sm:container">
-          <ul className="flex gap-5 text-3xl">
+        <motion.footer variants={itemsVariant} className='mt-6 sm:container'>
+          <ul className='flex gap-5 text-3xl'>
             {SOCIALS.map((social, index) => (
               <li key={index}>
                 <a
-                  className="text-[1.15em] hover:text-yellow"
+                  className='hover:text-yellow text-[1.15em]'
                   href={social.link}
-                  target="_blank"
-                  rel="nofollow noreferrer"
+                  target='_blank'
+                  rel='nofollow noreferrer'
                 >
-                  {<social.Logo className='w-8'/>}
+                  {<social.Logo className='w-8 md:w-10' />}
                 </a>
               </li>
             ))}
