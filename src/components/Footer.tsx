@@ -1,42 +1,8 @@
-import Linkedin from '@/components/svg/Linkedin';
-import Mail from '@/components/svg/Mail';
-import Instagram from '@/components/svg/Instagram';
-import Facebook from '@/components/svg/Facebook';
 import FooterLogo from '@/components/svg/FooterLogo';
 import { NAVLINKS, SERVICES } from '@/lib/constants';
 import Link from 'next/link';
 import { outfit, playfairDisplay } from '@/app/font';
-
-type Logo = typeof Linkedin | typeof Mail | typeof Instagram | typeof Facebook;
-
-type Socials = {
-  Logo: Logo;
-  textContent: string;
-  link: string;
-};
-
-const SOCIALS: Socials[] = [
-  {
-    Logo: Facebook,
-    textContent: 'Aljoy Alfaro Sulit',
-    link: 'https://www.facebook.com/aljoyalfarosulit',
-  },
-  {
-    Logo: Instagram,
-    textContent: '@aljoyalfs',
-    link: 'https://www.instagram.com/aljoyalfs',
-  },
-  {
-    Logo: Linkedin,
-    textContent: 'Aljoy Alfaro Sulit',
-    link: 'https://www.linkedin.com/in/aljoysulit',
-  },
-  {
-    Logo: Mail,
-    textContent: 'aljoysulit@gmail.com',
-    link: 'mailto:aljoysulit@gmail.com',
-  },
-];
+import { SOCIALS } from '@/lib/constants';
 
 export default function Footer() {
   return (
