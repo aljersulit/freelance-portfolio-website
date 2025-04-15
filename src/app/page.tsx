@@ -1,5 +1,4 @@
 import Hero from '@/components/Hero';
-import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
 import Works from '@/components/Works';
 import Services from '@/components/Services';
@@ -12,10 +11,9 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
-        <Banner />
+        {/* <Banner />
         <div className='rounded-[3.3rem] bg-secondary'>
           <Works />
           <Services />
@@ -23,9 +21,9 @@ export default function Home() {
         </div>
         <Tools />
         <Testimonials />
-        <ContactSection />
+        <ContactSection /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
