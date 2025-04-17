@@ -32,28 +32,42 @@ const WORKS = [
 
 export default function Works() {
   return (
-    <section id='works' className='px-20 py-24'>
-      <header className='mb-6'>
-        <h2 className={`${roboto.className} text-6xl uppercase text-secondary-foreground`}>Featured Works</h2>
+    <section id='works' className='px-[20px] py-[26px] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'>
+      <header className='lg:mb-6'>
+        <h2 className={`${roboto.className} text-lg uppercase text-secondary-foreground md:text-4xl lg:text-6xl`}>
+          Featured Works
+        </h2>
       </header>
       {WORKS.map((work, i) => (
-        <article key={i} className='flex justify-center gap-[108px] border-t-2 border-t-stone-300 py-20'>
-          <div className='w-[543px]'>
-            <h3 className={`${playfairDisplay.className} mb-3 mt-10 text-[38px] uppercase`}>{work.projectName}</h3>
-            <ul className='flex gap-[6px]'>
+        <article
+          key={i}
+          className='flex justify-center gap-[70px] border-t border-t-stone-300 py-[29px] md:py-[60px] lg:border-t-2 lg:py-[80px]'
+        >
+          <div className='w-full lg:flex-1'>
+            <div className='w-full lg:hidden'>
+              <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
+            </div>
+            <h3
+              className={`${playfairDisplay.className} my-[15px] text-sm uppercase md:my-[25px] md:text-3xl lg:mt-[40px] lg:text-[2.1875rem]`}
+            >
+              {work.projectName}
+            </h3>
+            <ul className='flex flex-wrap gap-[6px]'>
               {work.utilizedSkills.map((skill, i) => (
                 <li
                   key={skill + i}
-                  className={`${roboto.className} rounded-full bg-list px-[14px] py-[9px] text-xs text-primary-foreground`}
+                  className={`${roboto.className} rounded-full bg-list px-[11px] py-[7px] text-[0.6rem] text-primary-foreground md:text-base lg:px-[14px] lg:py-[9px] lg:text-xs`}
                 >
                   {skill}
                 </li>
               ))}
             </ul>
-            <p className='mt-9 w-[542px] text-wrap text-lg text-muted-foreground'>{work.description}</p>
+            <p className='mt-[15px] w-full text-wrap text-sm/tight text-muted-foreground md:mt-[25px] md:text-xl md:leading-snug lg:mt-[40px] lg:text-pretty lg:text-lg'>
+              {work.description}
+            </p>
             <a
               href={work.href}
-              className='mt-9 block w-max cursor-dot rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground transition-colors hover:bg-accent'
+              className='mt-[15px] block w-max cursor-dot rounded-md bg-primary px-8 py-[6px] text-xs text-primary-foreground transition-colors hover:bg-accent md:mt-[25px] md:px-[55px] md:py-2 md:text-2xl lg:mt-[40px] lg:rounded-xl lg:px-[35px]'
               target='_blank'
               rel='noopener noreferrer'
               aria-label={`Visit the ${work.href}`}
@@ -61,8 +75,13 @@ export default function Works() {
               View More
             </a>
           </div>
-          <div className='w-[630px]'>
-            <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
+          <div className='hidden w-[630px] lg:flex lg:flex-1 lg:justify-center'>
+            <Image
+              src={work.previewPhoto}
+              alt={`${work.projectName} sample preview`}
+              className='object-cover'
+              placeholder='blur'
+            />
           </div>
         </article>
       ))}

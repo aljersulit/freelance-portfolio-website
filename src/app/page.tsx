@@ -13,13 +13,13 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        {/* <Banner />
-        <div className='rounded-[3.3rem] bg-secondary'>
+        <Banner />
+        <div className='rounded-3xl bg-secondary md:rounded-[3.3rem]'>
           <Works />
-          <Services />
-          <About />
+          {/* <Services />
+          <About /> */}
         </div>
-        <Tools />
+        {/* <Tools />
         <Testimonials />
         <ContactSection /> */}
       </main>
