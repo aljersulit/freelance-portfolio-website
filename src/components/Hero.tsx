@@ -12,7 +12,7 @@ export default function Hero() {
         style={{ backgroundPosition: 'left top, bottom right' }}
         className='relative flex w-full flex-col-reverse items-center justify-between gap-3 bg-[url(/yellow_gradient_mobile.png),url(/purple_gradient.png)] bg-no-repeat px-[21px] pt-[70px] lg:mt-[75px] lg:flex-row lg:items-stretch lg:justify-center lg:gap-0 lg:bg-[url(/yellow_gradient.png),url(/purple_gradient.png)] lg:px-0 lg:pt-0 xl:mt-[96px]'
       >
-        <div className='max-h-[550px] min-h-[222px] flex-1 pb-[24px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
+        <div className='max-h-[550px] min-h-[200px] flex-1 pb-[24px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
           <Image
             src='/hero_profile.png'
             alt='My profile photo'
@@ -28,16 +28,16 @@ export default function Hero() {
             Hi, I&apos;m Aljoy!
           </h2>
           <h1
-            className={`${roboto.className} mb-[15px] text-[1.7rem] font-bold leading-[1.1] lg:mb-[36px] lg:text-balance lg:text-6xl lg:font-semibold`}
+            className={`${roboto.className} mb-[15px] text-[1.7rem] font-bold leading-[1.1] min-[375px]:text-3xl min-[425px]:text-4xl lg:mb-[36px] lg:text-balance lg:text-6xl lg:font-semibold`}
           >
             Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
           </h1>
-          <p className='mb-[15px] text-[0.625rem] text-muted-foreground lg:mb-[44px] lg:text-xl'>
+          <p className='mb-[15px] text-[0.625rem] text-muted-foreground min-[375px]:text-sm lg:mb-[44px] lg:text-xl'>
             Elevating your brand with strategic marketing and stunning visuals.
           </p>
           <Link
             href='/#services'
-            className='block w-max cursor-dot rounded-sm bg-primary px-7 py-[0.4rem] text-xs font-medium text-primary-foreground transition-colors hover:bg-accent lg:rounded-xl lg:px-8 lg:py-2 lg:text-2xl lg:font-normal'
+            className='block w-max cursor-dot rounded-sm bg-primary px-7 py-[0.4rem] text-xs font-medium text-primary-foreground transition-colors hover:bg-accent min-[375px]:text-sm lg:rounded-xl lg:px-8 lg:py-2 lg:text-2xl lg:font-normal'
           >
             Learn More
           </Link>
