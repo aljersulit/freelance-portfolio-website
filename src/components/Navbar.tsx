@@ -80,7 +80,7 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={cn(
-          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-6 text-secondary-foreground transition-all duration-700 ease-out md:h-[58px] lg:h-[75px] xl:h-[96px]',
+          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-[21px] text-secondary-foreground transition-all duration-700 ease-out md:h-[58px] md:px-[28px] lg:h-[75px] xl:h-[96px]',
           !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
         )}
       >
