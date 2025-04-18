@@ -34,21 +34,23 @@ export default function Works() {
   return (
     <section id='works' className='px-[20px] py-[26px] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'>
       <header className='lg:mb-6'>
-        <h2 className={`${roboto.className} text-lg uppercase text-secondary-foreground md:text-4xl lg:text-6xl`}>
+        <h2
+          className={`${roboto.className} text-lg uppercase text-secondary-foreground md:text-4xl lg:text-6xl lg:font-medium 2xl:text-7xl`}
+        >
           Featured Works
         </h2>
       </header>
       {WORKS.map((work, i) => (
         <article
           key={i}
-          className='flex justify-center gap-[70px] border-t border-t-stone-300 py-[29px] md:py-[60px] lg:border-t-2 lg:py-[80px]'
+          className='flex justify-center gap-[50px] border-t border-t-stone-300 py-[29px] md:py-[60px] lg:border-t-2 lg:py-[80px] 2xl:gap-[70px]'
         >
-          <div className='w-full lg:flex-1'>
+          <div className='w-full space-y-4 md:space-y-5 lg:flex-1 xl:space-y-6'>
             <div className='w-full lg:hidden'>
               <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
             </div>
             <h3
-              className={`${playfairDisplay.className} my-[15px] text-sm uppercase md:my-[25px] md:text-3xl lg:mt-[40px] lg:text-[2.1875rem]`}
+              className={`${playfairDisplay.className} text-sm uppercase md:text-3xl lg:text-[2.1875rem] 2xl:text-5xl`}
             >
               {work.projectName}
             </h3>
@@ -56,18 +58,18 @@ export default function Works() {
               {work.utilizedSkills.map((skill, i) => (
                 <li
                   key={skill + i}
-                  className={`${roboto.className} rounded-full bg-list px-[11px] py-[7px] text-[0.6rem] text-primary-foreground md:text-base lg:px-[14px] lg:py-[9px] lg:text-xs`}
+                  className={`${roboto.className} rounded-full bg-list px-[11px] py-[7px] text-[0.6rem] text-primary-foreground md:text-base lg:px-[14px] lg:py-[9px] lg:text-xs xl:text-base 2xl:text-lg`}
                 >
                   {skill}
                 </li>
               ))}
             </ul>
-            <p className='mt-[15px] w-full text-wrap text-sm/tight text-muted-foreground md:mt-[25px] md:text-xl md:leading-snug lg:mt-[40px] lg:text-pretty lg:text-lg'>
+            <p className='w-full text-wrap text-sm/tight text-muted-foreground md:text-xl md:leading-snug lg:text-pretty lg:text-base/snug xl:text-xl'>
               {work.description}
             </p>
             <a
               href={work.href}
-              className='mt-[15px] block w-max cursor-dot rounded-md bg-primary px-8 py-[6px] text-xs text-primary-foreground transition-colors hover:bg-accent md:mt-[25px] md:px-[55px] md:py-2 md:text-2xl lg:mt-[40px] lg:rounded-xl lg:px-[35px]'
+              className='block w-max cursor-dot rounded-md bg-primary px-8 py-[6px] text-xs text-primary-foreground transition-colors hover:bg-accent md:px-[55px] md:py-2 md:text-2xl lg:px-[35px] lg:py-1 lg:text-lg xl:rounded-xl'
               target='_blank'
               rel='noopener noreferrer'
               aria-label={`Visit the ${work.href}`}
