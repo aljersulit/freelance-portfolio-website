@@ -80,14 +80,14 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={cn(
-          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-[21px] text-secondary-foreground transition-all duration-700 ease-out md:h-[58px] md:px-[28px] lg:h-[75px] xl:h-[96px]',
+          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-[21px] text-secondary-foreground transition-all duration-700 ease-out md:h-[58px] md:px-[28px] lg:h-[75px] xl:h-[96px] 2xl:h-[125px]',
           !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
         )}
       >
-        <Link href='/' className='font-outfit text-xs font-bold uppercase tracking-widest md:text-xl'>
+        <Link href='/' className='font-outfit text-xs font-bold uppercase tracking-widest md:text-xl 2xl:text-3xl'>
           AljoyDigital.
         </Link>
-        <ul className='font-workSans hidden pr-12 text-lg font-medium lg:flex'>
+        <ul className='font-workSans hidden pr-12 text-lg font-medium lg:flex 2xl:text-2xl'>
           {NAVLINKS.map((nav, i) => {
             return (
               <li
