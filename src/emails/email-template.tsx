@@ -20,6 +20,8 @@ import EmailTemplateIcon from '@/components/svg/EmailTemplateIcon';
 import EmailLinkedin from '@/components/svg/EmailLinkedin';
 import EmailInstagram from '@/components/svg/EmailInstagram';
 import EmailFacebook from '@/components/svg/EmailFacebook';
+import EmailContactIcon from '@/components/svg/EmailContactIcon';
+import EmailMailIcon from '@/components/svg/EmailMailIcon';
 interface EmailTemplateProps {
   fullName: string;
   company?: string;
@@ -118,6 +120,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ fullName
                   padding: '13px 36px',
                   margin: '23px auto 0px auto',
                 }}
+                href='#'
                 className='block w-fit rounded-md border border-solid border-foreground text-[18px] font-semibold text-secondary-foreground'
               >
                 Explore More
@@ -141,7 +144,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ fullName
             <Row>
               <div className='flex flex-wrap justify-center gap-[37px]'>
                 <div className=''>
-                  <Img alt='My profile photo' height='136px' src='/static/profile.png' className='mx-auto' />
+                  <Img alt='My profile photo' height='120px' src='/static/profile.png' className='mx-auto' />
                   <Link
                     href='https://www.aljoydigital.com/'
                     className='block text-center text-[14px] font-semibold leading-[1.1] text-gray-900 underline'
@@ -158,17 +161,32 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ fullName
                   </div>
                 </div>
                 <div className='max-w-[320px]'>
-                  <Heading as='h2' className='m-0 text-[37px] font-semibold'>
+                  <Heading as='h2' className='m-0 text-[37px] font-semibold text-secondary-foreground'>
                     Aljoy Alfaro Sulit
                   </Heading>
-                  <Text className='text-[15px]'>Digital Marketing Strategist | Graphic Designer</Text>
-                  <Hr className='my-[16px] border-t-[4px] border-gray-500' />
+                  <Text
+                    className='text-[15px]'
+                    style={{
+                      margin: '6px 0px',
+                    }}
+                  >
+                    Digital Marketing Strategist | Graphic Designer
+                  </Text>
+                  <Hr className='my-[10px] border-t-[4px] border-gray-500' />
                   <div>
-                    <Link href='tel:+639760694712' className='block text-[15px] leading-[1.7] text-inherit'>
-                      +63 976 069 4712
+                    <Link
+                      href='tel:+639760694712'
+                      className='flex h-[24px] items-center gap-[8px] text-[15px] leading-[1.7] text-inherit'
+                    >
+                      <EmailContactIcon className='h-[18px]' />
+                      <span className='leading-none'>+63 976 069 4712</span>
                     </Link>
-                    <Link href='mailto:aljoysulit@gmail.com' className='block text-[15px] leading-[1.7] text-inherit'>
-                      aljoysulit@gmail.com
+                    <Link
+                      href='mailto:aljoysulit@gmail.com'
+                      className='flex h-[24px] items-center gap-[8px] text-[15px] leading-[1.7] text-inherit'
+                    >
+                      <EmailMailIcon className='h-[18px]' />
+                      <span className='leading-none'>aljoysulit@gmail.com</span>
                     </Link>
                   </div>
                 </div>
