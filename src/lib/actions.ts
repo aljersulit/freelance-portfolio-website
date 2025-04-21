@@ -4,6 +4,7 @@ import { verifyCaptchaToken } from '@/lib/captcha';
 import { z } from 'zod';
 import { FormSchema } from '@/lib/schema';
 import EmailTemplate from '@/emails/email-template';
+import AdminNotificationEmail from '@/emails/admin-notification-email';
 import { render } from '@react-email/components';
 
 type ContactFormResponse = {
@@ -28,28 +29,35 @@ export async function sendContactEmail(
 
   const { firstname, lastname, email, message } = validatedFields.data;
 
-  // const adminMailOptions = {
-  // 	from: process.env.GMAIL_USER,
-  // 	to: process.env.ADMIN_EMAIL,
-  // 	subject: `Portfolio Contact Form Submission from ${name}`,
-  // 	text: `Name: ${name}\nCompany: ${
-  // 		company || "N/A"
-  // 	}\nEmail: ${email}\nMessage: ${message}`,
-  // 	html: `<p><strong>Name:</strong> ${name}</p><p><strong>Company:</strong> ${
-  // 		company || "N/A"
-  // 	}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
-  // };
-
   try {
-    const emailHtml = await render(EmailTemplate({}));
+    const adminEmailHtml = await render(
+      AdminNotificationEmail({
+        firstname,
+        lastname,
+        email,
+        message,
+      }),
+    );
+
+    const emailHtml = await render(
+      EmailTemplate({
+        firstname,
+      }),
+    );
+
+    const adminMailOptions = {
+      from: `AljoyDigital <${process.env.GMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: `Portfolio Contact Form Submission from ${firstname} ${lastname}`,
+      html: adminEmailHtml,
+    };
 
     const userMailOptions = {
       from: `AljoyDigital <${process.env.GMAIL_USER}>`,
       to: email,
-      subject: 'Thank you for contacting me!',
+      subject: `Hello ${firstname}! Thank you for contacting me.`,
       html: emailHtml,
     };
-    // const adminMailRes = await sendEmail(adminMailOptions);
     const captchaResponse = await verifyCaptchaToken(token);
 
     if (!captchaResponse.success) {
@@ -60,9 +68,9 @@ export async function sendContactEmail(
       };
     }
 
-    const userEmailRes = await sendEmail(userMailOptions);
-    // console.log("Admin", adminMailRes);
-    console.log('User', userEmailRes);
+    const adminMailRes = await sendEmail(adminMailOptions);
+    const userEmailRes = !!adminMailRes && (await sendEmail(userMailOptions));
+
     if (!userEmailRes) {
       return {
         success: false,

@@ -21,10 +21,10 @@ import EmailFacebook from '@/components/svg/EmailFacebook';
 import EmailContactIcon from '@/components/svg/EmailContactIcon';
 import EmailMailIcon from '@/components/svg/EmailMailIcon';
 interface EmailTemplateProps {
-  firstName?: string;
+  firstname?: string;
 }
 
-export default function EmailTemplate({ firstName = 'Test Name' }: EmailTemplateProps) {
+export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplateProps) {
   const environment = process.env.NODE_ENV;
   return (
     <Html lang='en'>
@@ -76,7 +76,7 @@ export default function EmailTemplate({ firstName = 'Test Name' }: EmailTemplate
               <Heading as='h1' className='text-[46px] text-secondary-foreground'>
                 Thanks for reaching out!
               </Heading>
-              <Text className='text-[23px] font-semibold'>Hi {firstName},</Text>
+              <Text className='text-[23px] font-semibold'>Hi {firstname},</Text>
               <Text
                 className='text-[20px]'
                 style={{
