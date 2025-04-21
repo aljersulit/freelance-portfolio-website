@@ -3,6 +3,8 @@ import { sendEmail } from '@/lib/nodemailer';
 import { verifyCaptchaToken } from '@/lib/captcha';
 import { z } from 'zod';
 import { FormSchema } from '@/lib/schema';
+import EmailTemplate from '@/emails/email-template';
+import { render } from '@react-email/components';
 
 type ContactFormResponse = {
   success: boolean;
@@ -38,15 +40,15 @@ export async function sendContactEmail(
   // 	}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
   // };
 
-  const userMailOptions = {
-    from: `AljoyDigital <${process.env.GMAIL_USER}>`,
-    to: email,
-    subject: 'Thank you for contacting me!',
-    text: `Dear ${firstname} ${lastname},\n\nThank you for reaching out. I have received your message and will get back to you as soon as possible.\n\nYour Message:\n${message}`,
-    html: `<p>Dear ${firstname} ${lastname},</p><p>Thank you for reaching out. I have received your message and will get back to you as soon as possible.</p><p><strong>Your Message:</strong><br>${message}</p>`,
-  };
-
   try {
+    const emailHtml = await render(EmailTemplate({}));
+
+    const userMailOptions = {
+      from: `AljoyDigital <${process.env.GMAIL_USER}>`,
+      to: email,
+      subject: 'Thank you for contacting me!',
+      html: emailHtml,
+    };
     // const adminMailRes = await sendEmail(adminMailOptions);
     const captchaResponse = await verifyCaptchaToken(token);
 
