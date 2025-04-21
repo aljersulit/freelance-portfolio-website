@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={`${workSans.className} antialiased`}>
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
         <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} />
         <Toaster richColors />
         <Analytics />

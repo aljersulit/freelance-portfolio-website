@@ -16,7 +16,7 @@ export default function Home() {
         <div className='rounded-3xl bg-secondary md:rounded-[3.3rem]'>
           <Works />
           <Services />
-          {/* <About /> */}
+          <About />
         </div>
         {/* <Tools /> */}
         {/* <Testimonials /> */}
