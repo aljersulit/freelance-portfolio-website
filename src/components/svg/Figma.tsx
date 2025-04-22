@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Figma() {
+export default function Figma(props: { className?: string }) {
   return (
-    <svg width='95' height='45' viewBox='0 0 95 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='95' height='45' viewBox='0 0 95 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         d='M7.52329 45.0005C11.6714 45.0005 15.0388 41.6413 15.0388 37.5032V30.0059H7.52329C3.37519 30.0059 0.0078125 33.3651 0.0078125 37.5032C0.0078125 41.6413 3.37519 45.0005 7.52329 45.0005Z'
         fill='#3A3C5B'

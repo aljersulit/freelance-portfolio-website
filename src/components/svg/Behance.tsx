@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Behance() {
+export default function Behance(props: { className?: string }) {
   return (
-    <svg width='162' height='30' viewBox='0 0 162 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='162' height='30' viewBox='0 0 162 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         fillRule='evenodd'
         clipRule='evenodd'

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Buffer() {
+export default function Buffer(props: { className?: string }) {
   return (
-    <svg width='121' height='30' viewBox='0 0 121 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='121' height='30' viewBox='0 0 121 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
