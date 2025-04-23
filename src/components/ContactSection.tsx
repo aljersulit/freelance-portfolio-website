@@ -8,7 +8,7 @@ export default function ContactSection() {
     <section className='pt-[35px] sm:pt-[70px] lg:py-[100px] xl:py-[180px]'>
       <header className='mx-[20px] rounded-xl border-2 border-primary bg-accent-foreground py-[20px] sm:mx-[100px] lg:mx-[120px] lg:py-[50px] xl:mx-auto xl:w-[1105px] xl:rounded-3xl xl:py-[78px]'>
         <h2
-          className={`${playfairDisplay.className} text-balance text-center text-2xl font-normal leading-[1.3] md:text-4xl xl:text-[3.375rem]`}
+          className={`${playfairDisplay.className} text-balance text-center text-2xl font-normal leading-[1.3] md:text-4xl xl:text-[3.375rem] xl:leading-snug`}
         >
           Let&apos;s turn your digital presence into your biggest asset!
         </h2>
