@@ -47,10 +47,10 @@ export const WobbleCard = ({
         transform,
         transition: 'transform 0.1s ease-out',
       }}
-      className={cn('relative overflow-hidden rounded-2xl', containerClassName)}
+      className={cn('relative overflow-hidden', containerClassName)}
     >
       <div
-        className='relative h-full overflow-hidden bg-gradient-to-b from-black/5 to-black/40 px-6 py-[38px] sm:mx-0 sm:rounded-2xl'
+        className='relative h-full overflow-hidden bg-gradient-to-b from-black/5 to-black/40 sm:mx-0'
         //[background-image:radial-gradient(88%_100%_at_top,rgba(255,255,255,0.5),rgba(255,255,255,0))]
         style={{
           boxShadow:
@@ -62,7 +62,7 @@ export const WobbleCard = ({
             transform: negativeTransform,
             transition: 'transform 0.1s ease-out',
           }}
-          className={cn('h-full', className)}
+          className={cn('h-full px-6 py-[38px]', className)}
         >
           {/* <Noise /> */}
           {children}

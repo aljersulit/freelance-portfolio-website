@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Pinterest() {
+export default function Pinterest(props: { className?: string }) {
   return (
-    <svg width='126' height='30' viewBox='0 0 126 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='126' height='30' viewBox='0 0 126 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path d='M49.4229 10.7109H53.3959V23.1904H49.4229V10.7109Z' fill='#3A3C5B' />
       <path
         d='M54.2256 10.7103H58.0524V12.4164H58.1253C59.0517 11.0758 60.2459 10.3447 61.9766 10.3447C64.7064 10.3447 66.3151 12.2946 66.3151 15.0732V23.1897H62.3421V15.8776C62.3421 14.5613 61.6841 13.6594 60.3922 13.6594C59.0761 13.6594 58.1985 14.7564 58.1985 16.2919V23.1897H54.2256V10.7103Z'

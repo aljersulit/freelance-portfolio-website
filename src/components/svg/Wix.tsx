@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Wix() {
+export default function Wix(props: { className?: string }) {
   return (
-    <svg width='77' height='30' viewBox='0 0 77 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='77' height='30' viewBox='0 0 77 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         d='M44.0701 0.56888C42.5846 1.31342 41.9409 2.70324 41.9409 6.4756C41.9409 6.4756 42.6837 5.73106 43.8721 5.28433C44.7386 4.96169 45.3576 4.53978 45.8032 4.21715C47.0907 3.24924 47.2887 2.08279 47.2887 0.0476984C47.264 0.0476984 45.2338 -0.0763924 44.0701 0.56888Z'
         fill='#3A3C5B'

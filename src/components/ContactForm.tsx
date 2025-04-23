@@ -70,18 +70,18 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='w-[779px] rounded-2xl bg-form px-[32px] py-[38px] text-secondary-foreground'
+        className='rounded-sm bg-form px-[32px] pb-[38px] pt-[14px] text-secondary-foreground md:rounded-xl lg:py-[28px] xl:w-[779px] xl:rounded-2xl xl:py-[38px]'
       >
-        <div className='flex gap-3'>
+        <div className='flex gap-3 max-sm:flex-col'>
           <FormField
             control={form.control}
             name='firstname'
             render={({ field }) => (
               <FormItem className='flex-1'>
-                <FormLabel className={`${roboto.className} text-base font-medium`}>First Name</FormLabel>
+                <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>First Name</FormLabel>
                 <FormControl>
                   <Input
-                    className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                    className='rounded-sm bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-8 lg:rounded-md lg:text-lg xl:h-12 xl:rounded-md'
                     {...field}
                   />
                 </FormControl>
@@ -94,10 +94,10 @@ export default function ContactForm() {
             name='lastname'
             render={({ field }) => (
               <FormItem className='flex-1'>
-                <FormLabel className={`${roboto.className} text-base font-medium`}>Last Name</FormLabel>
+                <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>Last Name</FormLabel>
                 <FormControl>
                   <Input
-                    className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                    className='rounded-sm bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-8 lg:rounded-md lg:text-lg xl:h-12 xl:rounded-md'
                     {...field}
                   />
                 </FormControl>
@@ -111,10 +111,10 @@ export default function ContactForm() {
           name='email'
           render={({ field }) => (
             <FormItem className='mt-5'>
-              <FormLabel className={`${roboto.className} text-base font-medium`}>Email</FormLabel>
+              <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>Email</FormLabel>
               <FormControl>
                 <Input
-                  className='rounded-md bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'
+                  className='rounded-sm bg-input transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-8 lg:rounded-md lg:text-lg xl:h-12 xl:rounded-md'
                   {...field}
                 />
               </FormControl>
@@ -127,10 +127,12 @@ export default function ContactForm() {
           name='service'
           render={({ field }) => (
             <FormItem className='mt-5'>
-              <FormLabel className={`${roboto.className} text-base font-medium`}>I&apos;m interested in...</FormLabel>
+              <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>
+                I&apos;m interested in...
+              </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className='rounded-md bg-input transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-12 lg:text-lg'>
+                  <SelectTrigger className='rounded-sm bg-input transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-8 lg:rounded-md lg:text-lg xl:h-12 xl:rounded-md'>
                     <SelectValue />
                   </SelectTrigger>
                 </FormControl>
@@ -151,10 +153,10 @@ export default function ContactForm() {
           name='message'
           render={({ field }) => (
             <FormItem className='mt-5'>
-              <FormLabel className={`${roboto.className} text-base font-medium`}>Message</FormLabel>
+              <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  className='mt-3 h-[117px] resize-none rounded-md bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary'
+                  className='mt-3 h-[117px] resize-none rounded-sm bg-input px-2 py-1 text-lg transition focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary xl:rounded-md'
                   {...field}
                 />
               </FormControl>
@@ -162,7 +164,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <p className={`${roboto.className} my-5 text-base font-medium`}>
+        <p className={`${roboto.className} my-5 text-sm font-normal xl:text-base xl:font-medium`}>
           This site is protected by reCAPTCHA and{' '}
           <a href='https://www.google.com/intl/en/policies/privacy/' target='_blank' className='text-[#1677F0]'>
             Google&apos;s Privacy Policy
@@ -176,7 +178,7 @@ export default function ContactForm() {
         <Button
           type='submit'
           disabled={isSubmitting}
-          className={`${roboto.className} w-full cursor-dot rounded-full bg-[#3A3C5B] py-4 text-base font-bold uppercase text-primary-foreground hover:bg-accent disabled:cursor-not-allowed`}
+          className={`${roboto.className} w-full cursor-dot rounded-full bg-secondary-foreground py-2 text-sm font-bold uppercase text-primary-foreground hover:bg-accent disabled:cursor-not-allowed xl:py-4 xl:text-base`}
         >
           {isSubmitting ? 'Sending...' : 'Send'}
         </Button>

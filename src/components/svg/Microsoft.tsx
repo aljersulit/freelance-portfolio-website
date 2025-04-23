@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Microsoft() {
+export default function Microsoft(props: { className?: string }) {
   return (
-    <svg width='141' height='30' viewBox='0 0 141 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='141' height='30' viewBox='0 0 141 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         d='M15.803 30.0002C15.803 29.5424 15.7975 29.0846 15.7975 28.6268C15.7975 24.4349 15.7975 20.243 15.792 16.0511C15.792 15.8194 15.8306 15.7422 16.0898 15.7422C20.6569 15.7532 25.2239 15.7532 29.7854 15.7422C30.0391 15.7422 30.0832 15.8194 30.0832 16.0511C30.0777 20.5905 30.0777 25.1299 30.0777 29.6693C30.0777 29.7796 30.0832 29.8899 30.0832 30.0002C25.3231 30.0002 20.5631 30.0002 15.803 30.0002Z'
         fill='#3A3C5B'

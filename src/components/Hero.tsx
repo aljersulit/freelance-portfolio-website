@@ -8,35 +8,44 @@ import { playfairDisplay, roboto } from '@/app/font';
 export default function Hero() {
   return (
     <section id='home' className='relative flex h-dvh'>
-      <div className='mt-24 flex w-full justify-center bg-[url(/yellow_gradient.png),url(/purple_gradient.png)] bg-[position:var(--hero-gradient-positions)] bg-no-repeat'>
-        <div className='pb-[3.7rem] pt-20'>
+      <div className='@container relative flex w-full flex-col-reverse items-center justify-between gap-3 px-[21px] pt-[70px] md:px-[28px] md:pt-[90px] lg:mt-[75px] lg:flex-row lg:items-stretch lg:justify-center lg:gap-0 lg:px-0 lg:pt-0 xl:mt-[96px] 2xl:mt-[125px]'>
+        <div className='max-h-[550px] min-h-[200px] flex-1 pb-[24px] md:max-h-[750px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
           <Image
             src='/hero_profile.png'
             alt='My profile photo'
             priority
             width={463}
             height={648}
-            className='relative z-10 h-full w-full rounded-sm object-cover'
+            className='relative z-10 h-full w-full rounded-sm object-cover md:-translate-x-3 lg:translate-x-0'
           />
         </div>
 
-        <header className='flex w-[762px] flex-col justify-center'>
-          <h2 className={`${playfairDisplay.className} playfairDisplay mb-2 text-3xl`}>Hi, I&apos;m Aljoy!</h2>
-          <h1 className={`${roboto.className} mb-9 text-balance text-6xl`}>
+        <header className='flex flex-col justify-center lg:w-[500px] xl:w-[762px] 2xl:w-[1200px]'>
+          <h2
+            className={`${playfairDisplay.className} playfairDisplay mb-2 hidden text-3xl lg:block 2xl:mb-6 2xl:text-6xl`}
+          >
+            Hi, I&apos;m Aljoy!
+          </h2>
+          <h1
+            className={`${roboto.className} mb-4 text-[1.7rem] font-bold leading-[1.1] min-[375px]:text-3xl min-[425px]:text-4xl md:mb-6 md:text-5xl lg:mb-8 lg:text-balance lg:text-6xl lg:font-semibold 2xl:mb-9 2xl:text-8xl`}
+          >
             Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
           </h1>
-          <p className='mb-11 pr-20 text-xl text-muted-foreground'>
+          <p className='mb-4 text-[0.625rem] text-muted-foreground min-[375px]:text-sm md:mb-6 md:text-xl lg:mb-11 lg:text-xl 2xl:mb-8 2xl:text-4xl'>
             Elevating your brand with strategic marketing and stunning visuals.
           </p>
           <Link
             href='/#services'
-            className='block w-max cursor-dot rounded-xl bg-primary px-8 py-2 text-2xl text-primary-foreground transition-colors hover:bg-accent'
+            className='block w-max cursor-dot rounded-sm bg-primary px-7 py-[0.4rem] text-xs font-medium text-primary-foreground transition-colors hover:bg-accent min-[375px]:text-sm md:rounded-lg md:text-lg lg:rounded-xl lg:px-8 lg:py-2 lg:text-2xl lg:font-normal 2xl:rounded-2xl 2xl:px-16 2xl:py-4 2xl:text-4xl'
           >
             Learn More
           </Link>
         </header>
+        <YellowGradient />
+        <PurpleGradient />
+        <OverlayBackgroundText />
+        <OverlayBackgroundImg />
       </div>
-      <OverlayBackgroundImg />
       <MarqueeSlidingLink />
     </section>
   );
@@ -51,7 +60,7 @@ function MarqueeSlidingLink() {
   ];
 
   return (
-    <div className='absolute bottom-0 left-0 right-0 flex h-[3.7rem] items-center bg-foreground text-2xl text-accent-foreground'>
+    <div className='absolute bottom-0 left-0 right-0 flex items-center bg-foreground text-accent-foreground lg:h-[45px] lg:text-base xl:h-[60px] xl:text-2xl'>
       <Marquee autoFill={true} className='overflow-y-hidden'>
         {SERVICES.map((service, i) => (
           <span key={i} className='flex items-center'>
@@ -61,7 +70,7 @@ function MarqueeSlidingLink() {
             >
               {service.linkText}
             </Link>
-            <span className='mx-8 text-5xl'>•</span>
+            <span className='mx-8 lg:text-3xl xl:text-5xl'>•</span>
           </span>
         ))}
       </Marquee>
@@ -71,15 +80,35 @@ function MarqueeSlidingLink() {
 
 function OverlayBackgroundImg() {
   return (
-    <div className='absolute inset-y-0 left-0 flex items-end pb-[3.7rem] opacity-15'>
-      <Image
-        src='/hero_background_profile.png'
-        alt='My sideview photo'
-        priority
-        width={471}
-        height={727}
-        className='object-cover'
-      />
+    <div className='pointer-events-none absolute bottom-[24px] right-0 h-2/3 w-3/4 bg-[url(/hero_background_profile_flipped.png)] bg-cover bg-no-repeat opacity-20 lg:bottom-[45px] lg:left-0 lg:h-5/6 lg:w-auto lg:bg-[url(/hero_background_profile.png)] lg:bg-contain lg:bg-left-bottom lg:opacity-15 xl:bottom-[60px]' />
+  );
+}
+
+function OverlayBackgroundText() {
+  return (
+    <div
+      aria-hidden='true'
+      className={`${playfairDisplay.className} absolute mb-[33cqh] w-full -rotate-3 overflow-hidden text-nowrap text-[2.5rem] text-secondary-foreground opacity-30 md:text-7xl lg:hidden`}
+    >
+      Aljoy Digital Aljoy Digital
     </div>
+  );
+}
+
+function YellowGradient() {
+  return (
+    <div
+      aria-hidden='true'
+      className='pointer-events-none absolute left-0 top-0 h-full w-full bg-[url(/yellow_gradient_mobile.png)] bg-contain bg-no-repeat lg:w-3/4 lg:bg-[url(/yellow_gradient.png)] 2xl:w-5/6'
+    />
+  );
+}
+
+function PurpleGradient() {
+  return (
+    <div
+      aria-hidden='true'
+      className='pointer-events-none absolute bottom-0 right-0 h-full w-full bg-[url(/purple_gradient.png)] bg-contain bg-right-bottom bg-no-repeat lg:w-1/3 xl:w-1/2 2xl:w-3/4'
+    />
   );
 }

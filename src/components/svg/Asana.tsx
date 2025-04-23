@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Asana() {
+export default function Asana(props: { className?: string }) {
   return (
-    <svg width='152' height='30' viewBox='0 0 152 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='152' height='30' viewBox='0 0 152 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
