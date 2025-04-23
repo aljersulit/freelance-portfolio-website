@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Notion() {
+export default function Notion(props: { className?: string }) {
   return (
-    <svg width='130' height='45' viewBox='0 0 130 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='130' height='45' viewBox='0 0 130 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         d='M2.70751 1.94128L27.6076 0.1023C30.6662 -0.160196 31.4522 0.0168015 33.3752 1.41478L41.3237 7.01422C42.6347 7.9772 43.0712 8.2397 43.0712 9.28819V39.9973C43.0712 41.9218 42.3722 43.0603 39.9257 43.2343L11.0101 44.9848C9.17405 45.0718 8.29954 44.8093 7.33804 43.5838L1.48501 35.9729C0.435002 34.5719 0 33.5234 0 32.2979V5.00124C0 3.42776 0.699003 2.11528 2.70751 1.94128Z'
         fill='white'

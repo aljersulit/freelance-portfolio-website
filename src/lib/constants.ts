@@ -1,3 +1,8 @@
+import Linkedin from '@/components/svg/Linkedin';
+import Mail from '@/components/svg/Mail';
+import Instagram from '@/components/svg/Instagram';
+import Facebook from '@/components/svg/Facebook';
+
 export const TESTIMONIALS = [
   {
     quote:
@@ -66,5 +71,36 @@ export const SERVICES = [
   },
   {
     name: 'Video Edit',
+  },
+];
+
+type Logo = typeof Linkedin | typeof Mail | typeof Instagram | typeof Facebook;
+
+type Socials = {
+  Logo: Logo;
+  textContent: string;
+  link: string;
+};
+
+export const SOCIALS: Socials[] = [
+  {
+    Logo: Facebook,
+    textContent: 'Aljoy Alfaro Sulit',
+    link: 'https://www.facebook.com/aljoyalfarosulit',
+  },
+  {
+    Logo: Instagram,
+    textContent: '@aljoyalfs',
+    link: 'https://www.instagram.com/aljoyalfs',
+  },
+  {
+    Logo: Linkedin,
+    textContent: 'Aljoy Alfaro Sulit',
+    link: 'https://www.linkedin.com/in/aljoysulit',
+  },
+  {
+    Logo: Mail,
+    textContent: 'aljoysulit@gmail.com',
+    link: 'mailto:aljoysulit@gmail.com',
   },
 ];

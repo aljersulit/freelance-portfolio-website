@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Illustrator() {
+export default function Illustrator(props: { className?: string }) {
   return (
-    <svg width='172' height='45' viewBox='0 0 172 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg width='172' height='45' viewBox='0 0 172 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
         d='M37.9788 0H8.17265C3.65902 0 0 3.65921 0 8.17308V36.8269C0 41.3408 3.65902 45 8.17265 45H37.9788C42.4924 45 46.1515 41.3408 46.1515 36.8269V8.17308C46.1515 3.65921 42.4924 0 37.9788 0Z'
         fill='#3A3C5B'

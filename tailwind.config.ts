@@ -65,6 +65,9 @@ export default {
       cursor: {
         dot: 'url(/pointer.svg), pointer',
       },
+      screens: {
+        '3xl': '1920px',
+      },
     },
   },
   plugins: [animate, tailwindScrollbar({ preferredStrategy: 'pseudoelements' })],
