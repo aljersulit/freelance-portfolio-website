@@ -70,7 +70,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='rounded-sm bg-form px-[32px] py-[14px] text-secondary-foreground md:rounded-xl lg:py-[28px] xl:w-[779px] xl:rounded-2xl xl:py-[38px]'
+        className='rounded-sm bg-form px-[32px] pb-[38px] pt-[14px] text-secondary-foreground md:rounded-xl lg:py-[28px] xl:w-[779px] xl:rounded-2xl xl:py-[38px]'
       >
         <div className='flex gap-3 max-sm:flex-col'>
           <FormField
