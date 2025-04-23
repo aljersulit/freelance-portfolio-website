@@ -7,29 +7,31 @@ import { SOCIALS } from '@/lib/constants';
 
 export default function Footer() {
   return (
-    <footer className='relative h-[290px] bg-footer bg-[url(/footer_gradient.png)] bg-[auto_400px] bg-left-bottom bg-no-repeat px-[16px] pt-[20px] text-background md:h-[407px] md:pt-[75px]'>
-      <div className='flex flex-col justify-between max-md:h-full md:mx-auto xl:w-[1200px]'>
-        <div className='gap-[70px] border-neutral-600 max-md:border-b lg:flex'>
+    <footer className='relative h-[290px] bg-footer bg-[url(/footer_gradient.png)] bg-[auto_400px] bg-left-bottom bg-no-repeat px-[16px] pt-[20px] text-background md:h-[407px] md:pt-[75px] lg:px-[32px]'>
+      <div className='flex h-full flex-col justify-between md:mx-auto md:flex-row xl:w-[1200px] 3xl:w-[1500px]'>
+        <div className='border-neutral-600 max-md:border-b md:flex md:gap-[25px] lg:gap-[70px]'>
           <div>
-            <Link href='/' className='inline-block pr-2'>
-              <FooterLogo className='hidden md:block' />
+            <Link href='/' className='inline-block pr-2 md:block'>
+              <FooterLogo className='hidden md:block md:w-[160px] lg:w-[186px]' />
               <AljoyDigitalLogo className='relative left-[6px] md:hidden' />
             </Link>
             <ul
-              className={`${outfit.className} mt-[10px] flex w-full justify-between text-xs font-medium min-[375px]:text-sm md:mt-[30px] md:flex-col md:space-y-2 xl:text-xl`}
+              className={`${outfit.className} mt-[10px] flex w-full justify-between text-xs font-medium min-[375px]:text-sm md:mt-[30px] md:flex-col md:gap-4 lg:text-lg xl:text-xl`}
             >
               {NAVLINKS.map((nav, i) => (
                 <li key={nav.title + i}>
-                  <Link href={nav.link} className='block px-2 py-2'>
+                  <Link href={nav.link} className='block max-sm:px-2 max-sm:py-2'>
                     {nav.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div className='max-sm:hidden'>
-            <h4 className={`${outfit.className} text-xl font-bold uppercase`}>Services</h4>
-            <ul className={`${outfit.className} mt-[30px] space-y-2 text-xl font-medium leading-8`}>
+          <div className='max-sm:hidden md:pt-[2px]'>
+            <h4 className={`${outfit.className} font-bold uppercase md:text-lg lg:text-xl xl:text-xl`}>Services</h4>
+            <ul
+              className={`${outfit.className} mt-[30px] flex font-medium leading-8 md:flex-col md:gap-4 md:text-sm lg:text-lg xl:text-xl`}
+            >
               {SERVICES.map((service, i) => (
                 <li key={service.name + i}>
                   <Link href='#'>{service.name}</Link>
@@ -38,7 +40,8 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className='flex flex-col pb-[18px] md:justify-end'>
+
+        <div className='flex flex-col pb-[18px] md:justify-end lg:pb-[46px]'>
           <h3 className={`${playfairDisplay.className} text-right text-[2.6875rem] uppercase`}>Connect</h3>
           <ul className='flex flex-row justify-end gap-4'>
             {SOCIALS.map((social, i) => (
