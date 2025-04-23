@@ -68,7 +68,7 @@ export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplate
                 className='relative -left-[6px]'
               />
               <Text className='m-0 text-[17.5px]'>
-                Your Brand's Growth Partner in Digital Marketing & Creative Design
+                Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
               </Text>
             </Row>
             <Hr className='my-[16px] border-t-[4px] border-gray-500' />
