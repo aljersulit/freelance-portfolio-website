@@ -24,7 +24,7 @@ export default function Services() {
       </Vortex>
       <header className='relative z-20'>
         <h3
-          className={`${roboto.className} mx-auto text-center text-xl/none font-medium md:text-4xl lg:text-center lg:text-3xl xl:px-[140px] xl:text-4xl 2xl:px-[120px] 2xl:text-5xl min-[1900px]:text-6xl`}
+          className={`${roboto.className} mx-auto text-center text-xl/none font-medium md:text-4xl lg:text-center lg:text-3xl xl:px-[140px] xl:text-4xl 2xl:px-[120px] 2xl:text-5xl 3xl:max-w-[1780px]`}
         >
           I help businesses cut through the noise with strategic marketing, engaging content, and proven growth
           strategies.
