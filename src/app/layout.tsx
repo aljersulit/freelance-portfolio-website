@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} />
         <Toaster richColors />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
