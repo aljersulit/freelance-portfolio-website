@@ -42,7 +42,6 @@ export default function ContactForm() {
 
       if (result.success) {
         toast.success(result.message);
-
         form.reset();
       } else {
         toast.error(result.message);
@@ -130,7 +129,7 @@ export default function ContactForm() {
               <FormLabel className={`${roboto.className} text-xs font-medium md:text-base`}>
                 I&apos;m interested in...
               </FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} defaultValue={field.value} key={field.value}>
                 <FormControl>
                   <SelectTrigger className='rounded-sm bg-input transition focus:ring-transparent focus-visible:border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary lg:h-8 lg:rounded-md lg:text-lg xl:h-12 xl:rounded-md'>
                     <SelectValue />
