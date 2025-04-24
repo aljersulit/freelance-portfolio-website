@@ -27,7 +27,7 @@ export default function AdminNotificationEmail({
   email = 'johndoe123@email.com',
   message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae ipsum ac nisi finibus bibendum convallis non nisi. Nam eget bibendum magna. Ut ullamcorper leo vel malesuada mollis. Orci varius.',
 }: AdminNotificationEmailProps) {
-  const environment = process.env.NODE_ENV;
+  const baseURL = process.env.NODE_ENV === 'production' ? 'https://www.aljoydigital.com' : '/static';
   return (
     <Html lang='en'>
       <Head>
@@ -46,11 +46,7 @@ export default function AdminNotificationEmail({
         <Tailwind>
           <Container className='px-[12px]'>
             <Row>
-              <Img
-                alt='AljoyDigital Logo'
-                src={`${environment === 'production' ? 'https://www.aljoydigital.com' : '/static'}/email_top_logo.png`}
-                className='relative -left-[6px]'
-              />
+              <Img alt='AljoyDigital Logo' src={`${baseURL}/email_top_logo.png`} className='relative -left-[6px]' />
               <Text className='m-0 text-[17.5px]'>
                 Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
               </Text>
