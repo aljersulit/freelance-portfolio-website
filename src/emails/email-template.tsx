@@ -25,7 +25,7 @@ interface EmailTemplateProps {
 }
 
 export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplateProps) {
-  const environment = process.env.NODE_ENV;
+  const baseURL = process.env.NODE_ENV === 'production' ? 'https://www.aljoydigital.com' : '/static';
   return (
     <Html lang='en'>
       <Head>
@@ -62,11 +62,7 @@ export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplate
         >
           <Container className='bg-background px-[40px] py-[50px] text-foreground'>
             <Row>
-              <Img
-                alt='AljoyDigital Logo'
-                src={`${environment === 'production' ? 'https://www.aljoydigital.com' : '/static'}/email_top_logo.png`}
-                className='relative -left-[6px]'
-              />
+              <Img alt='AljoyDigital Logo' src={`${baseURL}/email_top_logo.png`} className='relative -left-[6px]' />
               <Text className='m-0 text-[17.5px]'>
                 Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
               </Text>
@@ -116,7 +112,9 @@ export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplate
                 Schedule a 30-min call
               </Button>
               <div className='mt-[46px]'>
-                <Text className='text-center text-[27px] font-medium'>Check out my creative work on Behance</Text>
+                <Text className='text-center text-[27px] font-medium leading-tight'>
+                  Check out my creative work on Behance
+                </Text>
                 <Button
                   style={{
                     padding: '13px 36px',
@@ -144,12 +142,12 @@ export default function EmailTemplate({ firstname = 'Test Name' }: EmailTemplate
               }}
             >
               <Row>
-                <div className='flex flex-wrap justify-center gap-[37px]'>
-                  <div className=''>
+                <div className='flex flex-wrap justify-center'>
+                  <div className='mb-[14px] pr-[30px]'>
                     <Img
                       alt='My profile photo'
                       height='120px'
-                      src={`${environment === 'production' ? 'https://www.aljoydigital.com' : '/static'}/email_template_profile.png`}
+                      src={`${baseURL}/email_template_profile.png`}
                       className='mx-auto'
                     />
                     <Link
