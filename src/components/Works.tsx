@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { roboto, playfairDisplay } from '@/app/font';
 import { WORKS } from '@/lib/constants';
 
-
 export default function Works() {
   return (
     <section id='works' className='px-[20px] py-[26px] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'>
