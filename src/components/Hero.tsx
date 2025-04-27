@@ -1,22 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
 import Marquee from 'react-fast-marquee';
-
 import { playfairDisplay, roboto } from '@/app/font';
+import HeroProfile from '@/assets/hero_profile.png';
 
 export default function Hero() {
   return (
-    <section id='home' className='relative flex h-dvh'>
+    <section id='home' className='relative flex h-lvh'>
       <div className='@container relative flex w-full flex-col-reverse items-center justify-between gap-3 px-[21px] pt-[70px] md:px-[28px] md:pt-[90px] lg:mt-[75px] lg:flex-row lg:items-stretch lg:justify-center lg:gap-0 lg:px-0 lg:pt-0 xl:mt-[96px] 2xl:mt-[125px]'>
-        <div className='max-h-[550px] min-h-[200px] flex-1 pb-[24px] md:max-h-[750px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
+        <div className='max-h-max min-h-[50px] flex-1 pb-[24px] md:max-h-[750px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
           <Image
-            src='/hero_profile.png'
+            src={HeroProfile}
             alt='My profile photo'
             priority
-            width={463}
-            height={648}
-            className='relative z-10 h-full w-full rounded-sm object-cover md:-translate-x-3 lg:translate-x-0'
+            className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
           />
         </div>
 
