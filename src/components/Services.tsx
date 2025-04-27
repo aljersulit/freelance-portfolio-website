@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Arrow from '@/components/svg/Arrow';
 import { roboto, robotoFlex, outfit } from '@/app/font';
 import { Vortex } from '@/components/ui/vortex';
+import PhonePC from '@/assets/phone_pc.png';
+import Laptop from '@/assets/laptop.png';
 
 export default function Services() {
   return (
@@ -31,7 +33,10 @@ export default function Services() {
         </h3>
       </header>
       <article className='mt-[50px] flex flex-col justify-center gap-8 md:mt-[70px] md:gap-12 md:px-10 lg:flex-row lg:gap-8 lg:px-0 min-[1900px]:gap-14'>
-        <div className='flex flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.22)] backdrop-blur-[1.5px] md:border-2 lg:w-[415px] lg:flex-initial min-[1900px]:w-[550px]'>
+        <Link
+          href='/works'
+          className='flex flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.22)] backdrop-blur-[1.5px] md:border-2 lg:w-[415px] lg:flex-initial min-[1900px]:w-[550px]'
+        >
           <div className='space-y-3 px-[22px] pt-[27px] md:space-y-5'>
             <h4
               className={`${outfit.className} text-xs uppercase text-[#bfbbbb] md:text-3xl lg:text-xl xl:text-base min-[1900px]:text-2xl`}
@@ -43,28 +48,27 @@ export default function Services() {
             >
               I turn social media into a powerful tool for brand growth with compelling content and smart strategies.
             </p>
-            <Link
-              href='/works'
+            <p
               className={`${robotoFlex.className} block text-sm text-primary md:text-2xl lg:text-xl min-[1900px]:text-3xl`}
             >
               How I help
               <span className='ml-2'>
                 <Arrow className='inline w-5' />
               </span>
-            </Link>
+            </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image
-              src='/phone_pc.png'
-              alt='Phone and pc preview'
-              width={513}
-              height={388}
-              className='w-10/12 object-contain'
-            />
+            <Image src={PhonePC} alt='Phone and pc preview' className='w-10/12 object-contain' />
           </div>
-        </div>
+        </Link>
 
-        <div className='flex flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.25)] backdrop-blur-[1.5px] md:border-2 lg:w-[415px] lg:flex-initial min-[1900px]:w-[570px]'>
+        <a
+          href='https://www.behance.net/alyssajoysulit'
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='Visit my works'
+          className='flex flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.25)] backdrop-blur-[1.5px] md:border-2 lg:w-[415px] lg:flex-initial min-[1900px]:w-[570px]'
+        >
           <div className='space-y-3 px-[22px] pt-[27px] md:space-y-5'>
             <h4
               className={`${outfit.className} text-xs uppercase text-[#bfbbbb] md:text-3xl lg:text-xl xl:text-base min-[1900px]:text-2xl`}
@@ -76,23 +80,19 @@ export default function Services() {
             >
               I create visually compelling designs and high-quality video edits that bring ideas to life.
             </p>
-            <a
-              href='https://www.behance.net/alyssajoysulit'
-              target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Visit my works'
+            <p
               className={`${robotoFlex.className} block text-sm text-primary md:text-2xl lg:text-xl min-[1900px]:text-3xl`}
             >
               See my work
               <span className='ml-2'>
                 <Arrow className='inline w-5' />
               </span>
-            </a>
+            </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image src='/laptop.png' alt='Laptop preview' width={484} height={358} className='w-10/12 object-contain' />
+            <Image src={Laptop} alt='Laptop preview' className='w-10/12 object-contain' />
           </div>
-        </div>
+        </a>
       </article>
     </section>
   );

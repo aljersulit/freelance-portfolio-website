@@ -12,10 +12,7 @@ export default function Banner() {
           Struggling to Stand Out in the Digital Marketing World?
         </h3>
         <div className='relative mx-auto mt-[16px] w-fit overflow-visible pb-[76px] md:mt-[40px] md:pb-[95px] lg:mt-[16px] xl:mt-[25] xl:pb-[210px] 2xl:pb-[385px]'>
-          <div
-            aria-hidden='true'
-            className='absolute left-[5px] top-[20px] h-[125px] w-[76px] bg-[url(/g550.png)] bg-contain bg-no-repeat md:left-[15px] md:top-[30px] md:h-[245px] md:w-[170px] lg:-top-[80px] lg:h-[325px] lg:w-[300px] xl:-top-[125px] xl:left-0 xl:h-[586px] xl:w-[368px] 2xl:h-[750px] 2xl:w-[555px]'
-          />
+          <div className='absolute left-[5px] top-[20px] h-[125px] w-[76px] bg-[url(/g550.png)] bg-contain bg-no-repeat md:left-[15px] md:top-[30px] md:h-[245px] md:w-[170px] lg:-top-[80px] lg:h-[325px] lg:w-[300px] xl:-top-[125px] xl:left-0 xl:h-[586px] xl:w-[368px] 2xl:h-[750px] 2xl:w-[555px]' />
           <p
             className={`${roboto.className} ml-[76px] mr-2 h-[85px] w-[166px] bg-[url(/bubble_mobile.png)] bg-contain bg-no-repeat px-[18px] pt-[0.9375rem] text-center text-[0.625rem] font-normal leading-[1.1] md:ml-[175px] md:h-[175px] md:w-[335px] md:px-[42px] md:text-xl lg:ml-[258px] lg:w-[432px] lg:text-pretty lg:bg-[url(/Union.png)] lg:text-left xl:ml-[380px] xl:mt-[45px] xl:h-[206px] xl:w-[628px] xl:px-[52px] xl:pt-8 xl:text-3xl 2xl:ml-[450px] 2xl:h-[250px] 2xl:w-[738px] 2xl:text-4xl`}
           >

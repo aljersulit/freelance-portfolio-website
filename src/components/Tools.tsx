@@ -2,56 +2,10 @@ import { robotoFlex } from '@/app/font';
 import { WobbleCard } from '@/components/ui/wobble-card';
 import Marquee from 'react-fast-marquee';
 import { cn } from '@/lib/utils';
-
 import { roboto } from '@/app/font';
-import GlobalSearch from '@/components/svg/GlobalSearch';
-import Audience from '@/components/svg/Audience';
-import BusinessStat from '@/components/svg/BusinessStat';
-
-import Meta from '@/components/svg/Meta';
-import Buffer from '@/components/svg/Buffer';
-import Asana from '@/components/svg/Asana';
-import Airtable from '@/components/svg/Airtable';
-import Mailchimp from '@/components/svg/Mailchimp';
-import Microsoft from '@/components/svg/Microsoft';
-import Google from '@/components/svg/Google';
-import Capcut from '@/components/svg/Capcut';
-import Canva from '@/components/svg/Canva';
-import Behance from '@/components/svg/Behance';
-import Photoshop from '@/components/svg/Photoshop';
-import Illustrator from '@/components/svg/Illustrator';
-import Figma from '@/components/svg/Figma';
-import Pinterest from '@/components/svg/Pinterest';
-import Wix from '@/components/svg/Wix';
-import Wordpress from '@/components/svg/Wordpress';
-import Notion from '@/components/svg/Notion';
-import Loom from '@/components/svg/Loom';
-import Slack from '@/components/svg/Slack';
-import Shopify from '@/components/svg/Shopify';
-
-const CARDS = [
-  {
-    Svg: GlobalSearch,
-    txt: 'Building a strong digital presence',
-    alt: 'Globe icon.',
-  },
-  {
-    Svg: Audience,
-    txt: 'Creating content that resonates with your audience',
-    alt: 'Audience icon.',
-  },
-  {
-    Svg: BusinessStat,
-    txt: 'Implementing strategies that drive real growth',
-    alt: 'Business stats icon',
-  },
-];
-
-const TOOLS = [Meta, Buffer, Asana, Airtable, Mailchimp, Microsoft, Google];
-const SOFTWARE = {
-  firstList: [Capcut, Canva, Behance, Photoshop, Illustrator, Figma],
-  secondList: [Pinterest, Wix, Wordpress, Notion, Loom, Slack, Shopify],
-};
+import { CARDS } from '@/lib/constants';
+import { TOOLS } from '@/lib/constants';
+import { SOFTWARE } from '@/lib/constants';
 
 export default function Tools() {
   return (
@@ -68,7 +22,7 @@ export default function Tools() {
             <li key={card.txt + i}>
               <WobbleCard
                 containerClassName='bg-primary h-full rounded-md md:rounded-xl lg:rounded-2xl 3xl:rounded-3xl'
-                className='flex h-[110px] w-[128px] flex-col p-[10px] min-[375px]:h-[118px] min-[375px]:w-[155px] md:h-[175px] md:w-[220px] md:p-[20px] xl:h-[259px] xl:w-[346px] 3xl:h-[370px] 3xl:w-[475px] 3xl:p-[48px]'
+                className='flex h-[118px] w-[128px] flex-col p-[10px] min-[375px]:h-[118px] min-[375px]:w-[155px] min-[375px]:py-[14px] md:h-[175px] md:w-[220px] md:p-[20px] xl:h-[259px] xl:w-[346px] xl:p-[34px] 3xl:h-[370px] 3xl:w-[475px] 3xl:p-[48px]'
               >
                 {<card.Svg className='mx-auto h-6 w-6 md:h-8 md:w-8 xl:h-11 xl:w-11 3xl:h-16 3xl:w-16' />}
 

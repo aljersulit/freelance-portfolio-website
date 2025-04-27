@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Portrait from '../../public/portrait_about_section.png';
-import img1list1 from '../../public/aboutme1_list1.png';
-import img1list2 from '../../public/aboutme1_list2.png';
+import Portrait from '@/assets/portrait_about_section.png';
 import { roboto } from '@/app/font';
+import { CarouselPhotos } from '@/lib/constants';
+import ImageCarousel from '@/components/ImageCarousel';
 
 export default function About() {
   return (
@@ -51,26 +51,15 @@ export default function About() {
             audience engagement. I actively appeared in some of the content and marketing materials I previously
             created, bringing a more personal approach to the company&apos;s messaging.
           </p>
-          <ul className='lg:mt-[20px] xl:mt-[38px]'>
-            <li>
-              <Image
-                src={img1list1}
-                alt='My image in the office wearing our uniform holding my laptop'
-                className='rounded-md'
-              />
-            </li>
-          </ul>
+          <ImageCarousel
+            className='lg:mt-[20px] xl:mt-[38px]'
+            imageList={CarouselPhotos.list1}
+            delay={3200}
+            opts={{ loop: true, duration: 75 }}
+          />
         </div>
         <div className='mt-[18px] lg:mt-[0px] lg:w-[400px] xl:w-[542px] min-[1900px]:w-[630px]'>
-          <ul>
-            <li>
-              <Image
-                src={img1list2}
-                alt='My photo when I hosted our annual company company event'
-                className='rounded-md'
-              />
-            </li>
-          </ul>
+          <ImageCarousel imageList={CarouselPhotos.list2} delay={4600} opts={{ loop: true, duration: 75 }} />
           <p className='mt-[18px] md:mt-[22px] xl:mt-[34px]'>
             Beyond digital marketing and creative design, I also had the opportunity to host company events and branch
             openings in my previous role, further strengthening my communication and public engagement skills.

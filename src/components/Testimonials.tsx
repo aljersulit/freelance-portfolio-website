@@ -1,5 +1,6 @@
 import { roboto } from '@/app/font';
 import Image from 'next/image';
+import TestimonialPhoto from '@/assets/Ricxzy.png';
 
 export default function Testimonials() {
   return (
@@ -24,10 +25,8 @@ export default function Testimonials() {
           campaigns.”
         </p>
         <Image
-          src='/Ricxzy.png'
+          src={TestimonialPhoto}
           alt='Ricxzy Jane Nadala'
-          width={1252}
-          height={1252}
           className='mx-auto mt-[47px] w-[125px] rounded-full md:w-[160px] xl:w-[182px] 2xl:w-[290px]'
         />
         <h4 className='mt-[25px] text-center text-xl uppercase text-secondary-foreground md:max-lg:text-2xl 2xl:text-3xl'>
