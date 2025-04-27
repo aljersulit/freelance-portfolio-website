@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Google(props: { className?: string }) {
+export default function Google(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='107' height='35' viewBox='0 0 107 35' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

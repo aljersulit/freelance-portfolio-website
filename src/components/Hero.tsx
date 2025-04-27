@@ -12,6 +12,7 @@ export default function Hero() {
           <Image
             src={HeroProfile}
             alt='My profile photo'
+            placeholder='blur'
             priority
             className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
           />

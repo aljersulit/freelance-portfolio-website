@@ -1,34 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import AgribankPhPreview from '../../public/AgribankPH_Preview.png';
-import RopaMarketPreview from '../../public/Ropa_Market_Preview.png';
-import AgripayPreview from '../../public/Agripay_Preview.png';
 import { roboto, playfairDisplay } from '@/app/font';
+import { WORKS } from '@/lib/constants';
 
-const WORKS = [
-  {
-    projectName: 'Agribank Ph',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
-    description:
-      'A financial institution dedicated to empowering Filipino farmers, entrepreneurs, and individuals through accessible banking solutions.',
-    previewPhoto: AgribankPhPreview,
-    href: 'https://www.behance.net/gallery/213195203/Banking-and-Finance',
-  },
-  {
-    projectName: 'Ropa Market',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
-    description: 'A platform offering repossessed motorcycles at affordable prices with flexible financing options.',
-    previewPhoto: RopaMarketPreview,
-    href: 'https://www.behance.net/gallery/213690051/Automotive',
-  },
-  {
-    projectName: 'Agripay',
-    utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design'],
-    description: 'A digital payment platform providing innovative financial solutions for seamless transactions.',
-    previewPhoto: AgripayPreview,
-    href: 'https://www.behance.net/gallery/213693381/Social-Media-Post-Digital-Payment-Service',
-  },
-];
 
 export default function Works() {
   return (

@@ -35,7 +35,12 @@ export default function ImageCarousel({
       <CarouselContent>
         {imageList.map((imgObj, index) => (
           <CarouselItem key={index}>
-            <Image src={imgObj.image} alt={imgObj.altText} className={cn('rounded-md', imageClassName)} />
+            <Image
+              src={imgObj.image}
+              alt={imgObj.altText}
+              placeholder='blur'
+              className={cn('rounded-md', imageClassName)}
+            />
           </CarouselItem>
         ))}
       </CarouselContent>

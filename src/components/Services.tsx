@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Arrow from '@/components/svg/Arrow';
 import { roboto, robotoFlex, outfit } from '@/app/font';
 import { Vortex } from '@/components/ui/vortex';
+import PhonePC from '@/assets/phone_pc.png';
+import Laptop from '@/assets/laptop.png';
 
 export default function Services() {
   return (
@@ -56,13 +58,7 @@ export default function Services() {
             </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image
-              src='/phone_pc.png'
-              alt='Phone and pc preview'
-              width={513}
-              height={388}
-              className='w-10/12 object-contain'
-            />
+            <Image src={PhonePC} alt='Phone and pc preview' className='w-10/12 object-contain' />
           </div>
         </Link>
 
@@ -94,7 +90,7 @@ export default function Services() {
             </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image src='/laptop.png' alt='Laptop preview' width={484} height={358} className='w-10/12 object-contain' />
+            <Image src={Laptop} alt='Laptop preview' className='w-10/12 object-contain' />
           </div>
         </a>
       </article>

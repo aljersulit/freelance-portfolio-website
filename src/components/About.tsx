@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import Portrait from '../../public/portrait_about_section.png';
+import Portrait from '@/assets/portrait_about_section.png';
 import { roboto } from '@/app/font';
-import img1list2 from '@/assets/B1.png';
 import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
 
