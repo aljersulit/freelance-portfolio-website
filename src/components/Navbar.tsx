@@ -81,31 +81,31 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={cn(
-          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-[21px] text-secondary-foreground transition-all duration-700 ease-out md:h-[58px] md:px-[28px] lg:h-[75px] xl:h-[96px] 2xl:h-[125px] 2xl:px-[68px]',
+          'fixed left-0 top-0 z-[50] flex h-[40px] w-full items-center justify-between border-b border-b-slate-300 px-[22px] text-secondary-foreground transition-all duration-700 ease-out sm:h-[58px] md:px-[28px] lg:h-[75px] xl:h-[96px] xl:px-[58px] 2xl:h-[125px] 2xl:px-[68px]',
           !isNavbarBgTransparent && 'bg-[rgba(145,155,120,0.35)] shadow-sm backdrop-blur-[6px]',
         )}
       >
         <Link
           href='/'
-          className='h-[14px] text-xs font-bold uppercase tracking-widest md:h-[22px] md:text-xl lg:h-[24px] 2xl:h-[38px]'
+          className='h-[26px] w-[96px] sm:h-[30px] sm:w-[130px] md:h-[36px] md:w-[170px] xl:h-[60px] xl:w-[190px] 2xl:w-[240px]'
         >
-          <HorizontalLogo className='h-full w-min' />
+          <HorizontalLogo className='h-full w-full' />
         </Link>
-        <ul className='font-workSans hidden pr-12 text-lg font-medium lg:flex 2xl:text-2xl'>
+        <ul className='font-workSans hidden pr-12 text-lg font-medium lg:flex xl:text-xl 2xl:text-2xl'>
           {NAVLINKS.map((nav, i) => {
             return (
               <li
                 key={nav.title + i}
                 className={cn('relative', nav.title.toLowerCase() === activeSection && 'text-accent-foreground')}
               >
-                <Link href={nav.link} className='px-[1.38rem] py-3'>
+                <Link href={nav.link} className='block px-[1.38rem] lg:py-0 xl:py-1'>
                   {nav.title}
                 </Link>
               </li>
             );
           })}
           <li className='relative ml-[1.38rem] cursor-dot rounded-md border border-secondary-foreground transition-colors hover:border-background hover:bg-accent hover:text-primary-foreground'>
-            <Link href='/#contact' className='px-[1.38rem] py-3'>
+            <Link href='/#contact' className='block px-[1.38rem] lg:py-0 xl:py-1'>
               Contact
             </Link>
           </li>
