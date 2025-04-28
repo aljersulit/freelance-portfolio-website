@@ -78,7 +78,7 @@ function MarqueeSlidingLink() {
 
 function OverlayBackgroundImg() {
   return (
-    <div className='pointer-events-none absolute bottom-[24px] right-0 h-2/3 w-3/4 bg-[url(/hero_background_profile_flipped.png)] bg-cover bg-no-repeat opacity-20 lg:bottom-[45px] lg:left-0 lg:h-5/6 lg:w-auto lg:bg-[url(/hero_background_profile.png)] lg:bg-contain lg:bg-left-bottom lg:opacity-15 xl:bottom-[60px]' />
+    <div className='pointer-events-none absolute bottom-[24px] right-0 h-2/3 w-3/4 bg-[url(/hero_background_profile_flipped.png)] bg-cover bg-no-repeat opacity-20 sm:h-3/4 sm:w-4/6 lg:bottom-[45px] lg:left-0 lg:h-5/6 lg:w-auto lg:bg-[url(/hero_background_profile.png)] lg:bg-contain lg:bg-left-bottom lg:opacity-15 xl:bottom-[60px]' />
   );
 }
 
