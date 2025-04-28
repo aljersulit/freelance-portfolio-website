@@ -86,7 +86,7 @@ function OverlayBackgroundText() {
   return (
     <div
       aria-hidden='true'
-      className={`${playfairDisplay.className} absolute mb-[33cqh] w-full -rotate-3 overflow-hidden text-nowrap text-[2.5rem] text-secondary-foreground opacity-30 md:text-7xl lg:hidden`}
+      className={`${playfairDisplay.className} absolute mb-[33cqh] w-full -rotate-3 overflow-hidden text-nowrap text-[2.5rem] text-secondary-foreground opacity-30 sm:text-6xl md:text-7xl lg:hidden`}
     >
       Aljoy Digital Aljoy Digital
     </div>
