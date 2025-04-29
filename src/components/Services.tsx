@@ -34,7 +34,7 @@ export default function Services() {
       </header>
       <article className='mt-[50px] flex flex-col justify-center gap-8 md:mt-[70px] md:gap-12 md:px-10 lg:flex-row lg:gap-8 lg:px-0 min-[1900px]:gap-14'>
         <Link
-          href='/works'
+          href='/results'
           className='flex flex-col justify-between gap-4 rounded-3xl border border-solid border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.22)] backdrop-blur-[1.5px] md:border-2 lg:w-[415px] lg:flex-initial min-[1900px]:w-[550px]'
         >
           <div className='space-y-3 px-[22px] pt-[27px] md:space-y-5'>
