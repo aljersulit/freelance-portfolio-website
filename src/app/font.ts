@@ -1,4 +1,4 @@
-import { Outfit, Work_Sans, Playfair_Display, Roboto, Roboto_Flex } from 'next/font/google';
+import { Outfit, Work_Sans, Playfair_Display, Roboto, Roboto_Flex, Roboto_Condensed } from 'next/font/google';
 
 export const outfit = Outfit({
   subsets: ['latin'],
@@ -22,6 +22,13 @@ export const roboto = Roboto({
 });
 
 export const robotoFlex = Roboto_Flex({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+export const robotoCondensed = Roboto_Condensed({
+  weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
 });
