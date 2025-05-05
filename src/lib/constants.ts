@@ -3,6 +3,7 @@ import Linkedin from '@/components/svg/Linkedin';
 import Mail from '@/components/svg/Mail';
 import Instagram from '@/components/svg/Instagram';
 import Facebook from '@/components/svg/Facebook';
+import TestimonialPhoto from '@/assets/Ricxzy.png';
 
 import A1 from '@/assets/A1.png';
 import A2 from '@/assets/A2.png';
@@ -65,37 +66,10 @@ export const CARDS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-    name: 'Sarah Chen',
-    designation: 'Product Manager at TechFlow',
-    src: '/man_1.avif',
-  },
-  {
-    quote:
-      "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-    name: 'Michael Rodriguez',
-    designation: 'CTO at InnovateSphere',
-    src: '/women_portrait.avif',
-  },
-  {
-    quote:
-      "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-    name: 'Emily Watson',
-    designation: 'Operations Director at CloudScale',
-    src: '/man_2.avif',
-  },
-  {
-    quote: "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-    name: 'James Kim',
-    designation: 'Engineering Lead at DataPro',
-    src: '/man_3.avif',
-  },
-  {
-    quote:
-      'The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.',
-    name: 'Lisa Thompson',
-    designation: 'VP of Technology at FutureNet',
-    src: '/man_4.avif',
+      '“Collaborating with Aljoy was an incredible experience. I admire how she consistently went the extra mile in creating engaging and impactful content, ensuring every design and post was thoughtfully crafted. She often took the initiative to suggest new ideas and improvements, demonstrating her proactive approach to enhance our campaigns. Whenever I assigned her a task, she made sure to complete it promptly without compromising quality. Her dedication, creativity, and strong work ethic always stood out, making a significant difference in our campaigns.”',
+    name: 'Ricxzy Jane Nadala',
+    designation: 'Sales Unit Head at Agribank',
+    src: TestimonialPhoto,
   },
 ];
 

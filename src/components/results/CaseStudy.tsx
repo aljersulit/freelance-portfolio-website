@@ -10,20 +10,20 @@ export default function CaseStudy() {
     <section
       className={`${roboto.className} justify-center px-[18px] pb-[30px] pt-[10px] min-[375px]:px-[22px] min-[375px]:pt-[20px] min-[425px]:px-[32px] sm:py-[45px] md:px-[42px] lg:flex lg:gap-[50px] lg:px-[20px] xl:gap-[96px] xl:pb-[120px] 2xl:pb-[140px] 3xl:pt-[140px]`}
     >
-      <div className='lg:w-[470px] xl:w-[668px]'>
+      <div className='lg:w-[470px] xl:w-[668px] 3xl:w-[794px]'>
         <Image
           src={CaseStudyImg}
           alt='A collection of social media advertisements for Agribank.'
           className='h-auto xl:w-full'
         />
-        <p className='mt-[8px] text-pretty min-[425px]:text-base sm:text-xl lg:mt-[12px] lg:text-sm'>
+        <p className='mt-[8px] text-pretty text-sm min-[425px]:text-base sm:text-xl lg:mt-[12px] lg:text-sm'>
           Agribank is a financial institution offering a wide range of banking and financial services. As the Social
           Media Manager & Graphic Artist, I managed Agribank&apos;s social media presence across multiple platforms,
           combining strategic content creation, graphic design, and video production to enhance engagement and promote
           financial services.
         </p>
       </div>
-      <div className='mt-[26px] text-xs min-[425px]:text-sm sm:mt-[36px] sm:text-lg lg:mt-0 lg:w-[390px] lg:text-xs xl:w-[474px] xl:text-sm'>
+      <div className='mt-[26px] text-xs min-[425px]:text-sm sm:mt-[36px] sm:text-lg lg:mt-0 lg:w-[390px] lg:text-xs xl:w-[474px] xl:text-sm 3xl:w-[574px] 3xl:text-base'>
         <div>
           <h2
             className={`${robotoCondensed.className} text-xl uppercase min-[425px]:text-2xl sm:text-4xl lg:text-2xl xl:text-3xl`}
