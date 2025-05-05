@@ -43,6 +43,7 @@ export default {
           foreground: 'hsl(var(--destructive-foreground))',
         },
         list: 'var(--list)',
+        analytics: 'var(--analytics)',
         marqueeList: 'var(--marquee-list)',
         border: 'hsl(var(--border))',
         form: 'var(--form)',
