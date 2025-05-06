@@ -1,10 +1,10 @@
-import React from 'react'
-import { playfairDisplay } from '@/app/font'
-import Image from 'next/image'
+import React from 'react';
+import { playfairDisplay } from '@/app/font';
+import Image from 'next/image';
 
-import hero1 from '@/assets/hero1_results.png'
-import hero2 from '@/assets/hero2_results.png'
-import hero3 from '@/assets/hero3_results.png'
+import hero1 from '@/assets/hero1_results.png';
+import hero2 from '@/assets/hero2_results.png';
+import hero3 from '@/assets/hero3_results.png';
 import backgroundLaptop from '@/assets/results_hero_background_laptop.png';
 
 export default function Hero() {

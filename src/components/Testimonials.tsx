@@ -1,6 +1,5 @@
 import { roboto } from '@/app/font';
 import Image from 'next/image';
-import TestimonialPhoto from '@/assets/Ricxzy.png';
 import { TESTIMONIALS } from '@/lib/constants';
 
 export default function Testimonials() {
