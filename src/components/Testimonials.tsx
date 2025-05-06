@@ -1,6 +1,6 @@
 import { roboto } from '@/app/font';
 import Image from 'next/image';
-import TestimonialPhoto from '@/assets/Ricxzy.png';
+import { TESTIMONIALS } from '@/lib/constants';
 
 export default function Testimonials() {
   return (
@@ -17,22 +17,17 @@ export default function Testimonials() {
       </header>
       <div className='mx-auto mt-[27px] xl:mt-[100px] xl:w-[918px] 2xl:w-[1100px] 3xl:w-[1390px] min-[2100px]:w-[1900px]'>
         <p className='text-left text-sm font-normal leading-[1.43] text-muted-foreground max-md:text-balance md:text-lg lg:text-center 2xl:text-2xl min-[2100px]:text-3xl'>
-          “Collaborating with Aljoy was an incredible experience. I admire how she consistently went the extra mile in
-          creating engaging and impactful content, ensuring every design and post was thoughtfully crafted. She often
-          took the initiative to suggest new ideas and improvements, demonstrating her proactive approach to enhance our
-          campaigns. Whenever I assigned her a task, she made sure to complete it promptly without compromising quality.
-          Her dedication, creativity, and strong work ethic always stood out, making a significant difference in our
-          campaigns.”
+          {TESTIMONIALS[0].quote}
         </p>
         <Image
-          src={TestimonialPhoto}
-          alt='Ricxzy Jane Nadala'
+          src={TESTIMONIALS[0].src}
+          alt={TESTIMONIALS[0].name}
           className='mx-auto mt-[47px] w-[125px] rounded-full md:w-[160px] xl:w-[182px] 2xl:w-[290px]'
         />
         <h4 className='mt-[25px] text-center text-xl uppercase text-secondary-foreground md:max-lg:text-2xl 2xl:text-3xl'>
-          Ricxzy Jane Nadala
+          {TESTIMONIALS[0].name}
         </h4>
-        <p className='text-center text-xs md:max-lg:text-base 2xl:text-lg'>Sales Unit Head at Agribank</p>
+        <p className='text-center text-xs md:max-lg:text-base 2xl:text-lg'>{TESTIMONIALS[0].designation}</p>
       </div>
     </section>
   );
