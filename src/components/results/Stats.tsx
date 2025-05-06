@@ -12,9 +12,9 @@ import { TESTIMONIALS } from '@/lib/constants';
 
 export default function Results() {
   return (
-    <section className='lg:py-[40px] xl:py-[20px]'>
-      <div className='flex justify-end lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px]'>
-        <header className='lg:w-1/4'>
+    <section className='lg:py-[40px] xl:py-[20px] 3xl:py-[60px]'>
+      <div className='flex justify-end lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px] min-[2100px]:gap-[148px]'>
+        <header className='lg:w-1/4 3xl:max-w-[470px]'>
           <h2
             className={`${robotoCondensed.className} w-fit border-b-2 border-primary uppercase xl:text-3xl 3xl:text-5xl`}
           >
@@ -42,7 +42,7 @@ export default function Results() {
         <Image src={FBR} alt='Facebook Analytics Result' className='object-contain lg:w-8/12' />
       </div>
 
-      <div className='relative flex justify-center lg:mt-[60px] lg:gap-[36px] xl:mt-[88px] xl:gap-[62px] 3xl:gap-[78px]'>
+      <div className='relative flex justify-center lg:mt-[60px] lg:gap-[36px] xl:mt-[88px] xl:gap-[62px] 3xl:gap-[78px] min-[2100px]:mt-[128px] min-[2100px]:gap-[118px]'>
         <div className='lg:max-w-[440px] xl:max-w-[666px] 3xl:max-w-[850px]'>
           <div className='border-2 border-primary bg-secondary lg:rounded-lg lg:px-[40px] lg:py-[54px] xl:rounded-xl xl:px-[56px] xl:py-[68px] 3xl:rounded-2xl 3xl:py-[78px]'>
             <h3 className={`${playfairDisplay.className} text-center lg:text-3xl xl:text-[2.5rem]`}>
@@ -68,7 +68,7 @@ export default function Results() {
         />
       </div>
 
-      <div className='justify-center lg:mt-[74px] lg:flex lg:gap-[58px] xl:gap-[74px] 3xl:mt-[160px]'>
+      <div className='justify-center lg:mt-[74px] lg:flex lg:gap-[58px] xl:gap-[74px] 3xl:mt-[160px] min-[2100px]:mt-[200px] min-[2100px]:gap-[94px]'>
         <div className='w-fit flex-col justify-center lg:flex lg:pb-[96px] xl:pb-[120px] 3xl:pb-[162px]'>
           <Percentage value={30} />
           <p

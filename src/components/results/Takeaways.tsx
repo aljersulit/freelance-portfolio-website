@@ -3,11 +3,11 @@ import { outfit, playfairDisplay, roboto } from '@/app/font';
 
 export default function Takeaways() {
   return (
-    <section className='lg:pb-[74px] lg:pt-[100px] xl:pb-[82px] xl:pt-[136px]'>
-      <div className='mx-auto border-primary bg-accent-foreground lg:max-w-[850px] lg:rounded-2xl lg:border-[4px] lg:px-[44px] lg:py-[24px] xl:max-w-[1066px] xl:rounded-3xl xl:border-[6px] xl:px-[64px] xl:py-[44px]'>
-        <h2 className={`${playfairDisplay.className} lg:text-4xl xl:text-5xl`}>Key Takeaways</h2>
+    <section className='lg:pb-[74px] lg:pt-[100px] xl:pb-[82px] xl:pt-[136px] 3xl:pb-[112px]'>
+      <div className='mx-auto border-primary bg-accent-foreground lg:max-w-[850px] lg:rounded-2xl lg:border-[4px] lg:px-[44px] lg:py-[24px] xl:max-w-[1066px] xl:rounded-3xl xl:border-[6px] xl:px-[64px] xl:py-[44px] 3xl:max-w-[1350px]'>
+        <h2 className={`${playfairDisplay.className} lg:text-4xl xl:text-5xl 3xl:text-6xl`}>Key Takeaways</h2>
         <ul
-          className={`${outfit.className} list-disc font-light lg:mt-[22px] lg:pl-[22px] lg:text-xl xl:mt-[42px] xl:pl-[30px] xl:text-2xl`}
+          className={`${outfit.className} list-disc font-light lg:mt-[22px] lg:pl-[22px] lg:text-xl xl:mt-[42px] xl:pl-[30px] xl:text-2xl 3xl:text-3xl`}
         >
           <li>Proven ability to manage multi-platform content strategies.</li>
           <li>Strong skills in graphic design, video editing, and paid campaign management.</li>
@@ -15,19 +15,21 @@ export default function Takeaways() {
         </ul>
       </div>
 
-      <h2 className={`${outfit.className} text-center font-medium lg:mt-[110px] lg:text-4xl xl:mt-[140px] xl:text-5xl`}>
+      <h2
+        className={`${outfit.className} text-center font-medium lg:mt-[110px] lg:text-4xl xl:mt-[140px] xl:text-5xl 3xl:text-6xl`}
+      >
         Got a project?
       </h2>
-      <p className={`${roboto.className} text-center lg:mt-[2px] lg:text-xs xl:mt-[4px] xl:text-sm`}>
+      <p className={`${roboto.className} text-center lg:mt-[2px] lg:text-xs xl:mt-[4px] xl:text-sm 3xl:text-base`}>
         Discover how we can work together
       </p>
 
       <div
-        className={`${outfit.className} flex justify-center text-center lg:mt-[38px] lg:gap-[8px] lg:text-xl xl:mt-[54px] xl:gap-[12px] xl:text-2xl`}
+        className={`${outfit.className} flex justify-center text-center lg:mt-[38px] lg:gap-[8px] lg:text-xl xl:mt-[54px] xl:gap-[12px] xl:text-2xl 3xl:text-3xl`}
       >
         <Link
           href='/#contact'
-          className='rounded-full bg-primary uppercase text-primary-foreground lg:w-[260px] lg:py-[6px] xl:w-[308px] xl:py-[10px]'
+          className='rounded-full bg-primary uppercase text-primary-foreground lg:w-[260px] lg:py-[6px] xl:w-[308px] xl:py-[10px] 3xl:w-[400px] 3xl:py-[18px]'
         >
           Get In Touch
         </Link>
@@ -35,7 +37,7 @@ export default function Takeaways() {
           href='https://www.behance.net/alyssajoysulit'
           target='_blank'
           rel='noopener noreferrer'
-          className='rounded-full border-2 border-foreground uppercase lg:w-[260px] lg:py-[6px] xl:w-[308px] xl:py-[10px]'
+          className='rounded-full border-2 border-foreground uppercase lg:w-[260px] lg:py-[6px] xl:w-[308px] xl:py-[10px] 3xl:w-[400px] 3xl:py-[18px]'
         >
           Creative Portfolio
         </a>
