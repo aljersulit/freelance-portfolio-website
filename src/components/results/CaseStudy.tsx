@@ -16,7 +16,7 @@ export default function CaseStudy() {
           alt='A collection of social media advertisements for Agribank.'
           className='h-auto xl:w-full'
         />
-        <p className='mt-[8px] text-pretty text-sm min-[425px]:text-base sm:text-xl lg:mt-[12px] lg:text-sm 3xl:mt-[18px] 3xl:text-lg/tight'>
+        <p className='mt-[8px] text-pretty text-xs min-[425px]:text-sm sm:text-xl lg:mt-[12px] lg:text-sm 3xl:mt-[18px] 3xl:text-lg/tight'>
           Agribank is a financial institution offering a wide range of banking and financial services. As the Social
           Media Manager & Graphic Artist, I managed Agribank&apos;s social media presence across multiple platforms,
           combining strategic content creation, graphic design, and video production to enhance engagement and promote
