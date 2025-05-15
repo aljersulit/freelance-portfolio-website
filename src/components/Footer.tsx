@@ -16,7 +16,7 @@ export default function Footer() {
               <AljoyDigitalLogo className='relative left-[6px] md:hidden' />
             </Link>
             <ul
-              className={`${outfit.className} mt-[10px] flex w-full justify-between text-xs font-medium min-[375px]:text-sm md:mt-[30px] md:flex-col md:gap-4 lg:text-lg xl:text-xl`}
+              className={`${outfit.className} mt-[10px] flex w-full justify-between text-xs font-medium min-[375px]:text-sm sm:text-lg md:mt-[30px] md:flex-col md:gap-4 lg:text-lg xl:text-xl`}
             >
               {NAVLINKS.map((nav, i) => (
                 <li key={nav.title + i}>
@@ -27,7 +27,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          <div className='max-sm:hidden md:pt-[2px]'>
+          <div className='hidden md:pt-[2px] lg:block'>
             <h4 className={`${outfit.className} font-bold uppercase md:text-lg lg:text-xl xl:text-xl`}>Services</h4>
             <ul
               className={`${outfit.className} mt-[30px] flex font-medium leading-8 md:flex-col md:gap-4 md:text-sm lg:text-lg xl:text-xl`}

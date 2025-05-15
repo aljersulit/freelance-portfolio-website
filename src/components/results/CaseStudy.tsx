@@ -16,7 +16,7 @@ export default function CaseStudy() {
           alt='A collection of social media advertisements for Agribank.'
           className='h-auto xl:w-full'
         />
-        <p className='mt-[8px] text-pretty text-sm min-[425px]:text-base sm:text-xl lg:mt-[12px] lg:text-sm 3xl:mt-[18px] 3xl:text-lg/tight'>
+        <p className='mt-[8px] text-pretty text-xs min-[425px]:text-sm sm:text-xl lg:mt-[12px] lg:text-sm 3xl:mt-[18px] 3xl:text-lg/tight'>
           Agribank is a financial institution offering a wide range of banking and financial services. As the Social
           Media Manager & Graphic Artist, I managed Agribank&apos;s social media presence across multiple platforms,
           combining strategic content creation, graphic design, and video production to enhance engagement and promote
@@ -48,7 +48,7 @@ export default function CaseStudy() {
             </li>
           </ul>
         </div>
-        <div className='mt-[20px] xl:mt-[40px]'>
+        <div className='mt-[20px] md:mt-[40px]'>
           <h2
             className={`${robotoCondensed.className} xl:text- text-xl uppercase min-[425px]:text-2xl sm:text-4xl lg:text-2xl 3xl:text-4xl`}
           >
