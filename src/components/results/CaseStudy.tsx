@@ -48,7 +48,7 @@ export default function CaseStudy() {
             </li>
           </ul>
         </div>
-        <div className='mt-[20px] xl:mt-[40px]'>
+        <div className='mt-[20px] md:mt-[40px]'>
           <h2
             className={`${robotoCondensed.className} xl:text- text-xl uppercase min-[425px]:text-2xl sm:text-4xl lg:text-2xl 3xl:text-4xl`}
           >
