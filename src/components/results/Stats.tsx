@@ -9,6 +9,7 @@ import AdsPerformance from '@/assets/AdsPerformance.png';
 import TiktokAnalyticResult from '@/assets/TiktokAnalyticResult.png';
 import TiktokContentResult from '@/assets/Group12.png';
 import { TESTIMONIALS } from '@/lib/constants';
+import Counter from '@/components/ui/counter';
 
 export default function Stats() {
   return (
@@ -209,13 +210,14 @@ function Percentage({
   arrowClassName?: string;
   percentClassName?: string;
 }) {
-  const formattedValue = typeof value === 'number' && value % 1 !== 0 ? value.toFixed(2) : value;
+  // const formattedValue = typeof value === 'number' && value % 1 !== 0 ? value.toFixed(2) : value;
 
   return (
     <div className={cn('flex items-center font-semibold leading-none text-analytics', className)}>
       <ArrowUp className={cn('inline w-[18px] sm:w-[20px] lg:w-[24px] xl:w-[30px] 3xl:w-[46px]', arrowClassName)} />
       <p className={cn(outfit.className, 'text-4xl sm:text-5xl lg:text-7xl xl:text-8xl 3xl:text-9xl', valueClassName)}>
-        {formattedValue}
+        {/* {formattedValue} */}
+        <Counter targetValue={value} />
         <span
           className={cn(
             'relative align-top text-2xl sm:text-3xl lg:top-[0.5rem] lg:text-5xl xl:text-6xl 3xl:top-[1.25rem] 3xl:text-7xl',
