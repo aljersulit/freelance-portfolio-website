@@ -2,8 +2,20 @@ import React from 'react';
 import Image from 'next/image';
 import { robotoCondensed, roboto } from '@/app/font';
 import CaseStudyImg from '@/assets/case_study.png';
-import ListArrowRight from '@/components/svg/ListArrowRight';
-import ListCheckmark from '@/components/svg/ListCheckmark';
+import StaggeredList from '@/components/results/StaggeredList';
+
+const GOALS = [
+  'Develop tailored content for multiple platforms while maintaining a cohesive brand identity.',
+  'Drive audience engagement and increase inquiries through strategic content creation.',
+  'Strengthen brand awareness by showcasing financial spanroducts, services, and company milestones.',
+];
+
+const STRATEGIES = [
+  'Developed and maintained a structured content calendar, delivering three pieces of content per week, including infographics, promotional videos, and educational posts.',
+  'Balanced promotional content with engaging visuals, customer testimonials, and informative content featuring clear calls to action (CTAs).',
+  'Collaborated closely with my supervisor to craft impactful captions that matched the tone of each post.',
+  'Worked with internal teams to align content with ongoing promotions, internal events, and product updates.',
+];
 
 export default function CaseStudy() {
   return (
@@ -31,22 +43,21 @@ export default function CaseStudy() {
           >
             Goals
           </h2>
-          <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListArrowRight className='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]' />
-              <span>Develop tailored content for multiple platforms while maintaining a cohesive brand identity.</span>
-            </li>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListArrowRight className='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]' />
-              <span>Drive audience engagement and increase inquiries through strategic content creation.</span>
-            </li>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListArrowRight className='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]' />
-              <span>
-                Strengthen brand awareness by showcasing financial spanroducts, services, and company milestones.
-              </span>
-            </li>
-          </ul>
+          {/* <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
+            {GOALS.map((goal, index) => (
+              <li key={goal + index} className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
+                <ListArrowRight className='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]' />
+                <span>{goal}</span>
+              </li>
+            ))}
+          </ul> */}
+          <StaggeredList
+            icon='arrowright'
+            className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'
+            containerClassName='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'
+            iconClassName='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]'
+            list={GOALS}
+          />
         </div>
         <div className='mt-[20px] md:mt-[40px]'>
           <h2
@@ -54,35 +65,21 @@ export default function CaseStudy() {
           >
             Strategy
           </h2>
-          <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
-              <span>
-                Developed and maintained a structured content calendar, delivering three pieces of content per week,
-                including infographics, promotional videos, and educational posts.
-              </span>
-            </li>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
-              <span>
-                Balanced promotional content with engaging visuals, customer testimonials, and informative content
-                featuring clear calls to action (CTAs).
-              </span>
-            </li>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
-              <span>
-                Collaborated closely with my supervisor to craft impactful captions that matched the tone of each post.
-              </span>
-            </li>
-            <li className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-              <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
-              <span>
-                Worked with internal teams to align content with ongoing promotions, internal events, and product
-                updates.
-              </span>
-            </li>
-          </ul>
+          {/* <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
+            {STRATEGIES.map((strat, index) => (
+              <li key={strat + index} className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
+                <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
+                <span>{strat}</span>
+              </li>
+            ))}
+          </ul> */}
+          <StaggeredList
+            icon='checkmark'
+            className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'
+            containerClassName='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'
+            iconClassName='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]'
+            list={STRATEGIES}
+          />
         </div>
       </div>
     </section>
