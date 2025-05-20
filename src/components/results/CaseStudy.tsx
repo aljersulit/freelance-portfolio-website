@@ -43,14 +43,6 @@ export default function CaseStudy() {
           >
             Goals
           </h2>
-          {/* <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
-            {GOALS.map((goal, index) => (
-              <li key={goal + index} className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-                <ListArrowRight className='absolute left-0 w-[20px] text-primary sm:w-[26px] xl:w-[32px]' />
-                <span>{goal}</span>
-              </li>
-            ))}
-          </ul> */}
           <StaggeredList
             icon='arrowright'
             className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'
@@ -65,14 +57,6 @@ export default function CaseStudy() {
           >
             Strategy
           </h2>
-          {/* <ul className='mt-[10px] space-y-3 sm:mt-[20px] md:mt-[16px] xl:mt-[22px]'>
-            {STRATEGIES.map((strat, index) => (
-              <li key={strat + index} className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'>
-                <ListCheckmark className='absolute left-0 w-[20px] sm:w-[26px] xl:w-[32px]' />
-                <span>{strat}</span>
-              </li>
-            ))}
-          </ul> */}
           <StaggeredList
             icon='checkmark'
             className='relative pl-[28px] min-[425px]:pl-[34px] sm:pl-[44px] xl:pl-[48px]'
