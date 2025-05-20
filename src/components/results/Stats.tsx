@@ -210,13 +210,10 @@ function Percentage({
   arrowClassName?: string;
   percentClassName?: string;
 }) {
-  // const formattedValue = typeof value === 'number' && value % 1 !== 0 ? value.toFixed(2) : value;
-
   return (
     <div className={cn('flex items-center font-semibold leading-none text-analytics', className)}>
       <ArrowUp className={cn('inline w-[18px] sm:w-[20px] lg:w-[24px] xl:w-[30px] 3xl:w-[46px]', arrowClassName)} />
       <p className={cn(outfit.className, 'text-4xl sm:text-5xl lg:text-7xl xl:text-8xl 3xl:text-9xl', valueClassName)}>
-        {/* {formattedValue} */}
         <Counter targetValue={value} />
         <span
           className={cn(
