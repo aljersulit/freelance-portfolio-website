@@ -55,7 +55,7 @@ export default function ContactSection() {
                 </p>
               </address>
               <a
-                href='#'
+                href='https://calendly.com/aljoydigital/30min'
                 target='_blank'
                 rel='noopener noreferrer'
                 className={`${roboto.className} mt-[20px] block cursor-dot rounded-full border border-primary-foreground text-center font-bold uppercase transition-colors hover:bg-accent md:py-2 lg:text-sm xl:py-4 xl:text-base`}
