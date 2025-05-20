@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext } from 'react';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 type ScreenOrientationContextType = {
   isPortrait: boolean;
@@ -17,31 +18,7 @@ export const useScreenOrientationContext = () => {
 };
 
 export default function ScreenOrientationProvider({ children }: { children: React.ReactNode }) {
-  const [isPortrait, setIsPortrait] = useState(false);
+  const isPortrait = useMediaQuery('(orientation: portrait)');
 
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    const mediaQueryList = window.matchMedia('(orientation: portrait)');
-
-    const handleOrientationChange = (e: MediaQueryListEvent) => {
-      setIsPortrait(e.matches);
-    };
-
-    setIsPortrait(mediaQueryList.matches);
-
-    mediaQueryList.addEventListener('change', handleOrientationChange);
-
-    return () => {
-      mediaQueryList.removeEventListener('change', handleOrientationChange);
-    };
-  }, []);
-
-  return (
-    <ScreenOrientationContext.Provider value={{ isPortrait }}>
-      {children}
-    </ScreenOrientationContext.Provider>
-  );
+  return <ScreenOrientationContext.Provider value={{ isPortrait }}>{children}</ScreenOrientationContext.Provider>;
 }
