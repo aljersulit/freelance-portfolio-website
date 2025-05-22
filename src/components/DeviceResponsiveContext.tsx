@@ -8,6 +8,7 @@ type DeviceResponsiveContextType = {
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
+  isLargeDesktop: boolean;
 };
 
 const DeviceResponsiveContext = createContext<DeviceResponsiveContextType | undefined>(undefined);
@@ -24,14 +25,16 @@ export default function DeviceResponsiveProvider({ children }: { children: React
   const isPortrait = useMediaQuery('(orientation: portrait)');
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1023px)');
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const isDesktop = useMediaQuery('(min-width: 1024px) and (max-width: 1279px)');
+  const isLargeDesktop = useMediaQuery('(min-width: 1280px)');
 
   const contextValue: DeviceResponsiveContextType = {
     isPortrait,
     isMobile,
     isTablet,
-    isDesktop
-  }
+    isDesktop,
+    isLargeDesktop,
+  };
 
   return <DeviceResponsiveContext.Provider value={contextValue}>{children}</DeviceResponsiveContext.Provider>;
 }
