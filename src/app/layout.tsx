@@ -4,7 +4,7 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 import './globals.css';
 import DeviceResponsiveProvider from '@/components/DeviceResponsiveContext';
-
+import LenisProvider from '@/components/LenisProvider';
 import { Toaster } from '@/components/ui/sonner';
 import { workSans } from '@/app/font';
 import Navbar from '@/components/Navbar';
@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth scrollbar-thin scrollbar-track-secondary scrollbar-thumb-primary'>
       <body className={`${workSans.className} antialiased`}>
+        <LenisProvider />
         <DeviceResponsiveProvider>
           <Navbar />
           {children}
