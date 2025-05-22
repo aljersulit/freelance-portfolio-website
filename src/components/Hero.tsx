@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import { playfairDisplay, roboto } from '@/app/font';
 import HeroProfile from '@/assets/hero_profile.png';
+import HeroHeader from '@/components/HeroHeader';
 
 export default function Hero() {
   return (
@@ -16,28 +17,7 @@ export default function Hero() {
             className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
           />
         </div>
-
-        <header className='flex flex-col justify-center lg:w-[500px] xl:w-[762px] 3xl:w-[1200px]'>
-          <h2
-            className={`${playfairDisplay.className} playfairDisplay mb-2 hidden text-3xl lg:block 2xl:mb-6 2xl:text-4xl 3xl:text-6xl`}
-          >
-            Hi, I&apos;m Aljoy!
-          </h2>
-          <h1
-            className={`${roboto.className} mb-4 text-[1.7rem] font-bold leading-[1.1] min-[375px]:text-3xl min-[425px]:text-4xl md:mb-6 md:text-5xl lg:mb-8 lg:text-balance lg:text-6xl lg:font-semibold 2xl:mb-9 3xl:text-8xl`}
-          >
-            Your Brand&apos;s Growth Partner in Digital Marketing & Creative Design
-          </h1>
-          <p className='mb-4 text-[0.625rem] text-muted-foreground min-[375px]:text-sm md:mb-6 md:text-xl lg:mb-11 lg:text-xl 2xl:mb-8 3xl:text-4xl'>
-            Elevating your brand with strategic marketing and stunning visuals.
-          </p>
-          <Link
-            href='/#services'
-            className='block w-max cursor-dot rounded-sm bg-primary px-7 py-[0.4rem] text-xs font-medium text-primary-foreground transition-colors hover:bg-accent min-[375px]:text-sm md:rounded-md md:text-lg lg:rounded-lg lg:px-8 lg:py-2 lg:text-2xl lg:font-normal 3xl:rounded-2xl 3xl:px-16 3xl:py-4 3xl:text-4xl'
-          >
-            Learn More
-          </Link>
-        </header>
+        <HeroHeader />
         <YellowGradient />
         <PurpleGradient />
         <OverlayBackgroundText />
