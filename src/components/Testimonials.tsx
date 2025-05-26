@@ -10,7 +10,7 @@ export default function Testimonials() {
     >
       <header>
         <h2
-          className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl xl:text-6xl 2xl:text-8xl`}
+          className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl`}
         >
           Testimonial
         </h2>

@@ -12,7 +12,7 @@ export default function About() {
     >
       <header className='relative z-10'>
         <h2
-          className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl 2xl:font-medium`}
+          className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl`}
         >
           About me
         </h2>
