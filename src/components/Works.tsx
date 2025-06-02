@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { roboto, playfairDisplay } from '@/app/font';
 import { WORKS } from '@/lib/constants';
+import RevealingText from '@/components/ui/revealing-text';
 
 export default function Works() {
   return (
@@ -10,7 +11,7 @@ export default function Works() {
         <h2
           className={`${roboto.className} text-lg uppercase text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl min-[2160px]:text-8xl`}
         >
-          Featured Works
+          <RevealingText text='Featured' /> <RevealingText text='Works' />
         </h2>
       </header>
       {WORKS.map((work, i) => (

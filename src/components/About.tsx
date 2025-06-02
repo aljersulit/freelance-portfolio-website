@@ -3,6 +3,7 @@ import Portrait from '@/assets/portrait_about_section.png';
 import { roboto } from '@/app/font';
 import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
+import RevealingText from '@/components/ui/revealing-text';
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
         <h2
           className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl`}
         >
-          About me
+          <RevealingText text='About Me' />
         </h2>
         <div className='relative mt-[22px] flex justify-center gap-4 md:mt-[54px] xl:mt-[78px]'>
           <div className='absolute hidden lg:relative lg:block lg:w-[460px] min-[1900px]:w-[550px]'>
