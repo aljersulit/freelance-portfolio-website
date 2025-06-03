@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { roboto, playfairDisplay } from '@/app/font';
 import { WORKS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
+import SkillsList from '@/components/SkillsList';
 
 export default function Works() {
   return (
@@ -28,7 +29,7 @@ export default function Works() {
             >
               {work.projectName}
             </h3>
-            <ul className='flex flex-wrap gap-[6px]'>
+            {/* <ul className='flex flex-wrap gap-[6px]'>
               {work.utilizedSkills.map((skill, i) => (
                 <li
                   key={skill + i}
@@ -37,7 +38,8 @@ export default function Works() {
                   {skill}
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <SkillsList skills={work.utilizedSkills} />
             <p className='w-full text-wrap text-sm/tight text-muted-foreground md:text-xl md:leading-snug lg:text-pretty lg:text-base/snug xl:text-2xl 2xl:text-3xl min-[2000px]:text-4xl'>
               {work.description}
             </p>
