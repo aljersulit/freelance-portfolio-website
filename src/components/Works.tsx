@@ -29,16 +29,6 @@ export default function Works() {
             >
               {work.projectName}
             </h3>
-            {/* <ul className='flex flex-wrap gap-[6px]'>
-              {work.utilizedSkills.map((skill, i) => (
-                <li
-                  key={skill + i}
-                  className={`${roboto.className} rounded-full bg-list px-[11px] py-[7px] text-[0.6rem] text-primary-foreground md:text-base lg:px-[14px] lg:py-[9px] lg:text-xs xl:text-sm 2xl:text-base min-[1900px]:text-xl min-[2160px]:px-[30px] min-[2160px]:py-[18px] min-[2160px]:text-2xl`}
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul> */}
             <SkillsList skills={work.utilizedSkills} />
             <p className='w-full text-wrap text-sm/tight text-muted-foreground md:text-xl md:leading-snug lg:text-pretty lg:text-base/snug xl:text-2xl 2xl:text-3xl min-[2000px]:text-4xl'>
               {work.description}
@@ -53,11 +43,11 @@ export default function Works() {
               View More
             </a>
           </div>
-          <div className='hidden w-[630px] lg:flex lg:flex-1 lg:justify-center'>
+          <div className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center 3xl:rounded-lg'>
             <Image
               src={work.previewPhoto}
               alt={`${work.projectName} sample preview`}
-              className='object-cover'
+              className='object-cover transition-transform hover:rotate-3 hover:scale-105'
               placeholder='blur'
             />
           </div>
