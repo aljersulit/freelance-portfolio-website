@@ -1,8 +1,10 @@
 'use client';
 
-import React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { roboto } from '@/app/font';
 import { motion } from 'motion/react';
+import useScreenHeight from '@/hooks/useScreenHeight';
+import useScrollDirection from '@/hooks/useScrollDirection';
 
 const containerVariants = {
   hidden: {},
@@ -30,8 +32,35 @@ const lineVariants = {
 };
 
 export default function SkillsList({ skills }: { skills: string[] }) {
+  const screenHeight = useScreenHeight();
+  const { scrollDirection, scrollY } = useScrollDirection();
+  const [status, setStatus] = useState<'visible' | 'hidden'>('hidden');
+
+  const ref = useRef<HTMLUListElement | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = scrollY.on('change', () => {
+      if (!ref.current) return;
+      const bottom = ref.current.getBoundingClientRect().bottom;
+      const top = ref.current.getBoundingClientRect().top;
+
+      if (scrollDirection === 'down' && screenHeight >= bottom) {
+        setStatus('visible');
+      } else if (scrollDirection === 'up' && screenHeight <= top) {
+        setStatus('hidden');
+      }
+    });
+
+    return () => unsubscribe();
+  }, [scrollY, scrollDirection, screenHeight]);
   return (
-    <motion.ul variants={containerVariants} initial='hidden' whileInView='visible' viewport={{once: true}} className='flex flex-wrap gap-[6px]'>
+    <motion.ul
+      ref={ref}
+      variants={containerVariants}
+      initial={false}
+      animate={status}
+      className='flex flex-wrap gap-[6px]'
+    >
       {skills.map((skill, i) => (
         <motion.li
           key={skill + i}
