@@ -4,6 +4,7 @@ import { roboto, playfairDisplay } from '@/app/font';
 import { WORKS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
 import SkillsList from '@/components/SkillsList';
+import ExpandingImage from '@/components/ExpandingImage';
 
 export default function Works() {
   return (
@@ -43,14 +44,7 @@ export default function Works() {
               View More
             </a>
           </div>
-          <div className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center 3xl:rounded-lg'>
-            <Image
-              src={work.previewPhoto}
-              alt={`${work.projectName} sample preview`}
-              className='object-cover transition-transform hover:rotate-3 hover:scale-105'
-              placeholder='blur'
-            />
-          </div>
+          <ExpandingImage src={work.previewPhoto} alt={work.projectName} />
         </article>
       ))}
     </section>
