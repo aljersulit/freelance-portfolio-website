@@ -2,17 +2,12 @@ import ContactForm from '@/components/ContactForm';
 import { playfairDisplay, roboto } from '@/app/font';
 import Mail from '@/components/svg/Mail';
 import Location from '@/components/svg/Location';
+import ContactAnimatedHeader from '@/components/ContactAnimatedHeader';
 
 export default function ContactSection() {
   return (
     <section className='pt-[35px] sm:pt-[70px] lg:py-[100px] xl:py-[180px]'>
-      <header className='mx-[20px] rounded-xl border-[2px] border-primary bg-accent-foreground py-[20px] sm:mx-[100px] lg:mx-[120px] lg:border-[6px] lg:py-[50px] xl:mx-auto xl:w-[1105px] xl:rounded-3xl xl:py-[78px]'>
-        <h2
-          className={`${playfairDisplay.className} text-balance text-center text-2xl font-normal leading-[1.3] md:text-4xl xl:text-[3.375rem] xl:leading-snug`}
-        >
-          Let&apos;s turn your digital presence into your biggest asset!
-        </h2>
-      </header>
+      <ContactAnimatedHeader />
       <div className='mt-[52px] sm:mt-[80px] xl:mt-[166px]' id='contact'>
         <h2
           className={`${roboto.className} text-center text-3xl font-semibold text-secondary-foreground sm:text-4xl xl:text-[4.375rem]`}
