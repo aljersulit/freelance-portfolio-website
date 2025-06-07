@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "motion/react";
+import { useMotionValue, useSpring } from 'motion/react';
+import useScreenHeight from '@/hooks/useScreenHeight';
+import useScrollDirection from '@/hooks/useScrollDirection';
 
 interface CounterProps {
   /**
@@ -49,26 +51,39 @@ export default function Counter({
   className,
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
+  const timer = useRef<NodeJS.Timeout>(null);
   const isGoingUp = direction === 'up';
   const motionValue = useMotionValue(isGoingUp ? 0 : targetValue);
-
   const springValue = useSpring(motionValue, {
     damping: 35,
     stiffness: 115,
   });
-  const isInView = useInView(ref, { margin: '0px', once: true });
+
+  const screenHeight = useScreenHeight();
+  const { scrollDirection, scrollY } = useScrollDirection();
 
   useEffect(() => {
-    if (!isInView) {
-      return;
-    }
+    const unsubscribe = scrollY.on('change', () => {
+      if (!ref.current) return;
+      const top = ref.current.getBoundingClientRect().top;
 
-    const timer = setTimeout(() => {
-      motionValue.set(isGoingUp ? targetValue : 0);
-    }, delay);
+      if (scrollDirection === 'down' && screenHeight >= top) {
+        timer.current = setTimeout(() => {
+          springValue.set(isGoingUp ? targetValue : 0);
+        }, delay);
+      } else if (scrollDirection === 'up' && screenHeight <= top) {
+        timer.current = null;
+        springValue.set(isGoingUp ? 0 : targetValue);
+      }
+    });
 
-    return () => clearTimeout(timer);
-  }, [isInView, delay, isGoingUp, targetValue, motionValue]);
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
+      unsubscribe();
+    };
+  }, [scrollY, scrollDirection, screenHeight, delay, isGoingUp, targetValue, springValue]);
 
   useEffect(() => {
     const unsubSpring = springValue.on('change', (value) => {

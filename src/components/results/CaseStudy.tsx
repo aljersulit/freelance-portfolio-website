@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { robotoCondensed, roboto } from '@/app/font';
 import CaseStudyImg from '@/assets/case_study.png';
 import StaggeredList from '@/components/results/StaggeredList';
