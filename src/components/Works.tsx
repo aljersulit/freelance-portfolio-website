@@ -44,7 +44,11 @@ export default function Works() {
               View More
             </a>
           </div>
-          <ExpandingImage src={work.previewPhoto} alt={work.projectName} />
+          <ExpandingImage
+            src={work.previewPhoto}
+            alt={work.projectName}
+            className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center 3xl:rounded-lg'
+          />
         </article>
       ))}
     </section>

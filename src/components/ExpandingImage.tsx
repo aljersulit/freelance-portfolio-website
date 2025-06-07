@@ -2,27 +2,38 @@
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
 import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
-export default function ExpandingImage({ src, alt }: { src: StaticImageData; alt: string }) {
+export default function ExpandingImage({
+  src,
+  alt,
+  className,
+  hasHoverAnimation = true,
+}: {
+  src: StaticImageData;
+  alt: string;
+  className: string;
+  hasHoverAnimation?: boolean;
+}) {
   return (
-    <motion.div 
+    <motion.div
       initial={{
-        scale: 0.82
+        scale: 0.82,
       }}
       whileInView={{
-        scale: 1
+        scale: 1,
       }}
       transition={{
         type: 'spring',
         damping: 35,
-        stiffness: 150
+        stiffness: 150,
       }}
-      className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center 3xl:rounded-lg'
+      className={className}
     >
       <Image
         src={src}
         alt={`${alt} sample preview`}
-        className='object-cover transition-transform hover:rotate-3 hover:scale-105'
+        className={cn('object-cover', hasHoverAnimation && 'transition-transform hover:rotate-3 hover:scale-105')}
         placeholder='blur'
       />
     </motion.div>
