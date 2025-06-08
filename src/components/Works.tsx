@@ -22,9 +22,9 @@ export default function Works() {
           className='flex justify-center gap-[50px] border-t border-t-stone-300 py-[29px] md:py-[60px] lg:border-t-2 lg:py-[80px] 2xl:gap-[70px] min-[1900px]:gap-[82px]'
         >
           <div className='w-full space-y-4 md:space-y-5 lg:flex-1 xl:space-y-6 2xl:space-y-7 min-[1900px]:space-y-12'>
-            <div className='w-full lg:hidden'>
+            <ExpandingContainer className='w-full overflow-hidden rounded-sm md:rounded-md lg:hidden'>
               <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
-            </div>
+            </ExpandingContainer>
             <h3
               className={`${playfairDisplay.className} text-sm uppercase md:text-3xl lg:text-[2.1875rem] 2xl:text-5xl min-[2160px]:text-6xl`}
             >
