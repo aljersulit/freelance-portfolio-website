@@ -101,6 +101,7 @@ export const Vortex = (props: VortexProps) => {
       rangeTTL,
       baseTTL,
       particlePropCount,
+      particlePropsLength,
     ],
   );
 
@@ -177,29 +178,6 @@ export const Vortex = (props: VortexProps) => {
     [checkBounds, drawParticle, initParticle, lerp, noise3D, noiseSteps, TAU],
   );
 
-  const draw = useCallback(
-    (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
-      const drawParticles = () => {
-        for (let i = 0; i < particlePropsLength; i += particlePropCount) {
-          updateParticle(i, ctx);
-        }
-      };
-      tick.current++;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = backgroundColor;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      drawParticles(); // Call without passing ctx, as it's closed over
-      renderGlow(canvas, ctx);
-      renderToScreen(canvas, ctx);
-
-      // Use a ref for animation frame ID to allow cancellation on unmount
-      animationFrameRef.current = window.requestAnimationFrame(() => draw(canvas, ctx));
-    },
-    [backgroundColor, particlePropsLength, particlePropCount, updateParticle],
-  );
-
   const renderGlow = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     ctx.save();
     ctx.filter = 'blur(8px) brightness(200%)';
@@ -220,6 +198,29 @@ export const Vortex = (props: VortexProps) => {
     ctx.drawImage(canvas, 0, 0);
     ctx.restore();
   }, []);
+
+  const draw = useCallback(
+    (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+      const drawParticles = () => {
+        for (let i = 0; i < particlePropsLength; i += particlePropCount) {
+          updateParticle(i, ctx);
+        }
+      };
+      tick.current++;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      drawParticles(); // Call without passing ctx, as it's closed over
+      renderGlow(canvas, ctx);
+      renderToScreen(canvas, ctx);
+
+      // Use a ref for animation frame ID to allow cancellation on unmount
+      animationFrameRef.current = window.requestAnimationFrame(() => draw(canvas, ctx));
+    },
+    [backgroundColor, particlePropsLength, particlePropCount, updateParticle, renderGlow, renderToScreen],
+  );
 
   // --- Main Effect Hook ---
   useEffect(() => {
@@ -266,7 +267,7 @@ export const Vortex = (props: VortexProps) => {
 
     // --- ResizeObserver for Container ---
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         if (entry.target === container) {
           resizeCanvas();
         }

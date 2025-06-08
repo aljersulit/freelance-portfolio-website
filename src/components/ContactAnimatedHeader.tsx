@@ -28,12 +28,12 @@ export default function ContactAnimatedHeader() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, scrollDirection, screenHeight]);
+  }, [scrollY, scrollDirection, screenHeight, scale]);
   return (
     <motion.header
       ref={ref}
       style={{
-        scale
+        scale,
       }}
       className='mx-[20px] rounded-xl border-[2px] border-primary bg-accent-foreground py-[20px] sm:mx-[100px] lg:mx-[120px] lg:border-[6px] lg:py-[50px] xl:mx-auto xl:w-[1105px] xl:rounded-3xl xl:py-[78px]'
     >

@@ -44,7 +44,7 @@ function BannerH3() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, scrollDirection, screenHeight]);
+  }, [scrollY, scrollDirection, screenHeight, h3Opacity, xTranslate]);
 
   return (
     <motion.h3
@@ -88,7 +88,7 @@ function BannerImg() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, scrollDirection, screenHeight]);
+  }, [scrollY, scrollDirection, screenHeight, opacity, scale, y]);
   return (
     <motion.div
       ref={divBgRef}
@@ -132,7 +132,7 @@ function BannerParagraph() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, scrollDirection, screenHeight]);
+  }, [scrollY, scrollDirection, screenHeight, opacity, scaleX, scaleY]);
 
   return (
     <motion.p

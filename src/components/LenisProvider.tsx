@@ -1,5 +1,5 @@
 'use client';
-import { ReactLenis, useLenis } from 'lenis/react';
+import { ReactLenis } from 'lenis/react';
 import type { LenisRef } from 'lenis/react';
 import { frame, cancelFrame } from 'motion/react';
 import { useEffect, useRef } from 'react';

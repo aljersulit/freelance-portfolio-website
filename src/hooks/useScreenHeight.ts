@@ -4,7 +4,6 @@ export default function useScreenHeight() {
   const [screenHeight, setScreenHeight] = useState<number>(1);
 
   useEffect(() => {
-  
     function handleResize() {
       setScreenHeight(window.innerHeight);
     }

@@ -1,5 +1,5 @@
-"use client"
-import { useEffect, useRef } from "react";
+'use client';
+import { useEffect, useRef } from 'react';
 import { useMotionValue, useSpring } from 'motion/react';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';
@@ -95,7 +95,7 @@ export default function Counter({
     return () => {
       unsubSpring();
     };
-  }, [springValue, format]);
+  }, [springValue, format, targetValue]);
 
   return <span ref={ref} className={className} />;
 }

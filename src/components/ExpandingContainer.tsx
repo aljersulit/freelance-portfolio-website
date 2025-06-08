@@ -37,7 +37,7 @@ export default function ExpandingContainer({
 
       return () => unsubscribe();
     }
-  }, [scrollY, scrollDirection, screenHeight, animationTrigger]);
+  }, [scrollY, scrollDirection, screenHeight, animationTrigger, scale]);
   return animationTrigger === 'onView' ? (
     <motion.div
       initial={{

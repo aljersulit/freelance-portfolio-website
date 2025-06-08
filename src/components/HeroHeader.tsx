@@ -54,7 +54,7 @@ export default function HeroHeader() {
             }}
           >
             👋
-          </motion.span>{" "}
+          </motion.span>{' '}
           Hi, I&apos;m Aljoy!
         </motion.div>
       </h2>

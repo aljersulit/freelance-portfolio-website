@@ -35,7 +35,7 @@ export default function FadeInAnimationContainer({
     });
 
     return () => unsubscribe();
-  }, [scrollY, scrollDirection, screenHeight]);
+  }, [scrollY, scrollDirection, screenHeight, variantsKey]);
   return (
     <motion.div
       ref={ref}
