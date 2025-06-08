@@ -10,6 +10,7 @@ import TiktokAnalyticResult from '@/assets/TiktokAnalyticResult.png';
 import TiktokContentResult from '@/assets/Group12.png';
 import { TESTIMONIALS } from '@/lib/constants';
 import Counter from '@/components/ui/counter';
+import FadeInAnimationContainer from '@/components/FadeInAnimationContainer';
 
 export default function Stats() {
   return (
@@ -40,11 +41,21 @@ export default function Stats() {
             </div>
           </div>
         </header>
-        <Image
-          src={FBR}
-          alt='Facebook Analytics Result'
-          className='ml-auto mt-[24px] w-11/12 object-contain md:mt-[44px] lg:mt-0 lg:w-8/12'
-        />
+        <FadeInAnimationContainer
+          className='ml-auto mt-[24px] w-11/12 md:mt-[44px] lg:mt-0 lg:w-8/12'
+          variants={{
+            hidden: {
+              opacity: 0,
+              x: '10%',
+            },
+            visible: {
+              opacity: 1,
+              x: '0%',
+            },
+          }}
+        >
+          <Image src={FBR} alt='Facebook Analytics Result' className='object-contain' />
+        </FadeInAnimationContainer>
       </div>
 
       <div className='relative mt-[34px] justify-center px-[22px] md:mt-[54px] lg:mt-[60px] lg:flex lg:gap-[36px] lg:px-0 xl:mt-[88px] xl:gap-[62px] 3xl:gap-[78px] min-[2100px]:mt-[128px] min-[2100px]:gap-[118px]'>
@@ -156,11 +167,21 @@ export default function Stats() {
             </p>
           </div>
         </div>
-        <Image
-          src={TiktokAnalyticResult}
-          alt='Tiktok Analytic Result'
-          className='mt-[18px] w-11/12 object-contain md:mt-[28px] lg:mt-0 lg:w-2/3'
-        />
+        <FadeInAnimationContainer
+          className='mt-[18px] w-11/12 md:mt-[28px] lg:mt-0 lg:w-2/3'
+          variants={{
+            hidden: {
+              opacity: 0,
+              x: '-10%',
+            },
+            visible: {
+              opacity: 1,
+              x: '0%',
+            },
+          }}
+        >
+          <Image src={TiktokAnalyticResult} alt='Tiktok Analytic Result' className='object-contain' />
+        </FadeInAnimationContainer>
       </div>
 
       <div className='mt-[40px] items-end justify-center px-[22px] md:mt-[90px] lg:flex lg:gap-[50px] xl:mt-[110px] xl:gap-[120px]'>
