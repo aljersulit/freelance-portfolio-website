@@ -11,6 +11,7 @@ import TiktokContentResult from '@/assets/Group12.png';
 import { TESTIMONIALS } from '@/lib/constants';
 import Counter from '@/components/ui/counter';
 import FadeInAnimationContainer from '@/components/FadeInAnimationContainer';
+import ExpandingContainer from '@/components/ExpandingContainer';
 
 export default function Stats() {
   return (
@@ -60,7 +61,7 @@ export default function Stats() {
 
       <div className='relative mt-[34px] justify-center px-[22px] md:mt-[54px] lg:mt-[60px] lg:flex lg:gap-[36px] lg:px-0 xl:mt-[88px] xl:gap-[62px] 3xl:gap-[78px] min-[2100px]:mt-[128px] min-[2100px]:gap-[118px]'>
         <div className='lg:max-w-[440px] xl:max-w-[666px] 3xl:max-w-[850px]'>
-          <div className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] lg:rounded-lg lg:px-[40px] lg:py-[54px] xl:rounded-xl xl:px-[56px] xl:py-[68px] 3xl:rounded-2xl 3xl:py-[78px]'>
+          <ExpandingContainer className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] lg:rounded-lg lg:px-[40px] lg:py-[54px] xl:rounded-xl xl:px-[56px] xl:py-[68px] 3xl:rounded-2xl 3xl:py-[78px]'>
             <h3 className={`${playfairDisplay.className} text-center sm:text-xl lg:text-3xl xl:text-[2.5rem]`}>
               Facebook Reels Result
             </h3>
@@ -69,14 +70,14 @@ export default function Stats() {
               alt='Facebook Reels Result'
               className='mt-[10px] sm:mt-[20px] lg:mt-[22px] xl:mt-[30px]'
             />
-          </div>
+          </ExpandingContainer>
           <p className='mt-[6px] text-xs text-muted-foreground md:text-base lg:mt-[10px] lg:w-5/6 lg:text-xs xl:mt-[16px] xl:text-sm 3xl:text-xl'>
             Achieved consistent engagement growth, with notable spikes from viral reels that reached over 200k+ views
             and boosted audience interaction.
           </p>
         </div>
 
-        <div className='mt-[14px] rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] md:mt-[28px] lg:max-w-[400px] lg:rounded-lg lg:px-[16px] lg:py-[44px] xl:mt-[40px] xl:max-w-[592px] xl:rounded-xl xl:px-[18px] xl:py-[90px] 3xl:max-w-[718px] 3xl:rounded-2xl 3xl:pb-[50px]'>
+        <ExpandingContainer className='mt-[14px] rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] md:mt-[28px] lg:max-w-[400px] lg:rounded-lg lg:px-[16px] lg:py-[44px] xl:mt-[40px] xl:max-w-[592px] xl:rounded-xl xl:px-[18px] xl:py-[90px] 3xl:max-w-[718px] 3xl:rounded-2xl 3xl:pb-[50px]'>
           <h3 className={`${playfairDisplay.className} text-center sm:text-xl lg:text-3xl xl:text-[2.5rem]`}>
             Facebook Content Result
           </h3>
@@ -85,7 +86,7 @@ export default function Stats() {
             alt='Facebook Content Result'
             className='mt-[8px] sm:mt-[20px] lg:mt-[30px] xl:mt-[48px]'
           />
-        </div>
+        </ExpandingContainer>
         <div
           className='absolute -top-[150px] right-0 -z-10 h-[400px] w-3/4 bg-[url(/Yellow4.png)] bg-contain bg-right bg-no-repeat lg:-top-[900px] lg:h-[1420px] lg:w-1/2'
           aria-hidden
@@ -185,14 +186,14 @@ export default function Stats() {
       </div>
 
       <div className='mt-[40px] items-end justify-center px-[22px] md:mt-[90px] lg:flex lg:gap-[50px] xl:mt-[110px] xl:gap-[120px]'>
-        <div className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:p-[20px] lg:max-w-[450px] lg:rounded-lg lg:p-[26px] lg:pb-[8px] xl:max-w-[627px] xl:rounded-xl xl:p-[36px] xl:pb-[18px] 3xl:max-w-[880px] 3xl:p-[50px] 3xl:pb-[22px]'>
+        <ExpandingContainer className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:p-[20px] lg:max-w-[450px] lg:rounded-lg lg:p-[26px] lg:pb-[8px] xl:max-w-[627px] xl:rounded-xl xl:p-[36px] xl:pb-[18px] 3xl:max-w-[880px] 3xl:p-[50px] 3xl:pb-[22px]'>
           <h3 className='text-center sm:text-xl lg:text-2xl xl:text-4xl 3xl:text-5xl'>Tiktok Content Result</h3>
           <Image
             src={TiktokContentResult}
             alt='Tiktok content results'
             className='sm:mt-[10px] lg:mt-[18px] xl:mt-[24px]'
           />
-        </div>
+        </ExpandingContainer>
         <div className='mt-[20px] border-t border-[#000000] px-[4px] pt-[14px] sm:flex sm:items-end sm:gap-[18px] md:mt-[40px] lg:mt-0 lg:block lg:max-w-[340px] lg:border-l lg:border-t-0 lg:px-0 lg:py-[16px] lg:pl-[20px] lg:pt-0 xl:max-w-[420px] xl:py-[26px] xl:pl-[32px] 3xl:max-w-[580px]'>
           <p
             className={`${roboto.className} text-balance text-xs tracking-tight sm:text-base md:text-lg lg:text-pretty lg:text-xs xl:text-sm 3xl:text-lg`}

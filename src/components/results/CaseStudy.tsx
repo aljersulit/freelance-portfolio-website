@@ -1,8 +1,9 @@
 import React from 'react';
 import { robotoCondensed, roboto } from '@/app/font';
+import Image from 'next/image';
 import CaseStudyImg from '@/assets/case_study.png';
 import StaggeredList from '@/components/results/StaggeredList';
-import ExpandingImage from '@/components/ExpandingImage';
+import ExpandingContainer from '@/components/ExpandingContainer';
 
 const GOALS = [
   'Develop tailored content for multiple platforms while maintaining a cohesive brand identity.',
@@ -23,12 +24,13 @@ export default function CaseStudy() {
       className={`${roboto.className} justify-center px-[18px] pb-[30px] pt-[10px] min-[375px]:px-[22px] min-[375px]:pt-[20px] min-[425px]:px-[32px] sm:py-[45px] md:px-[42px] lg:flex lg:gap-[50px] lg:px-[20px] xl:gap-[96px] xl:pb-[120px] 2xl:pb-[140px] 3xl:pt-[140px]`}
     >
       <div className='lg:w-[470px] xl:w-[668px] 3xl:w-[894px]'>
-        <ExpandingImage
-          src={CaseStudyImg}
-          alt='A collection of social media advertisements for Agribank.'
-          className='h-auto overflow-hidden xl:w-full'
-          hasHoverAnimation={false}
-        />
+        <ExpandingContainer className='h-auto overflow-hidden xl:w-full'>
+          <Image
+            src={CaseStudyImg}
+            alt='A collection of social media advertisements for Agribank.'
+            className='object-cover'
+          />
+        </ExpandingContainer>
         <p className='mt-[8px] text-pretty text-xs min-[425px]:text-sm sm:text-xl lg:mt-[12px] lg:text-sm 3xl:mt-[18px] 3xl:text-lg/tight'>
           Agribank is a financial institution offering a wide range of banking and financial services. As the Social
           Media Manager & Graphic Artist, I managed Agribank&apos;s social media presence across multiple platforms,
