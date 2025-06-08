@@ -1,35 +1,38 @@
-"use client"
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const lineVariants = {
-  hidden: { y: '100%' },
-  visible: {
-    y: 0,
-    transition: {
-      type: 'spring',
-      visualDuration: 0.24,
-      bounce: 0.44,
-    },
-  },
-};
+import { useDeviceResponsiveContext } from '@/components/DeviceResponsiveContext';
 
 type RevealingTextProps = {
   text: string;
 };
 
 export default function RevealingText({ text }: RevealingTextProps) {
+  const { isMobile, isTablet } = useDeviceResponsiveContext();
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const lineVariants = {
+    hidden: { y: '100%' },
+    visible: {
+      y: 0,
+      transition: {
+        type: 'spring',
+        visualDuration: 0.24,
+        bounce: isMobile ? 0.33 : isTablet ? 0.38 : 0.44,
+      },
+    },
+  };
+
   const chars = text.split('');
 
   const screenHeight = useScreenHeight();
