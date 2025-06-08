@@ -16,7 +16,7 @@ import ExpandingContainer from '@/components/ExpandingContainer';
 export default function Stats() {
   return (
     <section className='py-[24px] lg:py-[40px] xl:py-[20px] 3xl:py-[60px]'>
-      <div className='justify-end lg:flex lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px] min-[2100px]:gap-[148px]'>
+      <div className='justify-end overflow-hidden lg:flex lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px] min-[2100px]:gap-[148px]'>
         <header className='px-[22px] lg:w-1/3 xl:w-1/4 3xl:max-w-[470px]'>
           <h2
             className={`${robotoCondensed.className} w-fit border-b-2 border-primary text-xl uppercase min-[425px]:text-2xl sm:text-4xl lg:text-2xl xl:text-3xl 3xl:text-5xl`}
@@ -118,7 +118,7 @@ export default function Stats() {
         </div>
       </div>
 
-      <div className='mt-[50px] flex-row-reverse justify-end lg:mt-[58px] lg:flex lg:gap-[30px] 3xl:mt-[140px]'>
+      <div className='mt-[50px] flex-row-reverse justify-end overflow-hidden lg:mt-[58px] lg:flex lg:gap-[30px] 3xl:mt-[140px]'>
         <div className='flex flex-col justify-center px-[22px] sm:px-[54px] lg:space-y-[30px] lg:px-0 lg:pb-[54px] 3xl:space-y-[40px] 3xl:pb-[104px]'>
           <div className='lg:mt-[14px]'>
             <Percentage
