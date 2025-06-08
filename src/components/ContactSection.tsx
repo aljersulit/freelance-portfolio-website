@@ -1,18 +1,21 @@
 import ContactForm from '@/components/ContactForm';
-import { playfairDisplay, roboto } from '@/app/font';
+import { roboto, playfairDisplay } from '@/app/font';
 import Mail from '@/components/svg/Mail';
 import Location from '@/components/svg/Location';
+import ExpandingContainer from '@/components/ExpandingContainer';
 
 export default function ContactSection() {
   return (
     <section className='pt-[35px] sm:pt-[70px] lg:py-[100px] xl:py-[180px]'>
-      <header className='mx-[20px] rounded-xl border-2 border-primary bg-accent-foreground py-[20px] sm:mx-[100px] lg:mx-[120px] lg:py-[50px] xl:mx-auto xl:w-[1105px] xl:rounded-3xl xl:py-[78px]'>
-        <h2
-          className={`${playfairDisplay.className} text-balance text-center text-2xl font-normal leading-[1.3] md:text-4xl xl:text-[3.375rem] xl:leading-snug`}
-        >
-          Let&apos;s turn your digital presence into your biggest asset!
-        </h2>
-      </header>
+      <ExpandingContainer animationTrigger='onScrollDown'>
+        <header className='mx-[20px] rounded-xl border-[2px] border-primary bg-accent-foreground py-[20px] sm:mx-[100px] lg:mx-[120px] lg:border-[6px] lg:py-[50px] xl:mx-auto xl:w-[1105px] xl:rounded-3xl xl:py-[78px]'>
+          <h2
+            className={`${playfairDisplay.className} text-balance text-center text-2xl font-normal leading-[1.3] md:text-4xl xl:text-[3.375rem] xl:leading-snug`}
+          >
+            Let&apos;s turn your digital presence into your biggest asset!
+          </h2>
+        </header>
+      </ExpandingContainer>
       <div className='mt-[52px] sm:mt-[80px] xl:mt-[166px]' id='contact'>
         <h2
           className={`${roboto.className} text-center text-3xl font-semibold text-secondary-foreground sm:text-4xl xl:text-[4.375rem]`}
@@ -55,7 +58,7 @@ export default function ContactSection() {
                 </p>
               </address>
               <a
-                href='#'
+                href='https://calendly.com/aljoydigital/30min'
                 target='_blank'
                 rel='noopener noreferrer'
                 className={`${roboto.className} mt-[20px] block cursor-dot rounded-full border border-primary-foreground text-center font-bold uppercase transition-colors hover:bg-accent md:py-2 lg:text-sm xl:py-4 xl:text-base`}

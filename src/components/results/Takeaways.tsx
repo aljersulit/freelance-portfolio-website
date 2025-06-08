@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { outfit, playfairDisplay, roboto } from '@/app/font';
+import ExpandingContainer from '@/components/ExpandingContainer';
 
 export default function Takeaways() {
   return (
     <section className='pb-[70px] pt-[50px] lg:pb-[74px] lg:pt-[100px] xl:pb-[82px] xl:pt-[136px] 3xl:pb-[112px]'>
-      <div className='mx-auto w-11/12 rounded-lg border-[2px] border-primary bg-accent-foreground px-[16px] py-[8px] sm:w-10/12 sm:rounded-xl sm:px-[24px] sm:py-[12px] lg:max-w-[850px] lg:rounded-2xl lg:border-[4px] lg:px-[44px] lg:py-[24px] xl:max-w-[1066px] xl:rounded-3xl xl:border-[6px] xl:px-[64px] xl:py-[44px] 3xl:max-w-[1350px]'>
+      <ExpandingContainer
+        animationTrigger='onScrollDown'
+        className='mx-auto w-11/12 rounded-lg border-[2px] border-primary bg-accent-foreground px-[16px] py-[8px] sm:w-10/12 sm:rounded-xl sm:px-[24px] sm:py-[12px] lg:max-w-[850px] lg:rounded-2xl lg:border-[4px] lg:px-[44px] lg:py-[24px] xl:max-w-[1066px] xl:rounded-3xl xl:border-[6px] xl:px-[64px] xl:py-[44px] 3xl:max-w-[1350px]'
+      >
         <h2
           className={`${playfairDisplay.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 3xl:text-6xl`}
         >
@@ -17,7 +21,7 @@ export default function Takeaways() {
           <li>Strong skills in graphic design, video editing, and paid campaign management.</li>
           <li>Experienced in creating engaging content that drives inquiries and strengthens brand presence.</li>
         </ul>
-      </div>
+      </ExpandingContainer>
 
       <h2
         className={`${outfit.className} mt-[54px] text-center text-4xl font-medium md:text-5xl lg:mt-[110px] lg:text-4xl xl:mt-[140px] xl:text-5xl 3xl:text-6xl`}

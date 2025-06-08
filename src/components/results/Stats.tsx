@@ -9,11 +9,14 @@ import AdsPerformance from '@/assets/AdsPerformance.png';
 import TiktokAnalyticResult from '@/assets/TiktokAnalyticResult.png';
 import TiktokContentResult from '@/assets/Group12.png';
 import { TESTIMONIALS } from '@/lib/constants';
+import Counter from '@/components/ui/counter';
+import FadeInAnimationContainer from '@/components/FadeInAnimationContainer';
+import ExpandingContainer from '@/components/ExpandingContainer';
 
 export default function Stats() {
   return (
     <section className='py-[24px] lg:py-[40px] xl:py-[20px] 3xl:py-[60px]'>
-      <div className='justify-end lg:flex lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px] min-[2100px]:gap-[148px]'>
+      <div className='justify-end overflow-hidden lg:flex lg:gap-[50px] lg:pl-[30px] xl:gap-[62px] xl:pl-[96px] 3xl:gap-[112px] min-[2100px]:gap-[148px]'>
         <header className='px-[22px] lg:w-1/3 xl:w-1/4 3xl:max-w-[470px]'>
           <h2
             className={`${robotoCondensed.className} w-fit border-b-2 border-primary text-xl uppercase min-[425px]:text-2xl sm:text-4xl lg:text-2xl xl:text-3xl 3xl:text-5xl`}
@@ -39,16 +42,26 @@ export default function Stats() {
             </div>
           </div>
         </header>
-        <Image
-          src={FBR}
-          alt='Facebook Analytics Result'
-          className='ml-auto mt-[24px] w-11/12 object-contain md:mt-[44px] lg:mt-0 lg:w-8/12'
-        />
+        <FadeInAnimationContainer
+          className='ml-auto mt-[24px] w-11/12 md:mt-[44px] lg:mt-0 lg:w-8/12'
+          variants={{
+            hidden: {
+              opacity: 0,
+              x: '10%',
+            },
+            visible: {
+              opacity: 1,
+              x: '0%',
+            },
+          }}
+        >
+          <Image src={FBR} alt='Facebook Analytics Result' className='object-contain' />
+        </FadeInAnimationContainer>
       </div>
 
       <div className='relative mt-[34px] justify-center px-[22px] md:mt-[54px] lg:mt-[60px] lg:flex lg:gap-[36px] lg:px-0 xl:mt-[88px] xl:gap-[62px] 3xl:gap-[78px] min-[2100px]:mt-[128px] min-[2100px]:gap-[118px]'>
         <div className='lg:max-w-[440px] xl:max-w-[666px] 3xl:max-w-[850px]'>
-          <div className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] lg:rounded-lg lg:px-[40px] lg:py-[54px] xl:rounded-xl xl:px-[56px] xl:py-[68px] 3xl:rounded-2xl 3xl:py-[78px]'>
+          <ExpandingContainer className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] lg:rounded-lg lg:px-[40px] lg:py-[54px] xl:rounded-xl xl:px-[56px] xl:py-[68px] 3xl:rounded-2xl 3xl:py-[78px]'>
             <h3 className={`${playfairDisplay.className} text-center sm:text-xl lg:text-3xl xl:text-[2.5rem]`}>
               Facebook Reels Result
             </h3>
@@ -57,14 +70,14 @@ export default function Stats() {
               alt='Facebook Reels Result'
               className='mt-[10px] sm:mt-[20px] lg:mt-[22px] xl:mt-[30px]'
             />
-          </div>
+          </ExpandingContainer>
           <p className='mt-[6px] text-xs text-muted-foreground md:text-base lg:mt-[10px] lg:w-5/6 lg:text-xs xl:mt-[16px] xl:text-sm 3xl:text-xl'>
             Achieved consistent engagement growth, with notable spikes from viral reels that reached over 200k+ views
             and boosted audience interaction.
           </p>
         </div>
 
-        <div className='mt-[14px] rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] md:mt-[28px] lg:max-w-[400px] lg:rounded-lg lg:px-[16px] lg:py-[44px] xl:mt-[40px] xl:max-w-[592px] xl:rounded-xl xl:px-[18px] xl:py-[90px] 3xl:max-w-[718px] 3xl:rounded-2xl 3xl:pb-[50px]'>
+        <ExpandingContainer className='mt-[14px] rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:px-[20px] sm:py-[30px] md:mt-[28px] lg:max-w-[400px] lg:rounded-lg lg:px-[16px] lg:py-[44px] xl:mt-[40px] xl:max-w-[592px] xl:rounded-xl xl:px-[18px] xl:py-[90px] 3xl:max-w-[718px] 3xl:rounded-2xl 3xl:pb-[50px]'>
           <h3 className={`${playfairDisplay.className} text-center sm:text-xl lg:text-3xl xl:text-[2.5rem]`}>
             Facebook Content Result
           </h3>
@@ -73,7 +86,7 @@ export default function Stats() {
             alt='Facebook Content Result'
             className='mt-[8px] sm:mt-[20px] lg:mt-[30px] xl:mt-[48px]'
           />
-        </div>
+        </ExpandingContainer>
         <div
           className='absolute -top-[150px] right-0 -z-10 h-[400px] w-3/4 bg-[url(/Yellow4.png)] bg-contain bg-right bg-no-repeat lg:-top-[900px] lg:h-[1420px] lg:w-1/2'
           aria-hidden
@@ -105,7 +118,7 @@ export default function Stats() {
         </div>
       </div>
 
-      <div className='mt-[50px] flex-row-reverse justify-end lg:mt-[58px] lg:flex lg:gap-[30px] 3xl:mt-[140px]'>
+      <div className='mt-[50px] flex-row-reverse justify-end overflow-hidden lg:mt-[58px] lg:flex lg:gap-[30px] 3xl:mt-[140px]'>
         <div className='flex flex-col justify-center px-[22px] sm:px-[54px] lg:space-y-[30px] lg:px-0 lg:pb-[54px] 3xl:space-y-[40px] 3xl:pb-[104px]'>
           <div className='lg:mt-[14px]'>
             <Percentage
@@ -155,22 +168,32 @@ export default function Stats() {
             </p>
           </div>
         </div>
-        <Image
-          src={TiktokAnalyticResult}
-          alt='Tiktok Analytic Result'
-          className='mt-[18px] w-11/12 object-contain md:mt-[28px] lg:mt-0 lg:w-2/3'
-        />
+        <FadeInAnimationContainer
+          className='mt-[18px] w-11/12 md:mt-[28px] lg:mt-0 lg:w-2/3'
+          variants={{
+            hidden: {
+              opacity: 0,
+              x: '-10%',
+            },
+            visible: {
+              opacity: 1,
+              x: '0%',
+            },
+          }}
+        >
+          <Image src={TiktokAnalyticResult} alt='Tiktok Analytic Result' className='object-contain' />
+        </FadeInAnimationContainer>
       </div>
 
       <div className='mt-[40px] items-end justify-center px-[22px] md:mt-[90px] lg:flex lg:gap-[50px] xl:mt-[110px] xl:gap-[120px]'>
-        <div className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:p-[20px] lg:max-w-[450px] lg:rounded-lg lg:p-[26px] lg:pb-[8px] xl:max-w-[627px] xl:rounded-xl xl:p-[36px] xl:pb-[18px] 3xl:max-w-[880px] 3xl:p-[50px] 3xl:pb-[22px]'>
+        <ExpandingContainer className='rounded-md border-2 border-primary bg-secondary px-[10px] py-[18px] sm:rounded-lg sm:p-[20px] lg:max-w-[450px] lg:rounded-lg lg:p-[26px] lg:pb-[8px] xl:max-w-[627px] xl:rounded-xl xl:p-[36px] xl:pb-[18px] 3xl:max-w-[880px] 3xl:p-[50px] 3xl:pb-[22px]'>
           <h3 className='text-center sm:text-xl lg:text-2xl xl:text-4xl 3xl:text-5xl'>Tiktok Content Result</h3>
           <Image
             src={TiktokContentResult}
             alt='Tiktok content results'
             className='sm:mt-[10px] lg:mt-[18px] xl:mt-[24px]'
           />
-        </div>
+        </ExpandingContainer>
         <div className='mt-[20px] border-t border-[#000000] px-[4px] pt-[14px] sm:flex sm:items-end sm:gap-[18px] md:mt-[40px] lg:mt-0 lg:block lg:max-w-[340px] lg:border-l lg:border-t-0 lg:px-0 lg:py-[16px] lg:pl-[20px] lg:pt-0 xl:max-w-[420px] xl:py-[26px] xl:pl-[32px] 3xl:max-w-[580px]'>
           <p
             className={`${roboto.className} text-balance text-xs tracking-tight sm:text-base md:text-lg lg:text-pretty lg:text-xs xl:text-sm 3xl:text-lg`}
@@ -209,13 +232,11 @@ function Percentage({
   arrowClassName?: string;
   percentClassName?: string;
 }) {
-  const formattedValue = typeof value === 'number' && value % 1 !== 0 ? value.toFixed(2) : value;
-
   return (
     <div className={cn('flex items-center font-semibold leading-none text-analytics', className)}>
       <ArrowUp className={cn('inline w-[18px] sm:w-[20px] lg:w-[24px] xl:w-[30px] 3xl:w-[46px]', arrowClassName)} />
       <p className={cn(outfit.className, 'text-4xl sm:text-5xl lg:text-7xl xl:text-8xl 3xl:text-9xl', valueClassName)}>
-        {formattedValue}
+        <Counter targetValue={value} />
         <span
           className={cn(
             'relative align-top text-2xl sm:text-3xl lg:top-[0.5rem] lg:text-5xl xl:text-6xl 3xl:top-[1.25rem] 3xl:text-7xl',
