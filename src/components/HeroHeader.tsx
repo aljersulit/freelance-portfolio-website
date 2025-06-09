@@ -65,7 +65,7 @@ export default function HeroHeader() {
           <motion.div variants={lineVariants}>Your Brand&apos;s Growth</motion.div>
         </div>
         <div className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
-          <motion.div variants={lineVariants}>Partner in Digital Marketin</motion.div>
+          <motion.div variants={lineVariants}>Partner in Digital Marketing</motion.div>
         </div>
         <div className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
           <motion.div variants={lineVariants}>& Creative Design</motion.div>
