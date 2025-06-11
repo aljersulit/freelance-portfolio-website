@@ -7,8 +7,8 @@ export async function sendEmail(mailOptions: nodemailer.SendMailOptions) {
           service: 'gmail',
           host: 'smtp.gmail.com',
           auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASSWORD,
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD,
           },
         }
       : {
