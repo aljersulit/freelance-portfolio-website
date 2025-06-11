@@ -4,11 +4,12 @@ A modern, responsive portfolio website built for **Alyssa Joy Sulit**, a profess
 
 ## 🌟 Live Demo
 
-**[View Live Website](https://aljoydigital.com/)**
+**[View Live Website](https://aljoydigital.com)**
 
 ## 📋 Project Overview
 
 This portfolio website serves a dual purpose:
+
 - **For Alyssa**: A professional platform to showcase her skills, experience, and services as a Social Media Manager to potential employers and clients
 - **For Development**: A demonstration of modern web development practices and NextJS capabilities
 
@@ -27,8 +28,8 @@ This portfolio website serves a dual purpose:
 - **Framework**: [Next.js](https://nextjs.org/) - React-based web framework
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) - Animation library for React
-- **Smooth Scrolling**: [Lenis](https://github.com/studio-freight/lenis) - Smooth scroll library
+- **Animations**: [Motion](https://motion.dev/) - Animation library for React
+- **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/) - Smooth scroll library
 - **Email Service**: [Nodemailer](https://nodemailer.com/) - Email sending functionality
 - **Email Templates**: [React Email](https://react.email/) - Modern email templates
 - **Form Handling**: [React Hook Form](https://react-hook-form.com/) - Performant form library
@@ -45,41 +46,43 @@ This portfolio website serves a dual purpose:
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/aljersulit/freelance-portfolio-website.git
    cd freelance-portfolio-website
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env.local` file in the root directory and add:
+
    ```env
    # Email Configuration
-   SMTP_HOST=your_smtp_host
-   SMTP_PORT=587
    SMTP_USER=your_email@gmail.com
-   SMTP_PASS=your_app_password
-   
+   SMTP_PASSWORD=your_app_password
+
    # Google reCAPTCHA
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
    RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
-   
+
    # Admin Email
    ADMIN_EMAIL=admin@example.com
    ```
 
 4. **Run the development server**
+
    ```bash
    pnpm dev
    ```
 
 5. **Open your browser**
-   
+
    Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
 
 ### Build for Production
@@ -89,23 +92,10 @@ pnpm build
 pnpm start
 ```
 
-## 📁 Project Structure
-
-```
-freelance-portfolio-website/
-├── public/                 # Static assets
-├── src/
-│   ├── app/               # Next.js 13+ app directory
-│   ├── components/        # Reusable UI components
-│   ├── lib/              # Utility functions and configurations
-│   └── styles/           # Global styles
-├── emails/               # React Email templates
-└── README.md
-```
-
 ## 📧 Contact Form Features
 
 The contact form includes:
+
 - **Form Validation** - Client-side validation using Zod schemas
 - **Spam Protection** - Google reCAPTCHA integration
 - **Email Templates** - Custom HTML email templates built with React Email
@@ -146,6 +136,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Developer**: [aljersulit](https://github.com/aljersulit)
 
 **Portfolio Owner**: Alyssa Joy Sulit - Social Media Manager
+
 - Website: [aljoydigital.com](https://aljoydigital.com/)
 
 ---
