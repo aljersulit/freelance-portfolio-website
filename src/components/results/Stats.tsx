@@ -12,6 +12,7 @@ import { TESTIMONIALS } from '@/lib/constants';
 import Counter from '@/components/ui/counter';
 import FadeInAnimationContainer from '@/components/FadeInAnimationContainer';
 import ExpandingContainer from '@/components/ExpandingContainer';
+import IKImage from '@/components/IKImage';
 
 export default function Stats() {
   return (
@@ -88,9 +89,18 @@ export default function Stats() {
           />
         </ExpandingContainer>
         <div
-          className='absolute -top-[150px] right-0 -z-10 h-[400px] w-3/4 bg-[url(/Yellow4.png)] bg-contain bg-right bg-no-repeat lg:-top-[900px] lg:h-[1420px] lg:w-1/2'
+          className='absolute -top-[150px] right-0 -z-10 h-[400px] w-3/4 lg:-top-[900px] lg:h-[1420px] lg:w-1/2'
           aria-hidden
-        />
+        >
+          <IKImage
+            alt=''
+            src='/Yellow4.webp'
+            width={1181}
+            height={2000}
+            role='presentation'
+            className='w-full object-contain object-right'
+          />
+        </div>
       </div>
 
       <div className='mt-[50px] justify-center px-[22px] lg:mt-[74px] lg:flex lg:gap-[58px] lg:px-0 xl:gap-[74px] 3xl:mt-[160px] min-[2100px]:mt-[200px] min-[2100px]:gap-[94px]'>

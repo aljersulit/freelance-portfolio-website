@@ -4,10 +4,11 @@ import { NAVLINKS, SERVICES } from '@/lib/constants';
 import Link from 'next/link';
 import { outfit, playfairDisplay } from '@/app/font';
 import { SOCIALS } from '@/lib/constants';
+import IKImage from '@/components/IKImage';
 
 export default function Footer() {
   return (
-    <footer className='relative h-[290px] bg-footer bg-[url(/footer_gradient.png)] bg-[auto_400px] bg-left-bottom bg-no-repeat px-[16px] pt-[20px] text-background md:h-[407px] md:pt-[75px] lg:px-[32px]'>
+    <footer className='relative h-[290px] bg-footer px-[16px] pt-[20px] text-background md:h-[407px] md:pt-[75px] lg:px-[32px]'>
       <div className='flex h-full flex-col justify-between md:mx-auto md:flex-row xl:w-[1200px] 3xl:w-[1500px]'>
         <div className='border-neutral-600 max-md:border-b md:flex md:gap-[25px] lg:gap-[70px]'>
           <div>
@@ -51,6 +52,16 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className='absolute bottom-0 left-0 top-0 sm:w-[400px] lg:w-[480px] xl:w-[510px] 2xl:w-[580px]'>
+        <IKImage
+          alt=''
+          src='/footer_gradient.webp'
+          width={1281}
+          height={912}
+          role='presentation'
+          className='h-full w-full object-contain object-bottom'
+        />
       </div>
       <div className='absolute inset-x-0 bottom-0 z-50 h-[6px] bg-gradient-to-r from-primary to-accent-foreground' />
     </footer>

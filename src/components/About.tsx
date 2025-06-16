@@ -4,6 +4,7 @@ import { roboto } from '@/app/font';
 import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
 import RevealingText from '@/components/ui/revealing-text';
+import IKImage from '@/components/IKImage';
 
 export default function About() {
   return (
@@ -69,12 +70,30 @@ export default function About() {
       </article>
       <div
         aria-hidden='true'
-        className='pointer-events-none absolute left-0 top-0 z-0 h-full w-full bg-[url(/purple_gradient_about.png)] bg-contain bg-no-repeat opacity-45 md:w-[619px] lg:opacity-100 2xl:w-2/3'
-      />
+        className='pointer-events-none absolute left-0 top-0 z-0 h-full w-full opacity-45 md:w-[619px] lg:opacity-100 2xl:w-2/3'
+      >
+        <IKImage
+          src='/purple_gradient_about.webp'
+          width={1183}
+          height={2449}
+          alt=''
+          role='presentation'
+          className='object-contain 2xl:object-cover'
+        />
+      </div>
       <div
         aria-hidden='true'
-        className='pointer-events-none absolute right-0 top-0 z-0 h-full w-full bg-[url(/yellow_gradient_about.png)] bg-contain bg-right-bottom bg-no-repeat opacity-75 md:w-[619px] lg:bg-right-top lg:opacity-100 2xl:w-2/3'
-      />
+        className='pointer-events-none absolute right-0 top-0 z-0 h-full w-full bg-no-repeat opacity-75 md:w-[619px] lg:opacity-100 2xl:w-2/3'
+      >
+        <IKImage
+          src='/yellow_gradient_about.png'
+          width={1015}
+          height={1747}
+          alt=''
+          role='presentation'
+          className='absolute bottom-0 right-0 object-contain lg:right-0 lg:top-0'
+        />
+      </div>
     </section>
   );
 }
