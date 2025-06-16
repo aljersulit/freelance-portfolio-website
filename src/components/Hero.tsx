@@ -121,7 +121,7 @@ function HeroOverlayBackgroundImg() {
         width={456}
         height={666}
         role='presentation'
-        className='absolute bottom-0 right-0 h-full object-cover object-right lg:hidden'
+        className='absolute bottom-0 right-0 h-full w-auto object-cover object-right-bottom lg:hidden'
         priority
       />
 
@@ -131,7 +131,7 @@ function HeroOverlayBackgroundImg() {
         width={471}
         height={727}
         role='presentation'
-        className='absolute bottom-0 left-0 hidden h-full object-contain object-left lg:block'
+        className='absolute bottom-0 left-0 hidden h-full w-auto object-contain object-left-bottom lg:block'
         priority
       />
     </div>
