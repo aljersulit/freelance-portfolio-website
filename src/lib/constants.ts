@@ -37,6 +37,7 @@ import Notion from '@/components/svg/Notion';
 import Loom from '@/components/svg/Loom';
 import Slack from '@/components/svg/Slack';
 import Shopify from '@/components/svg/Shopify';
+import Arrow from '@/components/svg/Arrow';
 
 export const TOOLS = [Meta, Buffer, Asana, Airtable, Mailchimp, Microsoft, Google];
 
@@ -89,6 +90,11 @@ export const NAVLINKS = [
   {
     title: 'Testimonials',
     link: '/#testimonials',
+  },
+  {
+    title: 'How I Help',
+    link: '/results',
+    Svg: Arrow,
   },
 ];
 
