@@ -91,7 +91,7 @@ export default function Navbar() {
         >
           <HorizontalLogo className='h-full w-full' />
         </Link>
-        <ul className='font-workSans hidden pr-12 text-lg font-medium lg:flex xl:text-xl 2xl:text-2xl'>
+        <ul className='font-workSans hidden pr-12 text-base font-medium lg:flex xl:text-xl 2xl:text-2xl'>
           {NAVLINKS.map((nav, i) => {
             return (
               <li
@@ -100,6 +100,7 @@ export default function Navbar() {
               >
                 <Link href={nav.link} className='block px-[1.38rem] lg:py-0 xl:py-1'>
                   {nav.title}
+                  {nav.Svg && <nav.Svg className='inline w-4' />}
                 </Link>
               </li>
             );

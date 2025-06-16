@@ -77,7 +77,7 @@ export default function NavMenu({ setIsMenuVisible }: { setIsMenuVisible: (value
               href={item.link}
               onClick={closeNavMenu}
             >
-              {item.title}
+              {item.title} {item.Svg && <item.Svg className='inline w-5 sm:w-6 md:w-7' />}
             </Link>
           </motion.li>
         ))}

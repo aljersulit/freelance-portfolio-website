@@ -5,6 +5,7 @@ import { roboto, robotoFlex, outfit } from '@/app/font';
 import { Vortex } from '@/components/ui/vortex';
 import PhonePC from '@/assets/phone_pc.png';
 import Laptop from '@/assets/laptop.png';
+import IKImage from '@/components/IKImage';
 
 export default function Services() {
   return (
@@ -21,8 +22,26 @@ export default function Services() {
         rangeRadius={1.2}
         className='pointer-events-none'
       >
-        <div className='absolute inset-x-0 top-0 z-10 h-[390px] bg-[url(/purple_gradient_services.png)] bg-cover bg-center lg:hidden' />
-        <div className='absolute inset-x-0 bottom-0 z-10 h-[390px] bg-[url(/purple_yellow.png)] bg-cover bg-center opacity-75' />
+        <div className='absolute inset-x-0 top-0 z-10 h-fit lg:hidden'>
+          <IKImage
+            alt=''
+            src='/purple_gradient_services.webp'
+            width={480}
+            height={594}
+            role='presntation'
+            className='w-full object-cover object-center'
+          />
+        </div>
+        <div className='absolute inset-x-0 bottom-0 z-10 h-fit opacity-75'>
+          <IKImage
+            alt=''
+            src='/purple_yellow.webp'
+            width={2560}
+            height={896}
+            role='presentation'
+            className='object-cover object-center'
+          />
+        </div>
       </Vortex>
       <header className='relative z-20'>
         <h3
