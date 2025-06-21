@@ -2,7 +2,7 @@ import FooterLogo from '@/components/svg/FooterLogo';
 import AljoyDigitalLogo from '@/components/svg/AljoyDigitalLogo';
 import { NAVLINKS, SERVICES } from '@/lib/constants';
 import Link from 'next/link';
-import { outfit, playfairDisplay } from '@/app/font';
+import { outfit, playfairDisplay } from '@/app/(frontend)/font';
 import { SOCIALS } from '@/lib/constants';
 import IKImage from '@/components/IKImage';
 

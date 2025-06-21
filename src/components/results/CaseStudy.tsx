@@ -1,5 +1,5 @@
 import React from 'react';
-import { robotoCondensed, roboto } from '@/app/font';
+import { robotoCondensed, roboto } from '@/app/(frontend)/font';
 import Image from 'next/image';
 import CaseStudyImg from '@/assets/case_study.png';
 import StaggeredList from '@/components/results/StaggeredList';

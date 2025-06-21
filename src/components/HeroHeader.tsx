@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { playfairDisplay, roboto } from '@/app/font';
+import { playfairDisplay, roboto } from '@/app/(frontend)/font';
 import { motion } from 'motion/react';
 
 const lineVariants = {

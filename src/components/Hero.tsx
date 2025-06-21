@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
-import { playfairDisplay } from '@/app/font';
+import { playfairDisplay } from '@/app/(frontend)/font';
 import IKImage from '@/components/IKImage';
 import HeroProfile from '@/assets/hero_profile.png';
 import HeroHeader from '@/components/HeroHeader';

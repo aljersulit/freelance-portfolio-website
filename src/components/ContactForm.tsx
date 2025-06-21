@@ -8,7 +8,7 @@ import { FormSchema } from '@/lib/schema';
 import { sendContactEmail } from '@/lib/actions';
 import { getCaptchaToken } from '@/lib/captcha';
 import { toast } from 'sonner';
-import { roboto } from '@/app/font';
+import { roboto } from '@/app/(frontend)/font';
 
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';

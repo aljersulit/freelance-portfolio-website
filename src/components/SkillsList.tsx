@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { roboto } from '@/app/font';
+import { roboto } from '@/app/(frontend)/font';
 import { motion } from 'motion/react';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';

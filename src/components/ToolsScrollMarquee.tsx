@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { roboto } from '@/app/font';
+import { roboto } from '@/app/(frontend)/font';
 import { TOOLS } from '@/lib/constants';
 import { SOFTWARE } from '@/lib/constants';
 import { motion, useScroll, useTransform } from 'motion/react';

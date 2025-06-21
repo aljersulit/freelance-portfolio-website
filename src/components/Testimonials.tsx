@@ -1,4 +1,4 @@
-import { roboto } from '@/app/font';
+import { roboto } from '@/app/(frontend)/font';
 import Image from 'next/image';
 import { TESTIMONIALS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';

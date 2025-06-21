@@ -1,4 +1,4 @@
-import { robotoFlex } from '@/app/font';
+import { robotoFlex } from '@/app/(frontend)/font';
 import { WobbleCard } from '@/components/ui/wobble-card';
 import { CARDS } from '@/lib/constants';
 import ToolsScrollMarquee from '@/components/ToolsScrollMarquee';

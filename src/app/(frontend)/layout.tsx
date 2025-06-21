@@ -6,7 +6,7 @@ import './globals.css';
 import DeviceResponsiveProvider from '@/components/DeviceResponsiveContext';
 import LenisProvider from '@/components/LenisProvider';
 import { Toaster } from '@/components/ui/sonner';
-import { workSans } from '@/app/font';
+import { workSans } from '@/app/(frontend)/font';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 

@@ -1,4 +1,4 @@
-import { playfairDisplay } from '@/app/font';
+import { playfairDisplay } from '@/app/(frontend)/font';
 import Image from 'next/image';
 import backgroundLaptop from '@/assets/results_hero_background_laptop.png';
 import HeroList from '@/components/results/HeroList';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { roboto, playfairDisplay } from '@/app/font';
+import { roboto, playfairDisplay } from '@/app/(frontend)/font';
 import { WORKS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
 import SkillsList from '@/components/SkillsList';

@@ -1,4 +1,4 @@
-import { robotoCondensed, outfit, roboto, playfairDisplay } from '@/app/font';
+import { robotoCondensed, outfit, roboto, playfairDisplay } from '@/app/(frontend)/font';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import ArrowUp from '@/components/svg/ArrowUp';

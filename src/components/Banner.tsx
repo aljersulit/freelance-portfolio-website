@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useEffect } from 'react';
 import { motion, useSpring } from 'motion/react';
-import { playfairDisplay, roboto } from '@/app/font';
+import { playfairDisplay, roboto } from '@/app/(frontend)/font';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';
 import IKImage from '@/components/IKImage';

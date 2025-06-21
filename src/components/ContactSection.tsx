@@ -1,5 +1,5 @@
 import ContactForm from '@/components/ContactForm';
-import { roboto, playfairDisplay } from '@/app/font';
+import { roboto, playfairDisplay } from '@/app/(frontend)/font';
 import Mail from '@/components/svg/Mail';
 import Location from '@/components/svg/Location';
 import ExpandingContainer from '@/components/ExpandingContainer';

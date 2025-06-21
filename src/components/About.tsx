@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Portrait from '@/assets/portrait_about_section.png';
-import { roboto } from '@/app/font';
+import { roboto } from '@/app/(frontend)/font';
 import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
 import RevealingText from '@/components/ui/revealing-text';
