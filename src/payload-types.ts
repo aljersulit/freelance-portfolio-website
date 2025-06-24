@@ -68,6 +68,8 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    media: Media;
+    works: Work;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -75,6 +77,8 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    works: WorksSelect<false> | WorksSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -130,14 +134,64 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "works".
+ */
+export interface Work {
+  id: number;
+  projectName: string;
+  /**
+   * List the key skills/technologies used for this work.
+   */
+  skillsUsed?:
+    | {
+        skill: string;
+        id?: string | null;
+      }[]
+    | null;
+  description: string;
+  photo: number | Media;
+  href: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
   id: number;
-  document?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'works';
+        value: number | Work;
+      } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
@@ -194,6 +248,42 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "works_select".
+ */
+export interface WorksSelect<T extends boolean = true> {
+  projectName?: T;
+  skillsUsed?:
+    | T
+    | {
+        skill?: T;
+        id?: T;
+      };
+  description?: T;
+  photo?: T;
+  href?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
