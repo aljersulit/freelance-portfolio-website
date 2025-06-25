@@ -1,12 +1,30 @@
 import React from 'react';
 import Image from 'next/image';
 import { roboto, playfairDisplay } from '@/app/(frontend)/font';
-import { WORKS } from '@/lib/constants';
+import { Work } from '@/payload-types';
 import RevealingText from '@/components/ui/revealing-text';
 import SkillsList from '@/components/SkillsList';
 import ExpandingContainer from '@/components/ExpandingContainer';
 
-export default function Works() {
+import { getPayload } from 'payload';
+import config from '@/payload.config';
+
+export default async function Works() {
+  const payloadConfig = await config;
+  const payload = await getPayload({ config: payloadConfig });
+  let WORKS: Work[] = [];
+  try {
+    const fetchedWorks = await payload.find({
+      collection: 'works',
+      depth: 1,
+      limit: 5,
+    });
+
+    WORKS = fetchedWorks.docs;
+  } catch (error) {
+    console.error('Failed to fetch works:', error);
+  }
+
   return (
     <section id='works' className='px-[20px] py-[26px] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'>
       <header className='lg:mb-6'>
@@ -23,14 +41,22 @@ export default function Works() {
         >
           <div className='w-full space-y-4 md:space-y-5 lg:flex-1 xl:space-y-6 2xl:space-y-7 min-[1900px]:space-y-12'>
             <ExpandingContainer className='w-full overflow-hidden rounded-sm md:rounded-md lg:hidden'>
-              <Image src={work.previewPhoto} alt={`${work.projectName} sample preview`} placeholder='blur' />
+              {work.photo && typeof work.photo !== 'number' && (
+                <Image
+                  src={work.photo.url || ''}
+                  alt={`${work.projectName} sample preview`}
+                  width={work.photo.width || 2520}
+                  height={work.photo.height || 1802}
+                  // placeholder='blur'
+                />
+              )}
             </ExpandingContainer>
             <h3
               className={`${playfairDisplay.className} text-sm uppercase md:text-3xl lg:text-[2.1875rem] 2xl:text-5xl min-[2160px]:text-6xl`}
             >
               {work.projectName}
             </h3>
-            <SkillsList skills={work.utilizedSkills} />
+            <SkillsList skills={work.skillsUsed} />
             <p className='w-full text-wrap text-sm/tight text-muted-foreground md:text-xl md:leading-snug lg:text-pretty lg:text-base/snug xl:text-2xl 2xl:text-3xl min-[2000px]:text-4xl'>
               {work.description}
             </p>
@@ -44,13 +70,17 @@ export default function Works() {
               View More
             </a>
           </div>
-          <ExpandingContainer className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center 3xl:rounded-lg'>
-            <Image
-              src={work.previewPhoto}
-              alt={`${work.projectName} sample preview`}
-              className='object-cover transition-transform hover:rotate-3 hover:scale-105'
-              placeholder='blur'
-            />
+          <ExpandingContainer className='hidden w-[630px] overflow-hidden lg:flex lg:flex-1 lg:justify-center lg:rounded-md 3xl:rounded-lg'>
+            {work.photo && typeof work.photo !== 'number' && (
+              <Image
+                src={work.photo.url || ''}
+                alt={`${work.projectName} sample preview`}
+                width={work.photo.width || 2520}
+                height={work.photo.height || 1802}
+                className='object-cover transition-transform hover:rotate-3 hover:scale-105'
+                // placeholder='blur'
+              />
+            )}
           </ExpandingContainer>
         </article>
       ))}
