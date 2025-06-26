@@ -9,20 +9,76 @@ import ExpandingContainer from '@/components/ExpandingContainer';
 import { getPayload } from 'payload';
 import config from '@/payload.config';
 
+import sharp from 'sharp';
+import { Buffer } from 'buffer';
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
+if (!BASE_URL) {
+  console.error('NEXT_PUBLIC_SITE_URL environment variable is not set! Images may not load correctly.');
+}
+interface ExtendedWork extends Work {
+  blurDataURL?: string;
+}
+
 export default async function Works() {
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
-  let WORKS: Work[] = [];
+  let WORKS: ExtendedWork[] = [];
   try {
     const fetchedWorks = await payload.find({
       collection: 'works',
       depth: 1,
       limit: 5,
+      sort: 'createdAt',
     });
 
-    WORKS = fetchedWorks.docs;
+    WORKS = await Promise.all(
+      fetchedWorks.docs.map(async (work) => {
+        let blurDataURL = '';
+        if (typeof work.photo !== 'number' && work.photo.url) {
+          try {
+            const imageURL = work.photo.url;
+            const response = await fetch(`${BASE_URL}${imageURL}`);
+
+            // Handle non-2xx responses (e.g., 404, 500)
+            if (!response.ok) {
+              console.warn(`Failed to fetch image for blur hash: ${imageURL}, Status: ${response.status}`);
+              // You might want to set a default blurDataURL or skip it
+              return {
+                ...work,
+                blurDataURL:
+                  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/z8HwAIBAQAJpWqAAAAAAElFTkSuQmCC',
+              }; // Transparent 1x1 pixel
+            }
+
+            const arrayBuffer = await response.arrayBuffer();
+            const imageBuffer = Buffer.from(arrayBuffer);
+
+            // Generate blurDataURL using sharp
+            const resizedBuffer = await sharp(imageBuffer)
+              .resize(20, 20) // Smaller dimensions for the placeholder
+              .blur(1) // Adjust blur amount as needed
+              .toFormat('webp') // Use webp for efficiency
+              .toBuffer();
+
+            blurDataURL = `data:image/webp;base64,${resizedBuffer.toString('base64')}`;
+          } catch (error) {
+            console.error(`Error generating blurDataURL for ${work.photo.url}:`, error);
+            // Fallback to a transparent 1x1 pixel if error occurs
+            blurDataURL =
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/z8HwAIBAQAJpWqAAAAAAElFTkSuQmCC';
+          }
+        }
+
+        return {
+          ...work,
+          blurDataURL,
+        };
+      }),
+    );
   } catch (error) {
-    console.error('Failed to fetch works:', error);
+    console.error('Failed to fetch works or generate blur data:', error);
   }
 
   return (
@@ -47,7 +103,8 @@ export default async function Works() {
                   alt={`${work.projectName} sample preview`}
                   width={work.photo.width || 2520}
                   height={work.photo.height || 1802}
-                  // placeholder='blur'
+                  blurDataURL={work.blurDataURL}
+                  placeholder='blur'
                 />
               )}
             </ExpandingContainer>
@@ -78,7 +135,8 @@ export default async function Works() {
                 width={work.photo.width || 2520}
                 height={work.photo.height || 1802}
                 className='object-cover transition-transform hover:rotate-3 hover:scale-105'
-                // placeholder='blur'
+                blurDataURL={work.blurDataURL}
+                placeholder='blur'
               />
             )}
           </ExpandingContainer>

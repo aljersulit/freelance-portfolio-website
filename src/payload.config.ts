@@ -44,7 +44,7 @@ export default buildConfig({
   },
   upload: {
     limits: {
-      fileSize: 5000000,
+      fileSize: 8000000,
     },
   },
   plugins: [
