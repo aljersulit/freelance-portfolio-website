@@ -67,9 +67,9 @@ export default function SkillsList({
       className='flex flex-wrap gap-[6px]'
     >
       {skills &&
-        skills.map((skill, i) => (
+        skills.map((skill) => (
           <motion.li
-            key={skill.skill + i}
+            key={skill.id}
             variants={lineVariants}
             transition={{
               type: 'spring',
