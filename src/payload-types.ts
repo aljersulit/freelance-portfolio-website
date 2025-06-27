@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     works: Work;
+    about: About;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     works: WorksSelect<false> | WorksSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -138,6 +140,9 @@ export interface User {
  */
 export interface Media {
   id: number;
+  /**
+   * Descriptive text of the image. Important for accessibility (screen readers) and SEO.
+   */
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -175,6 +180,39 @@ export interface Work {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: number;
+  title: string;
+  /**
+   * Text content can be separated with paragraphs
+   */
+  textGroup1?:
+    | {
+        paragraph: string;
+        id?: string | null;
+      }[]
+    | null;
+  textGroup2: string;
+  textGroup3: string;
+  slidingImages1?:
+    | {
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  slidingImages2?:
+    | {
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -191,6 +229,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'works';
         value: number | Work;
+      } | null)
+    | ({
+        relationTo: 'about';
+        value: number | About;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -282,6 +324,35 @@ export interface WorksSelect<T extends boolean = true> {
   description?: T;
   photo?: T;
   href?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  title?: T;
+  textGroup1?:
+    | T
+    | {
+        paragraph?: T;
+        id?: T;
+      };
+  textGroup2?: T;
+  textGroup3?: T;
+  slidingImages1?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  slidingImages2?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -1,19 +1,16 @@
-import { CollectionConfig } from "payload";
+import { CollectionConfig } from 'payload';
 
 export const FeaturedWorks: CollectionConfig = {
-  slug: "works",
-  // admin: {
-
-  // },
-  // access: {
-  //   read: () => true
-  // },
+  slug: 'works',
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'projectName',
       type: 'text',
       required: true,
-      label: 'Project Title'
+      label: 'Project Title',
     },
     {
       name: 'skillsUsed',
@@ -26,11 +23,11 @@ export const FeaturedWorks: CollectionConfig = {
           type: 'text',
           label: 'Skill Name',
           required: true,
-        }
+        },
       ],
       admin: {
         description: 'List the key skills/technologies used for this work.',
-      }
+      },
     },
     {
       name: 'description',
@@ -49,7 +46,7 @@ export const FeaturedWorks: CollectionConfig = {
       name: 'href',
       type: 'text',
       label: 'Reference Link',
-      required: true
-    }
-  ]
-}
+      required: true,
+    },
+  ],
+};
