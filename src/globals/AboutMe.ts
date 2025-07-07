@@ -1,6 +1,6 @@
-import { CollectionConfig } from 'payload';
+import { GlobalConfig } from 'payload'
 
-export const AboutMe: CollectionConfig = {
+export const AboutMe: GlobalConfig = {
   slug: 'about',
   access: {
     read: () => true,
