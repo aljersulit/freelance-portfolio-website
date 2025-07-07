@@ -3,12 +3,12 @@ import * as React from 'react';
 import Image from 'next/image';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import { CarouselList } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { EmblaOptionsType } from 'embla-carousel';
+import { AboutWithBlurData } from '@/lib/payloadData';
 
 type ImageCarouselProps = {
-  imageList: CarouselList;
+  imageList: AboutWithBlurData['slidingImages1'] | AboutWithBlurData['slidingImages2'];
   delay?: number;
   className?: string;
   imageClassName?: string;
@@ -33,14 +33,19 @@ export default function ImageCarousel({
       ]}
     >
       <CarouselContent>
-        {imageList.map((imgObj, index) => (
-          <CarouselItem key={index}>
-            <Image
-              src={imgObj.image}
-              alt={imgObj.altText}
-              placeholder='blur'
-              className={cn('rounded-md', imageClassName)}
-            />
+        {imageList?.map((imgObj) => (
+          <CarouselItem key={imgObj.id}>
+            {typeof imgObj.image !== 'number' && typeof imgObj.image === 'object' && (
+              <Image
+                src={imgObj.image.url || ''}
+                alt={imgObj.image.alt}
+                width={imgObj.image.width || '2046'}
+                height={imgObj.image.height || '1377'}
+                placeholder='blur'
+                blurDataURL={imgObj.blurDataURL}
+                className={cn('rounded-md', imageClassName)}
+              />
+            )}
           </CarouselItem>
         ))}
       </CarouselContent>

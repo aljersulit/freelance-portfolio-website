@@ -5,8 +5,10 @@ import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
 import RevealingText from '@/components/ui/revealing-text';
 import IKImage from '@/components/IKImage';
+import { getAboutSectionCollectionData } from '@/lib/payloadData';
 
-export default function About() {
+export default async function About() {
+  const [ABOUT] = await getAboutSectionCollectionData();
   return (
     <section
       id='about'
@@ -26,46 +28,27 @@ export default function About() {
             <h3
               className={`${roboto.className} text-balance text-3xl font-semibold leading-[1.2] min-[375px]:text-4xl md:text-5xl lg:text-4xl xl:text-5xl min-[1900px]:text-7xl`}
             >
-              Digital Marketing Strategist and Creative Designer
+              {ABOUT.title}
             </h3>
-            <div className='mt-[15px] text-pretty text-[0.625rem] leading-[1.3] text-muted-foreground min-[375px]:text-xs min-[425px]:text-sm md:mt-[38px] md:text-lg lg:text-sm xl:mt-[28px] xl:text-[1rem] min-[1900px]:text-xl'>
-              <p>
-                Hi I&apos;m Aljoy, passionate about helping brands grow through strategic marketing and compelling
-                visuals, with over two years of experience in the industry. I specialize in social media management,
-                branding and graphic design. I enjoy working on creative campaigns, digital strategies, and visually
-                striking designs that drive impact. I love bringing ideas to life through design and storytelling,
-                turning concepts into meaningful brand experiences.
-              </p>
-              <p className='relative z-10 mt-[15px] leading-[1.3] xl:mt-[20px]'>
-                I&apos;m always open to exciting opportunities, meaningful collaborations, and new connections. Whether
-                you have a project in mind, want to exchange ideas, or simply say hello. Let&apos;s connect and bring
-                creative visions to life!
-              </p>
+            <div className='mt-[15px] space-y-[15px] text-pretty text-[0.625rem] leading-[1.3] text-muted-foreground min-[375px]:text-xs min-[425px]:text-sm md:mt-[38px] md:text-lg lg:text-sm xl:mt-[28px] xl:space-y-[20px] xl:text-[1rem] min-[1900px]:text-xl'>
+              {ABOUT.textGroup1?.map((p) => <p key={p.id}>{p.paragraph}</p>)}
             </div>
           </div>
         </div>
       </header>
       <article className='relative z-10 mt-[18px] flex-col justify-center gap-[15px] text-[0.625rem] text-muted-foreground min-[375px]:text-xs min-[425px]:text-sm md:mt-[22px] md:text-lg lg:mt-0 lg:flex lg:flex-row lg:items-end lg:gap-[42px] lg:text-sm xl:gap-[76px] min-[1900px]:text-xl'>
         <div className='flex flex-col-reverse gap-[15px] lg:w-[400px] lg:flex-col lg:gap-0 xl:w-[662px] min-[1900px]:w-[780px]'>
-          <p>
-            My career in digital marketing and graphic design started when i worked as a social media manager and
-            graphic artist in the banking and finance industry where i honed my skills in branding, content strategy and
-            audience engagement. I actively appeared in some of the content and marketing materials I previously
-            created, bringing a more personal approach to the company&apos;s messaging.
-          </p>
+          <p>{ABOUT.textGroup2}</p>
           <ImageCarousel
             className='lg:mt-[20px] xl:mt-[38px]'
-            imageList={CarouselPhotos.list1}
+            imageList={ABOUT.slidingImages1}
             delay={3200}
             opts={{ loop: true, duration: 75 }}
           />
         </div>
         <div className='mt-[18px] lg:mt-[0px] lg:w-[400px] xl:w-[542px] min-[1900px]:w-[630px]'>
-          <ImageCarousel imageList={CarouselPhotos.list2} delay={4600} opts={{ loop: true, duration: 75 }} />
-          <p className='mt-[18px] md:mt-[22px] xl:mt-[34px]'>
-            Beyond digital marketing and creative design, I also had the opportunity to host company events and branch
-            openings in my previous role, further strengthening my communication and public engagement skills.
-          </p>
+          <ImageCarousel imageList={ABOUT.slidingImages2} delay={4600} opts={{ loop: true, duration: 75 }} />
+          <p className='mt-[18px] md:mt-[22px] xl:mt-[34px]'>{ABOUT.textGroup3}</p>
         </div>
       </article>
       <div
