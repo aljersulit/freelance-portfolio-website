@@ -5,7 +5,7 @@ import ToolsScrollMarquee from '@/components/ToolsScrollMarquee';
 
 export default function Tools() {
   return (
-    <section className='bg-muted py-[56px] md:py-[82px] lg:py-[180px]'>
+    <div className='bg-muted py-[56px] md:py-[82px] lg:py-[180px]'>
       <header className='px-[20px] md:px-[108px] lg:px-0'>
         <h3
           className={`${robotoFlex.className} mx-auto text-sm font-semibold text-secondary-foreground md:text-2xl lg:w-[640px] lg:font-normal lg:leading-[1.2] xl:w-[1028px] xl:text-[2.5rem] 3xl:w-[1540px] 3xl:text-6xl`}
@@ -31,6 +31,6 @@ export default function Tools() {
         </ul>
       </header>
       <ToolsScrollMarquee />
-    </section>
+    </div>
   );
 }

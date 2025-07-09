@@ -16,7 +16,6 @@ export default function Home() {
         <Works />
         <Services />
         <About />
-        <Tools />
         <Testimonials />
         <ContactSection />
       </main>
