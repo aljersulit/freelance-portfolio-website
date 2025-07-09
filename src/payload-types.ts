@@ -342,18 +342,20 @@ export interface About {
     | null;
   textGroup2: string;
   textGroup3: string;
-  slidingImages1?:
-    | {
-        image: number | Media;
-        id?: string | null;
-      }[]
-    | null;
-  slidingImages2?:
-    | {
-        image: number | Media;
-        id?: string | null;
-      }[]
-    | null;
+  slidingImages1: {
+    image: number | Media;
+    id?: string | null;
+  }[];
+  slidingImages2: {
+    image: number | Media;
+    id?: string | null;
+  }[];
+  toolsHeader: string;
+  cards: {
+    cardIcon: number | Media;
+    textContent: string;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -381,6 +383,14 @@ export interface AboutSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
+        id?: T;
+      };
+  toolsHeader?: T;
+  cards?:
+    | T
+    | {
+        cardIcon?: T;
+        textContent?: T;
         id?: T;
       };
   updatedAt?: T;

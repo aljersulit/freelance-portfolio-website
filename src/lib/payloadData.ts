@@ -11,8 +11,8 @@ export type BaseSlidingImageItemFromPayload = NonNullable<About['slidingImages1'
 
 export type SlidingImageItemWithBlur = BaseSlidingImageItemFromPayload & { blurDataURL: string };
 export interface AboutWithBlurData extends About {
-  slidingImages1?: SlidingImageItemWithBlur[] | null;
-  slidingImages2?: SlidingImageItemWithBlur[] | null;
+  slidingImages1: SlidingImageItemWithBlur[];
+  slidingImages2: SlidingImageItemWithBlur[];
 }
 
 export const getFeaturedWorksCollectionData = async (): Promise<Work[]> => {

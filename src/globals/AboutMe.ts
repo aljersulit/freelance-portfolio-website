@@ -46,6 +46,7 @@ export const AboutMe: GlobalConfig = {
       type: 'array',
       label: 'Sliding Images 1',
       minRows: 2,
+      required: true,
       fields: [
         {
           name: 'image',
@@ -60,12 +61,40 @@ export const AboutMe: GlobalConfig = {
       type: 'array',
       label: 'Sliding Images 2',
       minRows: 2,
+      required: true,
       fields: [
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
           required: true,
+        },
+      ],
+    },
+    {
+      name: 'toolsHeader',
+      type: 'text',
+      required: true,
+      label: 'Tools Header',
+    },
+    {
+      name: 'cards',
+      type: 'array',
+      required: true,
+      label: 'Cards',
+      minRows: 3,
+      fields: [
+        {
+          name: 'cardIcon',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'textContent',
+          type: 'text',
+          required: true,
+          label: 'Card Text Content',
         },
       ],
     },
