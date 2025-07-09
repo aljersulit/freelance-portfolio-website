@@ -10,7 +10,10 @@ export default async function Works() {
   const WORKS = await getFeaturedWorksCollectionData();
 
   return (
-    <section id='works' className='px-[20px] py-[26px] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'>
+    <section
+      id='works'
+      className='rounded-t-3xl bg-secondary px-[20px] py-[26px] md:rounded-t-[3.3rem] md:px-[35px] md:py-[50px] lg:px-[80px] lg:py-[96px]'
+    >
       <header className='lg:mb-6'>
         <h2
           className={`${roboto.className} text-lg uppercase text-secondary-foreground md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl min-[2160px]:text-8xl`}

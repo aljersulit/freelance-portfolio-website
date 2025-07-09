@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Portrait from '@/assets/portrait_about_section.png';
 import { roboto } from '@/app/(frontend)/font';
-import { CarouselPhotos } from '@/lib/constants';
 import ImageCarousel from '@/components/ImageCarousel';
 import RevealingText from '@/components/ui/revealing-text';
 import IKImage from '@/components/IKImage';
@@ -12,7 +11,7 @@ export default async function About() {
   return (
     <section
       id='about'
-      className='relative px-[20px] py-[88px] md:px-[45px] md:py-[120px] lg:px-[65px] lg:py-[173px] xl:px-[80px]'
+      className='relative rounded-b-3xl bg-secondary px-[20px] py-[88px] md:rounded-b-[3.3rem] md:px-[45px] md:py-[120px] lg:px-[65px] lg:py-[173px] xl:px-[80px]'
     >
       <header className='relative z-10'>
         <h2
