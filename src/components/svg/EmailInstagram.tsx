@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function EmailInstagram(props: { className?: string }) {
+export default function EmailInstagram(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

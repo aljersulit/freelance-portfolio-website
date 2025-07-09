@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function EmailTemplateIcon(props: { className?: string }) {
+export default function EmailTemplateIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width='232'

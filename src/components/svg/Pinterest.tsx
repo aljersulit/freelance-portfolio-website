@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Pinterest(props: { className?: string }) {
+export default function Pinterest(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='126' height='30' viewBox='0 0 126 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path d='M49.4229 10.7109H53.3959V23.1904H49.4229V10.7109Z' fill='#3A3C5B' />

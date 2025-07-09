@@ -1,4 +1,6 @@
-export default function Facebook(props: { className?: string }) {
+import React, { SVGProps } from 'react';
+
+export default function Facebook(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox='-6.5 -1 23.20 23.20'

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Mailchimp(props: { className?: string }) {
+export default function Mailchimp(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='133' height='30' viewBox='0 0 133 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

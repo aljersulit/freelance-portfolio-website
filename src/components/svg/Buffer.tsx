@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Buffer(props: { className?: string }) {
+export default function Buffer(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='121' height='30' viewBox='0 0 121 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

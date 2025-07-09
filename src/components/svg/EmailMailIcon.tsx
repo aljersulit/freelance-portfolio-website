@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function EmailMailIcon(props: { className?: string }) {
+export default function EmailMailIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

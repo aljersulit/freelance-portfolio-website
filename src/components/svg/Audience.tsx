@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Audience(props: { className?: string }) {
+export default function Audience(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='45' height='45' viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Slack(props: { className?: string }) {
+export default function Slack(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='130' height='33' viewBox='0 0 130 33' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

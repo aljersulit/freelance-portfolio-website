@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function AljoyDigitalLogo(props: { className?: string }) {
+export default function AljoyDigitalLogo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width='43'

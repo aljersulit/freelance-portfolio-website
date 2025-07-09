@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Airtable(props: { className?: string }) {
+export default function Airtable(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='144' height='30' viewBox='0 0 144 30' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
