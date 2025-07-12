@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload'
+import { GlobalConfig } from 'payload';
 
 export const AboutMe: GlobalConfig = {
   slug: 'about',
@@ -95,6 +95,57 @@ export const AboutMe: GlobalConfig = {
           type: 'text',
           required: true,
           label: 'Card Text Content',
+        },
+      ],
+    },
+    {
+      name: 'tools',
+      type: 'array',
+      required: true,
+      minRows: 3,
+      label: 'Tools Used',
+      fields: [
+        {
+          name: 'toolSvg',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'softwares',
+      type: 'group',
+      required: true,
+      label: 'Softwares Used',
+      fields: [
+        {
+          name: 'softwareList1',
+          type: 'array',
+          required: true,
+          label: 'Software List 1',
+          fields: [
+            {
+              name: 'software',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+          ],
+        },
+        {
+          name: 'softwareList2',
+          type: 'array',
+          required: true,
+          label: 'Software List 2',
+          fields: [
+            {
+              name: 'software',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+          ],
         },
       ],
     },

@@ -356,6 +356,20 @@ export interface About {
     textContent: string;
     id?: string | null;
   }[];
+  tools: {
+    toolSvg: number | Media;
+    id?: string | null;
+  }[];
+  softwares: {
+    softwareList1: {
+      software: number | Media;
+      id?: string | null;
+    }[];
+    softwareList2: {
+      software: number | Media;
+      id?: string | null;
+    }[];
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -392,6 +406,28 @@ export interface AboutSelect<T extends boolean = true> {
         cardIcon?: T;
         textContent?: T;
         id?: T;
+      };
+  tools?:
+    | T
+    | {
+        toolSvg?: T;
+        id?: T;
+      };
+  softwares?:
+    | T
+    | {
+        softwareList1?:
+          | T
+          | {
+              software?: T;
+              id?: T;
+            };
+        softwareList2?:
+          | T
+          | {
+              software?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
