@@ -6,9 +6,8 @@ import RevealingText from '@/components/ui/revealing-text';
 import IKImage from '@/components/IKImage';
 import { getAboutSectionCollectionData } from '@/lib/payloadData';
 import { robotoFlex } from '@/app/(frontend)/font';
-import { CARDS } from '@/lib/constants';
 import { WobbleCard } from '@/components/ui/wobble-card';
-import ToolsScrollMarquee from '@/components/ToolsScrollMarquee';
+import IconsScrollMarquee from '@/components/IconsScrollMarquee';
 import InlineSvg from '@/components/InlineSvg';
 
 export default async function About() {
@@ -112,7 +111,7 @@ export default async function About() {
             ))}
           </ul>
         </header>
-        <ToolsScrollMarquee />
+        <IconsScrollMarquee tools={ABOUT.tools} softwares={ABOUT.softwares} />
       </div>
     </section>
   );

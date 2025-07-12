@@ -1,12 +1,15 @@
 'use client';
+
 import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { roboto } from '@/app/(frontend)/font';
-import { TOOLS } from '@/lib/constants';
-import { SOFTWARE } from '@/lib/constants';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { About } from '@/payload-types';
+import InlineSvg from '@/components/InlineSvg';
 
-export default function ToolsScrollMarquee() {
+type IconsScrollMarqueeType = { tools: About['tools']; softwares: About['softwares'] };
+
+export default function IconsScrollMarquee({ tools, softwares }: IconsScrollMarqueeType) {
   const scrollRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -29,15 +32,22 @@ export default function ToolsScrollMarquee() {
           className='flex items-center'
         >
           <ul aria-hidden='true' className='flex gap-[4px] md:gap-[6px] 2xl:gap-[14px]'>
-            {TOOLS.map((Tool, i) => (
+            {tools.map((toolObj, i) => (
               <li
-                key={i}
+                key={toolObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Tool className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof toolObj.toolSvg !== 'number' && toolObj.toolSvg.url && (
+                  <InlineSvg
+                    src={toolObj.toolSvg.url}
+                    alt={toolObj.toolSvg.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -47,15 +57,22 @@ export default function ToolsScrollMarquee() {
             Tools
           </h4>
           <ul className='flex gap-[4px] md:gap-[6px] 2xl:gap-[14px]'>
-            {TOOLS.map((Tool, i) => (
+            {tools.map((toolObj, i) => (
               <li
-                key={i}
+                key={toolObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Tool className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof toolObj.toolSvg !== 'number' && toolObj.toolSvg.url && (
+                  <InlineSvg
+                    src={toolObj.toolSvg.url}
+                    alt={toolObj.toolSvg.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -72,15 +89,22 @@ export default function ToolsScrollMarquee() {
           className='flex items-center'
         >
           <ul aria-hidden='true' className='flex gap-[4px] md:gap-[6px] 2xl:gap-[14px] 2xl:pl-[14px]'>
-            {SOFTWARE.firstList.map((Software, i) => (
+            {softwares.softwareList1.map((softwareObj, i) => (
               <li
-                key={i}
+                key={softwareObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Software className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof softwareObj.software !== 'number' && softwareObj.software.url && (
+                  <InlineSvg
+                    src={softwareObj.software.url}
+                    alt={softwareObj.software.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -90,15 +114,22 @@ export default function ToolsScrollMarquee() {
             Software
           </h4>
           <ul className='flex gap-[4px] md:gap-[6px] 2xl:gap-[14px] 2xl:pl-[14px]'>
-            {SOFTWARE.firstList.map((Software, i) => (
+            {softwares.softwareList1.map((softwareObj, i) => (
               <li
-                key={i}
+                key={softwareObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Software className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof softwareObj.software !== 'number' && softwareObj.software.url && (
+                  <InlineSvg
+                    src={softwareObj.software.url}
+                    alt={softwareObj.software.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -114,28 +145,42 @@ export default function ToolsScrollMarquee() {
             aria-hidden='true'
             className='flex gap-[4px] pl-[4px] md:gap-[6px] md:pl-[6px] 2xl:gap-[14px] 2xl:pl-[14px]'
           >
-            {SOFTWARE.secondList.map((Software, i) => (
+            {softwares.softwareList2.map((softwareObj, i) => (
               <li
-                key={i}
+                key={softwareObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Software className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof softwareObj.software !== 'number' && softwareObj.software.url && (
+                  <InlineSvg
+                    src={softwareObj.software.url}
+                    alt={softwareObj.software.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
           <ul className='flex gap-[4px] pl-[4px] md:gap-[6px] md:pl-[6px] 2xl:gap-[14px] 2xl:pl-[14px]'>
-            {SOFTWARE.secondList.map((Software, i) => (
+            {softwares.softwareList2.map((softwareObj, i) => (
               <li
-                key={i}
+                key={softwareObj.id}
                 className={cn(
                   'flex h-[30px] w-[70px] items-center justify-center bg-marqueeList md:h-[65px] md:w-[150px] lg:h-[100px] lg:w-[240px] xl:h-[128px] xl:w-[302px] 2xl:h-[148px] 2xl:w-[334px] min-[2100px]:w-[354px]',
                   i % 2 === 0 && 'rounded-full',
                 )}
               >
-                {<Software className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]' />}
+                {typeof softwareObj.software !== 'number' && softwareObj.software.url && (
+                  <InlineSvg
+                    src={softwareObj.software.url}
+                    alt={softwareObj.software.alt}
+                    className='h-[8px] w-full md:h-[14px] lg:h-[30px] xl:h-[34px] 2xl:h-[46px]'
+                    svgClassName='h-full w-full object-contain'
+                  />
+                )}
               </li>
             ))}
           </ul>
