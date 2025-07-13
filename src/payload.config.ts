@@ -18,6 +18,10 @@ export default buildConfig({
   serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
+    livePreview: {
+      url: 'http://localhost:3000',
+      collections: ['works'],
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
