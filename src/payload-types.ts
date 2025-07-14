@@ -87,9 +87,11 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
+    hero: Hero;
     about: About;
   };
   globalsSelect: {
+    hero: HeroSelect<false> | HeroSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
   };
   locale: null;
@@ -326,6 +328,24 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero".
+ */
+export interface Hero {
+  id: number;
+  photo: number | Media;
+  intro: string;
+  headline: string;
+  subheading: string;
+  marqueeLinks: {
+    text: string;
+    href?: string | null;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about".
  */
 export interface About {
@@ -372,6 +392,26 @@ export interface About {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero_select".
+ */
+export interface HeroSelect<T extends boolean = true> {
+  photo?: T;
+  intro?: T;
+  headline?: T;
+  subheading?: T;
+  marqueeLinks?:
+    | T
+    | {
+        text?: T;
+        href?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
