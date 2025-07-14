@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';
 import { useDeviceResponsiveContext } from '@/components/DeviceResponsiveContext';
@@ -12,7 +12,7 @@ type RevealingTextProps = {
 export default function RevealingText({ text }: RevealingTextProps) {
   const { isMobile, isTablet } = useDeviceResponsiveContext();
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -21,7 +21,7 @@ export default function RevealingText({ text }: RevealingTextProps) {
     },
   };
 
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { y: '100%' },
     visible: {
       y: 0,

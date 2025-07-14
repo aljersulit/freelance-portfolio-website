@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { outfit, playfairDisplay, roboto } from '@/app/(frontend)/font';
-import ExpandingContainer from '@/components/ExpandingContainer';
+import ExpandingContainer from '@/components/ui/expanding-container';
 
 export default function Takeaways() {
   return (

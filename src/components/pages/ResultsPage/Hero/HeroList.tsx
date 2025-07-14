@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import Image from 'next/image';
 import hero1 from '@/assets/hero1_results.png';
 import hero2 from '@/assets/hero2_results.png';
 import hero3 from '@/assets/hero3_results.png';
 
-const list = {
+const list: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -18,7 +18,7 @@ const list = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 100 },
   show: {
     opacity: 1,

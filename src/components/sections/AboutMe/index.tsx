@@ -1,14 +1,16 @@
 import Image from 'next/image';
-import Portrait from '@/assets/portrait_about_section.png';
 import { roboto } from '@/app/(frontend)/font';
-import ImageCarousel from '@/components/ImageCarousel';
-import RevealingText from '@/components/ui/revealing-text';
-import IKImage from '@/components/IKImage';
+
+import Portrait from '@/assets/portrait_about_section.png';
 import { getAboutSectionCollectionData } from '@/lib/payloadData';
 import { robotoFlex } from '@/app/(frontend)/font';
+
+import RevealingText from '@/components/ui/revealing-text';
 import { WobbleCard } from '@/components/ui/wobble-card';
-import IconsScrollMarquee from '@/components/IconsScrollMarquee';
+import IKImage from '@/components/IKImage';
 import InlineSvg from '@/components/InlineSvg';
+import IconsScrollMarquee from '@/components/sections/AboutMe/IconsScrollMarquee';
+import ImageCarousel from '@/components/ImageCarousel';
 
 export default async function About() {
   const [ABOUT] = await getAboutSectionCollectionData();

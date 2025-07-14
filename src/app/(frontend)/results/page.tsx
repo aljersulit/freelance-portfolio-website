@@ -1,7 +1,7 @@
-import Hero from '@/components/results/Hero';
-import CaseStudy from '@/components/results/CaseStudy';
-import Stats from '@/components/results/Stats';
-import Takeaways from '@/components/results/Takeaways';
+import Hero from '@/components/pages/ResultsPage/Hero';
+import CaseStudy from '@/components/pages/ResultsPage/CaseStudy';
+import Stats from '@/components/pages/ResultsPage/Stats';
+import Takeaways from '@/components/pages/ResultsPage/Takeaways';
 
 export default function page() {
   return (

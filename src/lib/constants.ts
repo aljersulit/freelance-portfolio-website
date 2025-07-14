@@ -1,3 +1,4 @@
+// import { StaticImageData } from 'next/image';
 import Linkedin from '@/components/svg/Linkedin';
 import Mail from '@/components/svg/Mail';
 import Instagram from '@/components/svg/Instagram';
@@ -10,6 +11,9 @@ import TestimonialPhoto from '@/assets/Ricxzy.png';
 // import A4 from '@/assets/A4.png';
 // import B1 from '@/assets/B1.png';
 // import B2 from '@/assets/B2.png';
+// import AgribankPhPreview from '@/assets/AgribankPH_Preview.png';
+// import RopaMarketPreview from '@/assets/Ropa_Market_Preview.png';
+// import AgripayPreview from '@/assets/Agripay_Preview.png';
 import GlobalSearch from '@/components/svg/GlobalSearch';
 import Audience from '@/components/svg/Audience';
 import BusinessStat from '@/components/svg/BusinessStat';
@@ -97,17 +101,46 @@ export const NAVLINKS = [
 export const SERVICES = [
   {
     name: 'Social Media Management',
+    href: '#',
   },
   {
     name: 'Content Creation',
+    href: '#',
   },
   {
     name: 'Graphic Design',
+    href: '#',
   },
   {
     name: 'Video Edit',
+    href: '#',
   },
 ];
+
+// export const WORKS = [
+//   {
+//     projectName: 'Agribank Ph',
+//     utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
+//     description:
+//       'A financial institution dedicated to empowering Filipino farmers, entrepreneurs, and individuals through accessible banking solutions.',
+//     previewPhoto: AgribankPhPreview,
+//     href: 'https://www.behance.net/gallery/213195203/Banking-and-Finance',
+//   },
+//   {
+//     projectName: 'Ropa Market',
+//     utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design', 'Video Editing'],
+//     description: 'A platform offering repossessed motorcycles at affordable prices with flexible financing options.',
+//     previewPhoto: RopaMarketPreview,
+//     href: 'https://www.behance.net/gallery/213690051/Automotive',
+//   },
+//   {
+//     projectName: 'Agripay',
+//     utilizedSkills: ['Social Media Management', 'Content Creation', 'Graphic Design'],
+//     description: 'A digital payment platform providing innovative financial solutions for seamless transactions.',
+//     previewPhoto: AgripayPreview,
+//     href: 'https://www.behance.net/gallery/213693381/Social-Media-Post-Digital-Payment-Service',
+//   },
+// ];
 
 type Logo = typeof Linkedin | typeof Mail | typeof Instagram | typeof Facebook;
 

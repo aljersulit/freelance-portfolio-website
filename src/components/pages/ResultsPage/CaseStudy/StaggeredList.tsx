@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import ListArrowRight from '@/components/svg/ListArrowRight';
 import ListCheckmark from '@/components/svg/ListCheckmark';
 
@@ -8,7 +8,7 @@ const iconObj = {
   arrowright: ListArrowRight,
 };
 
-const listContainer = {
+const listContainer: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -20,7 +20,7 @@ const listContainer = {
   },
 };
 
-const listItem = {
+const listItem: Variants = {
   hidden: { opacity: 0, x: -80 },
   show: {
     opacity: 1,

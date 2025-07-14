@@ -1,10 +1,10 @@
-import ContactForm from '@/components/ContactForm';
 import { roboto, playfairDisplay } from '@/app/(frontend)/font';
 import Mail from '@/components/svg/Mail';
 import Location from '@/components/svg/Location';
-import ExpandingContainer from '@/components/ExpandingContainer';
+import ExpandingContainer from '@/components/ui/expanding-container';
+import ContactForm from '@/components/sections/Contact/ContactForm';
 
-export default function ContactSection() {
+export default function Contact() {
   return (
     <section className='pt-[35px] sm:pt-[70px] lg:py-[100px] xl:py-[180px]'>
       <ExpandingContainer animationTrigger='onScrollDown'>

@@ -7,8 +7,8 @@ import DeviceResponsiveProvider from '@/components/DeviceResponsiveContext';
 import LenisProvider from '@/components/LenisProvider';
 import { Toaster } from '@/components/ui/sonner';
 import { workSans } from '@/app/(frontend)/font';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Aljoydigital',

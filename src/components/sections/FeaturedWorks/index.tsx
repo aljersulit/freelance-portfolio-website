@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { roboto, playfairDisplay } from '@/app/(frontend)/font';
 import RevealingText from '@/components/ui/revealing-text';
-import SkillsList from '@/components/SkillsList';
-import ExpandingContainer from '@/components/ExpandingContainer';
+import ExpandingContainer from '@/components/ui/expanding-container';
+import SkillsList from './SkillsList';
 
 import { getFeaturedWorksCollectionData } from '@/lib/payloadData';
 
-export default async function Works() {
+export default async function FeaturedWorks() {
   const WORKS = await getFeaturedWorksCollectionData();
 
   return (

@@ -4,6 +4,8 @@ import { TESTIMONIALS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
 
 export default function Testimonials() {
+  const isPlural = TESTIMONIALS.length > 1 ? 's' : ''
+  
   return (
     <section
       id='testimonials'
@@ -13,7 +15,7 @@ export default function Testimonials() {
         <h2
           className={`${roboto.className} border-b-2 border-b-stone-300 pb-4 text-lg uppercase text-secondary-foreground md:text-4xl xl:text-6xl 2xl:text-7xl 2xl:font-medium 3xl:text-8xl`}
         >
-          <RevealingText text='Testimonial' />
+          <RevealingText text={`Testimonial${isPlural}`} />
         </h2>
       </header>
       <div className='mx-auto mt-[27px] xl:mt-[100px] xl:w-[918px] 2xl:w-[1100px] 3xl:w-[1390px] min-[2100px]:w-[1900px]'>

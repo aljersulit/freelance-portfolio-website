@@ -1,11 +1,10 @@
-import Hero from '@/components/Hero';
-import Banner from '@/components/Banner';
-import Works from '@/components/Works';
-import Services from '@/components/Services';
-import About from '@/components/About';
-import Tools from '@/components/Tools';
-import Testimonials from '@/components/Testimonials';
-import ContactSection from '@/components/ContactSection';
+import Hero from '@/components/sections/Hero';
+import Banner from '@/components/sections/Banner';
+import FeaturedWorks from '@/components/sections/FeaturedWorks';
+import Services from '@/components/sections/Services';
+import AboutMe from '@/components/sections/AboutMe';
+import Testimonials from '@/components/sections/Testimonials';
+import Contact from '@/components/sections/Contact';
 
 export default function Home() {
   return (
@@ -13,11 +12,11 @@ export default function Home() {
       <main>
         <Hero />
         <Banner />
-        <Works />
+        <FeaturedWorks />
         <Services />
-        <About />
+        <AboutMe />
         <Testimonials />
-        <ContactSection />
+        <Contact />
       </main>
     </>
   );

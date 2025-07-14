@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Arrow from '@/components/svg/Arrow';
 import { roboto, robotoFlex, outfit } from '@/app/(frontend)/font';
-import { Vortex } from '@/components/ui/vortex';
 import PhonePC from '@/assets/phone_pc.png';
 import Laptop from '@/assets/laptop.png';
+import { Vortex } from '@/components/ui/vortex';
+import Arrow from '@/components/svg/Arrow';
 import IKImage from '@/components/IKImage';
 
 export default function Services() {

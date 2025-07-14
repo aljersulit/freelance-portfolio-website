@@ -11,7 +11,7 @@ import TiktokContentResult from '@/assets/Group12.png';
 import { TESTIMONIALS } from '@/lib/constants';
 import Counter from '@/components/ui/counter';
 import FadeInAnimationContainer from '@/components/FadeInAnimationContainer';
-import ExpandingContainer from '@/components/ExpandingContainer';
+import ExpandingContainer from '@/components/ui/expanding-container';
 import IKImage from '@/components/IKImage';
 
 export default function Stats() {

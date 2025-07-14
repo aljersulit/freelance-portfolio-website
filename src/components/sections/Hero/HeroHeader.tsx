@@ -1,9 +1,9 @@
 'use client';
 import Link from 'next/link';
 import { playfairDisplay, roboto } from '@/app/(frontend)/font';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 
-const lineVariants = {
+const lineVariants: Variants = {
   hidden: { y: '110%' },
   visible: {
     y: 0,
@@ -14,7 +14,7 @@ const lineVariants = {
   },
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -35,7 +35,9 @@ export default function HeroHeader() {
       <h2
         className={`${playfairDisplay.className} playfairDisplay mb-2 hidden h-min overflow-hidden text-3xl lg:block 2xl:mb-[14px] 2xl:pb-[10px] 2xl:text-4xl 3xl:text-6xl`}
       >
-        <motion.div variants={lineVariants}>
+        <motion.div
+          variants={lineVariants}
+        >
           <motion.span
             className='inline-block 3xl:text-5xl'
             style={{
