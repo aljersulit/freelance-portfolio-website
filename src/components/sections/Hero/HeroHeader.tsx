@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { playfairDisplay, roboto } from '@/app/(frontend)/font';
 import { motion, Variants } from 'motion/react';
+import { Hero } from '@/payload-types';
 
 const lineVariants: Variants = {
   hidden: { y: '110%' },
@@ -24,7 +25,9 @@ const containerVariants: Variants = {
   },
 };
 
-export default function HeroHeader() {
+interface HeroHeaderProps extends Pick<Hero, 'intro' | 'headline' | 'subheading'> {}
+
+export default function HeroHeader({ intro, headline, subheading }: HeroHeaderProps) {
   return (
     <motion.header
       className='flex flex-col justify-center lg:w-[500px] xl:w-[762px] 3xl:w-[1200px]'
@@ -35,9 +38,7 @@ export default function HeroHeader() {
       <h2
         className={`${playfairDisplay.className} playfairDisplay mb-2 hidden h-min overflow-hidden text-3xl lg:block 2xl:mb-[14px] 2xl:pb-[10px] 2xl:text-4xl 3xl:text-6xl`}
       >
-        <motion.div
-          variants={lineVariants}
-        >
+        <motion.div variants={lineVariants}>
           <motion.span
             className='inline-block 3xl:text-5xl'
             style={{
@@ -57,24 +58,20 @@ export default function HeroHeader() {
           >
             👋
           </motion.span>{' '}
-          Hi, I&apos;m Aljoy!
+          {intro}
         </motion.div>
       </h2>
       <h1
         className={`${roboto.className} mb-4 text-[1.7rem] font-bold leading-[1.1] min-[375px]:text-3xl min-[425px]:text-4xl md:mb-6 md:text-5xl lg:mb-8 lg:text-balance lg:text-6xl lg:font-semibold 2xl:mb-9 3xl:text-8xl`}
       >
-        <div className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
-          <motion.div variants={lineVariants}>Your Brand&apos;s Growth</motion.div>
-        </div>
-        <div className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
-          <motion.div variants={lineVariants}>Partner in Digital Marketing</motion.div>
-        </div>
-        <div className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
-          <motion.div variants={lineVariants}>& Creative Design</motion.div>
-        </div>
+        {headline.map((headlineObj) => (
+          <div key={headlineObj.id} className='overflow-hidden 2xl:-mb-[12px] 2xl:pb-[12px]'>
+            <motion.div variants={lineVariants}>{headlineObj.text}</motion.div>
+          </div>
+        ))}
       </h1>
       <div className='mb-4 overflow-hidden text-[0.625rem] text-muted-foreground min-[375px]:text-sm md:mb-6 md:text-xl lg:mb-11 lg:text-xl 2xl:mb-8 3xl:text-4xl'>
-        <motion.p variants={lineVariants}>Elevating your brand with strategic marketing and stunning visuals.</motion.p>
+        <motion.p variants={lineVariants}>{subheading}</motion.p>
       </div>
       <div className='overflow-hidden'>
         <motion.div variants={lineVariants}>

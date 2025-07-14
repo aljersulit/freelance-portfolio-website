@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { roboto } from '@/app/(frontend)/font';
 
 import Portrait from '@/assets/portrait_about_section.png';
-import { getAboutSectionCollectionData } from '@/lib/payloadData';
+import { getAboutSectionData } from '@/lib/payloadData';
 import { robotoFlex } from '@/app/(frontend)/font';
 
 import RevealingText from '@/components/ui/revealing-text';
@@ -13,8 +13,7 @@ import IconsScrollMarquee from '@/components/sections/AboutMe/IconsScrollMarquee
 import ImageCarousel from '@/components/ImageCarousel';
 
 export default async function About() {
-  const [ABOUT] = await getAboutSectionCollectionData();
-  console.log('Fetched Data', ABOUT);
+  const [ABOUT] = await getAboutSectionData();
   return (
     <section id='about' className=''>
       <div className='relative rounded-b-3xl bg-secondary px-[20px] py-[88px] md:rounded-b-[3.3rem] md:px-[45px] md:py-[120px] lg:px-[65px] lg:py-[173px] xl:px-[80px]'>

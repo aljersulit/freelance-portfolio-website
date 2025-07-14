@@ -332,9 +332,18 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Hero {
   id: number;
+  /**
+   * Keep the image aspect ratio close to 2732 x 4096 to maintain the layout
+   */
   photo: number | Media;
   intro: string;
-  headline: string;
+  /**
+   * Headline is divided in upto three lines of text for the intro animation
+   */
+  headline: {
+    text: string;
+    id?: string | null;
+  }[];
   subheading: string;
   marqueeLinks: {
     text: string;
@@ -400,7 +409,12 @@ export interface About {
 export interface HeroSelect<T extends boolean = true> {
   photo?: T;
   intro?: T;
-  headline?: T;
+  headline?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   subheading?: T;
   marqueeLinks?:
     | T

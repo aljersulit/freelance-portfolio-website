@@ -15,6 +15,22 @@ export interface AboutWithBlurData extends About {
   slidingImages2: SlidingImageItemWithBlur[];
 }
 
+export const getHeroData = async () => {
+  try {
+    const payload = await getPayload({ config });
+
+    const fetchedData = await payload.findGlobal({
+      slug: 'hero',
+      depth: 1,
+    });
+
+    return [fetchedData];
+  } catch (error) {
+    console.error('Failed to fetch hero data:', error);
+    return [];
+  }
+};
+
 export const getFeaturedWorksCollectionData = async (): Promise<Work[]> => {
   try {
     const payload = await getPayload({ config });
@@ -59,7 +75,7 @@ export const getFeaturedWorksCollectionData = async (): Promise<Work[]> => {
   }
 };
 
-export const getAboutSectionCollectionData = async () => {
+export const getAboutSectionData = async () => {
   const mapBlurDataURL = async (arr: About['slidingImages1' | 'slidingImages2']) => {
     return (
       arr &&

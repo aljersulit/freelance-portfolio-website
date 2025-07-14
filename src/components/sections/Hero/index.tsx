@@ -1,29 +1,36 @@
 import Image from 'next/image';
 import { playfairDisplay } from '@/app/(frontend)/font';
 import IKImage from '@/components/IKImage';
-import HeroProfile from '@/assets/hero_profile.png';
+// import HeroProfile from '@/assets/hero_profile.png';
 import HeroHeader from './HeroHeader';
 import MarqueeSlidingLink from './MarqueeSlidingLink';
+import { getHeroData } from '@/lib/payloadData';
 
-export default function Hero() {
+export default async function Hero() {
+  const [HERO] = await getHeroData();
+  console.log('Hero Global Data', HERO);
   return (
     <section id='home' className='relative flex h-lvh'>
       <div className='@container relative flex w-full flex-col-reverse items-center justify-between gap-3 px-[21px] pt-[70px] sm:pt-[90px] md:px-[28px] lg:mt-[75px] lg:flex-row lg:items-stretch lg:justify-center lg:gap-0 lg:px-0 lg:pt-0 xl:mt-[96px] 2xl:mt-[125px]'>
         <div className='max-h-max min-h-[50px] flex-1 pb-[24px] md:max-h-[750px] lg:h-full lg:max-h-none lg:w-auto lg:flex-initial lg:pb-[45px] lg:pt-20 xl:pb-[60px]'>
-          <Image
-            src={HeroProfile}
-            alt='My profile photo'
-            priority
-            className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
-          />
+          {typeof HERO.photo !== 'number' && (
+            <Image
+              src={HERO.photo.url as string}
+              width={HERO.photo.width || 2732}
+              height={HERO.photo.height || 4096}
+              alt='My profile photo'
+              priority
+              className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
+            />
+          )}
         </div>
-        <HeroHeader />
+        <HeroHeader intro={HERO.intro} headline={HERO.headline} subheading={HERO.subheading} />
         <YellowGradient />
         <PurpleGradient />
         <OverlayBackgroundText />
         <HeroOverlayBackgroundImg />
       </div>
-      <MarqueeSlidingLink />
+      <MarqueeSlidingLink marqueeLinks={HERO.marqueeLinks} />
     </section>
   );
 }
