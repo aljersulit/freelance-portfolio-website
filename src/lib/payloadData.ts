@@ -1,15 +1,7 @@
 import config from '@/payload.config';
 import { getPayload } from 'payload';
-import { About, Work, Hero } from '@/payload-types';
+import { About, Work, Hero, Testimonial } from '@/payload-types';
 import { generateDynamicImageBlurDataURL } from '@/lib/serverUtils';
-
-interface WorkWithBlurDataURL extends Work {
-  blurDataURL?: string;
-}
-
-interface HeroWithBlurDataURL extends Hero {
-  blurDataURL?: string;
-}
 
 export type BaseSlidingImageItemFromPayload = NonNullable<About['slidingImages1'] | About['slidingImages2']>[number];
 
@@ -17,6 +9,10 @@ export type SlidingImageItemWithBlur = BaseSlidingImageItemFromPayload & { blurD
 export interface AboutWithBlurData extends About {
   slidingImages1: SlidingImageItemWithBlur[];
   slidingImages2: SlidingImageItemWithBlur[];
+}
+
+interface HeroWithBlurDataURL extends Hero {
+  blurDataURL?: string;
 }
 
 export const getHeroData = async (): Promise<HeroWithBlurDataURL[]> => {
@@ -62,6 +58,61 @@ export const getBannerData = async () => {
     return [];
   }
 };
+
+export type BaseTestimonialItemFromPayload = NonNullable<Testimonial['testimonials']>[number];
+
+export type TestimonialItemWithBlur = BaseTestimonialItemFromPayload & { blurDataURL: string };
+export interface TestimonialWIthBlur extends Testimonial {
+  testimonials: TestimonialItemWithBlur[];
+}
+
+export const getTestimonialsData = async (): Promise<TestimonialWIthBlur[]> => {
+  try {
+    const payload = await getPayload({ config });
+
+    const fetchedData = await payload.findGlobal({
+      slug: 'testimonials',
+      depth: 1,
+    });
+
+    const mappedTestimonials = await Promise.all(
+      fetchedData.testimonials.map(async (testimonial) => {
+        let blurDataURL = '';
+        if (typeof testimonial.photo !== 'number' && testimonial.photo.url) {
+          blurDataURL = await generateDynamicImageBlurDataURL(testimonial.photo.url);
+        } else {
+          // Fallback blurDataURL
+          blurDataURL =
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/z8HwAIBAQAJpWqAAAAAAElFTkSuQmCC';
+          if (testimonial.photo) {
+            console.warn(
+              `Work ID ${testimonial.id || 'unknown'}: Photo data or URL is missing or invalid. Using fallback blurDataURL.`,
+            );
+          }
+        }
+
+        return {
+          ...testimonial,
+          blurDataURL,
+        };
+      }),
+    );
+
+    return [
+      {
+        ...fetchedData,
+        testimonials: mappedTestimonials,
+      },
+    ];
+  } catch (error) {
+    console.error('Failed to fetch testimonial data:', error);
+    return [];
+  }
+};
+
+interface WorkWithBlurDataURL extends Work {
+  blurDataURL?: string;
+}
 
 export const getFeaturedWorksCollectionData = async (): Promise<WorkWithBlurDataURL[]> => {
   try {

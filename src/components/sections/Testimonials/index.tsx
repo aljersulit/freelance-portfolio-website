@@ -1,11 +1,14 @@
 import { roboto } from '@/app/(frontend)/font';
-import Image from 'next/image';
+
 import { TESTIMONIALS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
 
-export default function Testimonials() {
-  const isPlural = TESTIMONIALS.length > 1 ? 's' : ''
-  
+import { getTestimonialsData } from '@/lib/payloadData';
+import TestimonialCarousel from './TestimonialCarousel';
+
+export default async function Testimonials() {
+  const isPlural = TESTIMONIALS.length > 1 ? 's' : '';
+  const [DATA] = await getTestimonialsData();
   return (
     <section
       id='testimonials'
@@ -18,20 +21,7 @@ export default function Testimonials() {
           <RevealingText text={`Testimonial${isPlural}`} />
         </h2>
       </header>
-      <div className='mx-auto mt-[27px] xl:mt-[100px] xl:w-[918px] 2xl:w-[1100px] 3xl:w-[1390px] min-[2100px]:w-[1900px]'>
-        <p className='text-left text-sm font-normal leading-[1.43] text-muted-foreground max-md:text-balance md:text-lg lg:text-center 2xl:text-2xl min-[2100px]:text-3xl'>
-          {TESTIMONIALS[0].quote}
-        </p>
-        <Image
-          src={TESTIMONIALS[0].src}
-          alt={TESTIMONIALS[0].name}
-          className='mx-auto mt-[47px] w-[125px] rounded-full md:w-[160px] xl:w-[182px] 2xl:w-[290px]'
-        />
-        <h4 className='mt-[25px] text-center text-xl uppercase text-secondary-foreground md:max-lg:text-2xl 2xl:text-3xl'>
-          {TESTIMONIALS[0].name}
-        </h4>
-        <p className='text-center text-xs md:max-lg:text-base 2xl:text-lg'>{TESTIMONIALS[0].designation}</p>
-      </div>
+      <TestimonialCarousel testimonialList={DATA.testimonials} />
     </section>
   );
 }

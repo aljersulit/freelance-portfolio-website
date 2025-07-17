@@ -90,11 +90,13 @@ export interface Config {
     hero: Hero;
     about: About;
     banner: Banner;
+    testimonials: Testimonial;
   };
   globalsSelect: {
     hero: HeroSelect<false> | HeroSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
     banner: BannerSelect<false> | BannerSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -417,6 +419,22 @@ export interface Banner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  testimonials: {
+    quote: string;
+    name: string;
+    designation: string;
+    photo: number | Media;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "hero_select".
  */
 export interface HeroSelect<T extends boolean = true> {
@@ -507,6 +525,24 @@ export interface AboutSelect<T extends boolean = true> {
 export interface BannerSelect<T extends boolean = true> {
   header?: T;
   paragraph?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        name?: T;
+        designation?: T;
+        photo?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
