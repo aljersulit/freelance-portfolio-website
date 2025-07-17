@@ -1,9 +1,13 @@
 import config from '@/payload.config';
 import { getPayload } from 'payload';
-import { About, Work as BaseWork } from '@/payload-types';
+import { About, Work, Hero } from '@/payload-types';
 import { generateDynamicImageBlurDataURL } from '@/lib/serverUtils';
 
-interface Work extends BaseWork {
+interface WorkWithBlurDataURL extends Work {
+  blurDataURL?: string;
+}
+
+interface HeroWithBlurDataURL extends Hero {
   blurDataURL?: string;
 }
 
@@ -15,14 +19,26 @@ export interface AboutWithBlurData extends About {
   slidingImages2: SlidingImageItemWithBlur[];
 }
 
-export const getHeroData = async () => {
+export const getHeroData = async (): Promise<HeroWithBlurDataURL[]> => {
   try {
     const payload = await getPayload({ config });
 
-    const fetchedData = await payload.findGlobal({
+    const fetchedData: HeroWithBlurDataURL = await payload.findGlobal({
       slug: 'hero',
       depth: 1,
     });
+
+    if (typeof fetchedData.photo !== 'number' && fetchedData.photo.url) {
+      fetchedData.blurDataURL = await generateDynamicImageBlurDataURL(fetchedData.photo.url);
+    } else {
+      fetchedData.blurDataURL =
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/z8HwAIBAQAJpWqAAAAAAElFTkSuQmCC';
+      if (fetchedData.photo) {
+        console.warn(
+          `Hero ID ${fetchedData.id || 'unknown'}: Photo data or URL is missing or invalid. Using fallback blurDataURL.`,
+        );
+      }
+    }
 
     return [fetchedData];
   } catch (error) {
@@ -31,7 +47,7 @@ export const getHeroData = async () => {
   }
 };
 
-export const getFeaturedWorksCollectionData = async (): Promise<Work[]> => {
+export const getFeaturedWorksCollectionData = async (): Promise<WorkWithBlurDataURL[]> => {
   try {
     const payload = await getPayload({ config });
 

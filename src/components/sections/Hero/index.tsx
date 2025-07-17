@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { playfairDisplay } from '@/app/(frontend)/font';
 import IKImage from '@/components/IKImage';
-// import HeroProfile from '@/assets/hero_profile.png';
 import HeroHeader from './HeroHeader';
 import MarqueeSlidingLink from './MarqueeSlidingLink';
 import { getHeroData } from '@/lib/payloadData';
@@ -19,6 +18,8 @@ export default async function Hero() {
               width={HERO.photo.width || 2732}
               height={HERO.photo.height || 4096}
               alt='My profile photo'
+              blurDataURL={HERO.blurDataURL}
+              placeholder='blur'
               priority
               className='relative z-10 h-full w-full rounded-sm object-contain md:-translate-x-3 md:object-cover lg:translate-x-0'
             />
