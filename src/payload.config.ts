@@ -11,6 +11,7 @@ import { Media } from '@/collections/Media';
 import { Users } from '@/collections/Users';
 import { AboutMe } from '@/globals/AboutMe';
 import { Hero } from '@/globals/Hero';
+import { Banner } from '@/globals/Banner';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -32,7 +33,7 @@ export default buildConfig({
 
   // Define and configure your collections in this array
   collections: [Users, Media, FeaturedWorks],
-  globals: [Hero, AboutMe],
+  globals: [Hero, AboutMe, Banner],
 
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',

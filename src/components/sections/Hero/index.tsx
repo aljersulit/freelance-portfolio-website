@@ -7,7 +7,6 @@ import { getHeroData } from '@/lib/payloadData';
 
 export default async function Hero() {
   const [HERO] = await getHeroData();
-  console.log('Hero Global Data', HERO);
   return (
     <section id='home' className='relative flex h-lvh'>
       <div className='@container relative flex w-full flex-col-reverse items-center justify-between gap-3 px-[21px] pt-[70px] sm:pt-[90px] md:px-[28px] lg:mt-[75px] lg:flex-row lg:items-stretch lg:justify-center lg:gap-0 lg:px-0 lg:pt-0 xl:mt-[96px] 2xl:mt-[125px]'>

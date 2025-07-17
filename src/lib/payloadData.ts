@@ -47,6 +47,22 @@ export const getHeroData = async (): Promise<HeroWithBlurDataURL[]> => {
   }
 };
 
+export const getBannerData = async () => {
+  try {
+    const payload = await getPayload({ config });
+
+    const fetchedData = await payload.findGlobal({
+      slug: 'banner',
+      depth: 1,
+    });
+
+    return [fetchedData];
+  } catch (error) {
+    console.error('Failed to fetch banner data:', error);
+    return [];
+  }
+};
+
 export const getFeaturedWorksCollectionData = async (): Promise<WorkWithBlurDataURL[]> => {
   try {
     const payload = await getPayload({ config });
