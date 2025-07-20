@@ -35,7 +35,7 @@ export default function ImageCarousel({
       <CarouselContent>
         {imageList?.map((imgObj) => (
           <CarouselItem key={imgObj.id}>
-            {typeof imgObj.image !== 'number' && typeof imgObj.image === 'object' && (
+            {typeof imgObj.image !== 'number' && imgObj.image.url && (
               <Image
                 src={imgObj.image.url || ''}
                 alt={imgObj.image.alt}
