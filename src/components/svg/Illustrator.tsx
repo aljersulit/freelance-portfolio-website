@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Illustrator(props: { className?: string }) {
+export default function Illustrator(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='172' height='45' viewBox='0 0 172 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

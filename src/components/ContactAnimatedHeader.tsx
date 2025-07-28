@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { playfairDisplay } from '@/app/font';
+import { playfairDisplay } from '@/app/(frontend)/font';
 import { motion, useSpring } from 'motion/react';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import useScrollDirection from '@/hooks/useScrollDirection';

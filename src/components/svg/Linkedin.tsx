@@ -1,4 +1,6 @@
-export default function Linkedin(props: { className?: string }) {
+import React, { SVGProps } from 'react';
+
+export default function Linkedin(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox='-1.6 0 23.20 23.20'

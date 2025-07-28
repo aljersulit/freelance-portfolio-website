@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function BusinessStat(props: { className?: string }) {
+export default function BusinessStat(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='45' height='45' viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <circle cx='35.625' cy='9.375' r='5.625' stroke='#F6F6F6' strokeWidth='1.5' />

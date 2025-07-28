@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Arrow(props: { className?: string }) {
+export default function Arrow(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='currentColor' {...props}>
       <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>

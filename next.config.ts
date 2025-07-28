@@ -1,7 +1,18 @@
+import { withPayload } from '@payloadcms/next/withPayload';
+import withPlaiceholder from '@plaiceholder/next';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: process.env.HOSTNAME || '',
+      },
+    ],
+  },
+  experimental: {
+    reactCompiler: false,
+  },
 };
 
-export default nextConfig;
+export default withPayload(withPlaiceholder(nextConfig));

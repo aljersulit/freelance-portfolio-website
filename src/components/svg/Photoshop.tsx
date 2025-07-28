@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Photoshop(props: { className?: string }) {
+export default function Photoshop(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='184' height='45' viewBox='0 0 184 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path

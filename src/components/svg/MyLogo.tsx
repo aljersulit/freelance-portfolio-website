@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function MyLogo(props: { className?: string }) {
+export default function MyLogo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width='176'

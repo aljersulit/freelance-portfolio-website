@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Figma(props: { className?: string }) {
+export default function Figma(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width='95' height='45' viewBox='0 0 95 45' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <path
