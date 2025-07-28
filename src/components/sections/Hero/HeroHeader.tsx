@@ -25,7 +25,7 @@ const containerVariants: Variants = {
   },
 };
 
-interface HeroHeaderProps extends Pick<Hero, 'intro' | 'headline' | 'subheading'> {}
+type HeroHeaderProps = Pick<Hero, 'intro' | 'headline' | 'subheading'>;
 
 export default function HeroHeader({ intro, headline, subheading }: HeroHeaderProps) {
   return (

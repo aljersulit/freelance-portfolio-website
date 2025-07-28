@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import { Hero } from '@/payload-types';
 
-interface MarqueeSlidingLinkProps extends Pick<Hero, 'marqueeLinks'> {}
+type MarqueeSlidingLinkProps = Pick<Hero, 'marqueeLinks'>;
 
 export default function MarqueeSlidingLink({ marqueeLinks }: MarqueeSlidingLinkProps) {
   return (

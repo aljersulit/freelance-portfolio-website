@@ -1,7 +1,7 @@
 import { playfairDisplay } from '@/app/(frontend)/font';
 import Image from 'next/image';
 import backgroundLaptop from '@/assets/results_hero_background_laptop.png';
-import HeroList from '@/components/pages/ResultsPage/Hero/HeroList'
+import HeroList from '@/components/pages/ResultsPage/Hero/HeroList';
 
 export default function Hero() {
   return (

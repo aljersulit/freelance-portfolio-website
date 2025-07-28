@@ -29,6 +29,9 @@ importers:
       '@payloadcms/storage-vercel-blob':
         specifier: ^3.43.0
         version: 3.43.0(@types/react@19.1.8)(monaco-editor@0.52.2)(next@15.1.7(@babel/core@7.24.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.43.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.8.3)(utf-8-validate@6.0.5))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
+      '@plaiceholder/next':
+        specifier: ^3.0.0
+        version: 3.0.0(next@15.1.7(@babel/core@7.24.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(plaiceholder@3.0.0(sharp@0.34.2))(sharp@0.34.2)
       '@radix-ui/react-label':
         specifier: ^2.1.2
         version: 2.1.7(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -83,6 +86,9 @@ importers:
       payload:
         specifier: ^3.43.0
         version: 3.43.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.8.3)(utf-8-validate@6.0.5)
+      plaiceholder:
+        specifier: ^3.0.0
+        version: 3.0.0(sharp@0.34.2)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -1569,6 +1575,13 @@ packages:
   '@pkgr/core@0.2.7':
     resolution: {integrity: sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@plaiceholder/next@3.0.0':
+    resolution: {integrity: sha512-7UK/H1X64hwo2VaxOPKMXE+OY9IgmKLPsq/xKHZ+gU07oqQSfIWWIgpVVucMB3ZgVYah+68agR15BRuSxAuMHw==}
+    peerDependencies:
+      next: '>= 10.0.0'
+      plaiceholder: '>=3.0.0'
+      sharp: '>= 0.30.6'
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -4161,6 +4174,11 @@ packages:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
     engines: {node: '>= 6'}
 
+  plaiceholder@3.0.0:
+    resolution: {integrity: sha512-jwHxxHPnr1BwRzPCeZgEK2BMsEy2327sWynw3qb6XC/oGgGDUTPtR8pFxFQmNArhMBwhkUbUr5OPhhIJpCa8eQ==}
+    peerDependencies:
+      sharp: '>= 0.30.6'
+
   pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
@@ -6416,6 +6434,12 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.2.7': {}
+
+  '@plaiceholder/next@3.0.0(next@15.1.7(@babel/core@7.24.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(plaiceholder@3.0.0(sharp@0.34.2))(sharp@0.34.2)':
+    dependencies:
+      next: 15.1.7(@babel/core@7.24.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4)
+      plaiceholder: 3.0.0(sharp@0.34.2)
+      sharp: 0.34.2
 
   '@radix-ui/number@1.1.1': {}
 
@@ -9223,6 +9247,10 @@ snapshots:
       thread-stream: 3.1.0
 
   pirates@4.0.7: {}
+
+  plaiceholder@3.0.0(sharp@0.34.2):
+    dependencies:
+      sharp: 0.34.2
 
   pluralize@8.0.0: {}
 

@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { motion, useSpring } from "motion/react";
-import { useEffect, useRef } from "react";
-import useScreenHeight from "@/hooks/useScreenHeight";
-import useScrollDirection from "@/hooks/useScrollDirection";
-import IKImage from "@/components/IKImage";
+import { motion, useSpring } from 'motion/react';
+import { useEffect, useRef } from 'react';
+import useScreenHeight from '@/hooks/useScreenHeight';
+import useScrollDirection from '@/hooks/useScrollDirection';
+import IKImage from '@/components/IKImage';
 
 export default function BannerImg() {
   const screenHeight = useScreenHeight();

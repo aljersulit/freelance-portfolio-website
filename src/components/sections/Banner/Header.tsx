@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useRef, useEffect } from "react";
-import {motion, useSpring } from "motion/react";
+import { useRef, useEffect } from 'react';
+import { motion, useSpring } from 'motion/react';
 import { playfairDisplay } from '@/app/(frontend)/font';
-import useScreenHeight from "@/hooks/useScreenHeight";
-import useScrollDirection from "@/hooks/useScrollDirection";
+import useScreenHeight from '@/hooks/useScreenHeight';
+import useScrollDirection from '@/hooks/useScrollDirection';
 import { Banner } from '@/payload-types';
 
 export default function Header({ text }: { text: Banner['header'] }) {

@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from "react";
-import { roboto } from "@/app/(frontend)/font";
-import useScreenHeight from "@/hooks/useScreenHeight";
-import useScrollDirection from "@/hooks/useScrollDirection";
-import { motion, useSpring } from "motion/react";
-import { Banner } from "@/payload-types";
-import IKImage from "@/components/IKImage";
+import { useEffect, useRef } from 'react';
+import { roboto } from '@/app/(frontend)/font';
+import useScreenHeight from '@/hooks/useScreenHeight';
+import useScrollDirection from '@/hooks/useScrollDirection';
+import { motion, useSpring } from 'motion/react';
+import { Banner } from '@/payload-types';
+import IKImage from '@/components/IKImage';
 
 export default function Paragraph({ text }: { text: Banner['paragraph'] }) {
   const screenHeight = useScreenHeight();

@@ -7,7 +7,7 @@ import SkillsList from './SkillsList';
 import { getFeaturedWorksCollectionData } from '@/lib/payloadData';
 
 export default async function FeaturedWorks() {
-  const WORKS = await getFeaturedWorksCollectionData();
+  const [WORKS] = await getFeaturedWorksCollectionData();
 
   return (
     <section
@@ -21,8 +21,8 @@ export default async function FeaturedWorks() {
           <RevealingText text='Featured' /> <RevealingText text='Works' />
         </h2>
       </header>
-      {WORKS.length > 0 ? (
-        WORKS.map((work) => (
+      {WORKS.worksList.length > 0 ? (
+        WORKS.worksList.map((work) => (
           <article
             key={work.id}
             className='flex justify-center gap-[50px] border-t border-t-stone-300 py-[29px] md:py-[60px] lg:border-t-2 lg:py-[80px] 2xl:gap-[70px] min-[1900px]:gap-[82px]'
@@ -35,8 +35,8 @@ export default async function FeaturedWorks() {
                     alt={`${work.projectName} sample preview`}
                     width={work.photo.width || 2520}
                     height={work.photo.height || 1802}
-                    blurDataURL={work.blurDataURL}
-                    placeholder='blur'
+                    placeholder={!!work.photo.blurDataURL ? 'blur' : 'empty'}
+                    blurDataURL={!!work.photo.blurDataURL ? work.photo.blurDataURL : undefined}
                   />
                 )}
               </ExpandingContainer>
@@ -67,8 +67,8 @@ export default async function FeaturedWorks() {
                   width={work.photo.width || 2520}
                   height={work.photo.height || 1802}
                   className='object-cover transition-transform hover:rotate-3 hover:scale-105'
-                  blurDataURL={work.blurDataURL}
-                  placeholder='blur'
+                  placeholder={!!work.photo.blurDataURL ? 'blur' : 'empty'}
+                  blurDataURL={!!work.photo.blurDataURL ? work.photo.blurDataURL : undefined}
                 />
               )}
             </ExpandingContainer>

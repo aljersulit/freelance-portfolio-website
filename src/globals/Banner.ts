@@ -4,16 +4,18 @@ export const Banner: GlobalConfig = {
   access: {
     read: () => true,
   },
-  fields: [{
-    name: 'header',
-    type: 'text',
-    required: true,
-    label: 'Banner Header'
-  },
-  {
-    name: 'paragraph',
-    type: 'text',
-    required: true,
-    label: 'Banner paragraph'
-  }],
+  fields: [
+    {
+      name: 'header',
+      type: 'text',
+      required: true,
+      label: 'Banner Header',
+    },
+    {
+      name: 'paragraph',
+      type: 'text',
+      required: true,
+      label: 'Banner paragraph',
+    },
+  ],
 };

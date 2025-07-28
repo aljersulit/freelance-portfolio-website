@@ -44,7 +44,7 @@ const InlineSvg: React.FC<InlineSvgProps> = ({ src, alt, className, svgClassName
     };
 
     fetchSvg();
-  }, [src]);
+  }, [src, svgClassName]);
 
   if (error) {
     return (

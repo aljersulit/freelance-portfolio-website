@@ -6,7 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildConfig } from 'payload';
 
-import { FeaturedWorks } from '@/collections/FeaturedWorks';
+import { FeaturedWorks } from '@/globals/FeaturedWorks';
 import { Media } from '@/collections/Media';
 import { Users } from '@/collections/Users';
 import { AboutMe } from '@/globals/AboutMe';
@@ -33,8 +33,8 @@ export default buildConfig({
   editor: lexicalEditor(),
 
   // Define and configure your collections in this array
-  collections: [Users, Media, FeaturedWorks],
-  globals: [Hero, AboutMe, Banner, Testimonials],
+  collections: [Users, Media],
+  globals: [Hero, AboutMe, Banner, Testimonials, FeaturedWorks],
 
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',

@@ -5,10 +5,10 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/lib/utils';
 import { EmblaOptionsType } from 'embla-carousel';
-import { AboutWithBlurData } from '@/lib/payloadData';
+import { About } from '@/payload-types';
 
 type ImageCarouselProps = {
-  imageList: AboutWithBlurData['slidingImages1'] | AboutWithBlurData['slidingImages2'];
+  imageList: About['slidingImages1'] | About['slidingImages2'];
   delay?: number;
   className?: string;
   imageClassName?: string;
@@ -41,8 +41,8 @@ export default function ImageCarousel({
                 alt={imgObj.image.alt}
                 width={imgObj.image.width || '2046'}
                 height={imgObj.image.height || '1377'}
-                placeholder='blur'
-                blurDataURL={imgObj.blurDataURL}
+                placeholder={!!imgObj.image.blurDataURL ? 'blur' : 'empty'}
+                blurDataURL={!!imgObj.image.blurDataURL ? imgObj.image.blurDataURL : undefined}
                 className={cn('rounded-md', imageClassName)}
               />
             )}

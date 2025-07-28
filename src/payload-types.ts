@@ -69,7 +69,6 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    works: Work;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -78,7 +77,6 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    works: WorksSelect<false> | WorksSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -91,12 +89,14 @@ export interface Config {
     about: About;
     banner: Banner;
     testimonials: Testimonial;
+    works: Work;
   };
   globalsSelect: {
     hero: HeroSelect<false> | HeroSelect<true>;
     about: AboutSelect<false> | AboutSelect<true>;
     banner: BannerSelect<false> | BannerSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    works: WorksSelect<false> | WorksSelect<true>;
   };
   locale: null;
   user: User & {
@@ -152,6 +152,11 @@ export interface Media {
    * Descriptive text of the image. Important for accessibility (screen readers) and SEO.
    */
   alt: string;
+  /**
+   * Automatically generated base64 string for image placeholder.
+   */
+  blurDataURL?: string | null;
+  blurGenerationStatus?: ('pending' | 'success' | 'failed') | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -163,28 +168,6 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "works".
- */
-export interface Work {
-  id: number;
-  projectName: string;
-  /**
-   * List the key skills/technologies used for this work.
-   */
-  skillsUsed?:
-    | {
-        skill: string;
-        id?: string | null;
-      }[]
-    | null;
-  description: string;
-  photo: number | Media;
-  href: string;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -200,10 +183,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
-      } | null)
-    | ({
-        relationTo: 'works';
-        value: number | Work;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -268,6 +247,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  blurDataURL?: T;
+  blurGenerationStatus?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -279,24 +260,6 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "works_select".
- */
-export interface WorksSelect<T extends boolean = true> {
-  projectName?: T;
-  skillsUsed?:
-    | T
-    | {
-        skill?: T;
-        id?: T;
-      };
-  description?: T;
-  photo?: T;
-  href?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -435,6 +398,31 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "works".
+ */
+export interface Work {
+  id: number;
+  worksList: {
+    projectName: string;
+    /**
+     * List the key skills/technologies used for this work.
+     */
+    skillsUsed?:
+      | {
+          skill: string;
+          id?: string | null;
+        }[]
+      | null;
+    description: string;
+    photo: number | Media;
+    href: string;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "hero_select".
  */
 export interface HeroSelect<T extends boolean = true> {
@@ -541,6 +529,30 @@ export interface TestimonialsSelect<T extends boolean = true> {
         name?: T;
         designation?: T;
         photo?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "works_select".
+ */
+export interface WorksSelect<T extends boolean = true> {
+  worksList?:
+    | T
+    | {
+        projectName?: T;
+        skillsUsed?:
+          | T
+          | {
+              skill?: T;
+              id?: T;
+            };
+        description?: T;
+        photo?: T;
+        href?: T;
         id?: T;
       };
   updatedAt?: T;

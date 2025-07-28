@@ -1,8 +1,5 @@
 import { roboto } from '@/app/(frontend)/font';
-
-// import { TESTIMONIALS } from '@/lib/constants';
 import RevealingText from '@/components/ui/revealing-text';
-
 import { getTestimonialsData } from '@/lib/payloadData';
 import TestimonialCarousel from './TestimonialCarousel';
 

@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { EmblaOptionsType } from 'embla-carousel';
-import { TestimonialItemWithBlur } from '@/lib/payloadData';
+import { Testimonial } from '@/payload-types';
 
 type TestimonialCarouselProps = {
-  testimonialList: TestimonialItemWithBlur[];
+  testimonialList: Testimonial['testimonials'];
   opts?: EmblaOptionsType;
   className?: string;
 };
@@ -43,8 +43,8 @@ export default function TestimonialCarousel({
                 alt={testimonialObj.photo.alt}
                 width={testimonialObj.photo.width || '1252'}
                 height={testimonialObj.photo.height || '1252'}
-                placeholder='blur'
-                blurDataURL={testimonialObj.blurDataURL}
+                placeholder={!!testimonialObj.photo.blurDataURL ? 'blur' : 'empty'}
+                blurDataURL={!!testimonialObj.photo.blurDataURL ? testimonialObj.photo.blurDataURL : undefined}
                 className='mx-auto mt-[47px] aspect-square w-[125px] rounded-full object-cover md:w-[160px] xl:w-[182px] 2xl:w-[290px]'
               />
             )}
