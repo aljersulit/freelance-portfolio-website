@@ -77,7 +77,7 @@ export default function Services() {
             </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image src={PhonePC} alt='Phone and pc preview' className='w-10/12 object-contain' />
+            <Image src={PhonePC} alt='Phone and pc preview' placeholder='blur' className='w-10/12 object-contain' />
           </div>
         </Link>
 
@@ -109,7 +109,7 @@ export default function Services() {
             </p>
           </div>
           <div className='flex w-full justify-end'>
-            <Image src={Laptop} alt='Laptop preview' className='w-10/12 object-contain' />
+            <Image src={Laptop} alt='Laptop preview' placeholder='blur' className='w-10/12 object-contain' />
           </div>
         </a>
       </article>
