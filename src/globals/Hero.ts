@@ -1,8 +1,41 @@
 import { GlobalConfig } from 'payload';
+
+// Revalidation function
+const revalidateContent = async () => {
+  try {
+    const revalidateUrl = `${process.env.SERVER_URL}/api/revalidate`;
+
+    await fetch(revalidateUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.PAYLOAD_SECRET}`,
+      },
+      body: JSON.stringify({
+        global: 'hero',
+      }),
+    });
+
+    console.log('Revalidation triggered for hero');
+  } catch (error) {
+    console.error('Failed to trigger revalidation for hero:', error);
+  }
+};
+
 export const Hero: GlobalConfig = {
   slug: 'hero',
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [
+      async () => {
+        // Only trigger revalidation in production
+        if (process.env.NODE_ENV === 'production') {
+          await revalidateContent();
+        }
+      },
+    ],
   },
   fields: [
     {

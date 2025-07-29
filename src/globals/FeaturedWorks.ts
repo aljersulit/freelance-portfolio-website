@@ -1,9 +1,41 @@
 import { GlobalConfig } from 'payload';
 
+// Revalidation function
+const revalidateContent = async () => {
+  try {
+    const revalidateUrl = `${process.env.SERVER_URL}/api/revalidate`;
+
+    await fetch(revalidateUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.PAYLOAD_SECRET}`,
+      },
+      body: JSON.stringify({
+        global: 'works',
+      }),
+    });
+
+    console.log('Revalidation triggered for works');
+  } catch (error) {
+    console.error('Failed to trigger revalidation for works:', error);
+  }
+};
+
 export const FeaturedWorks: GlobalConfig = {
   slug: 'works',
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [
+      async () => {
+        // Only trigger revalidation in production
+        if (process.env.NODE_ENV === 'production') {
+          await revalidateContent();
+        }
+      },
+    ],
   },
   fields: [
     {

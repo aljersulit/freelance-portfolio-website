@@ -11,7 +11,9 @@
     "start": "next start",
     "lint": "next lint && prettier --check .",
     "email": "email dev --dir src/emails",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:revalidation": "node scripts/test-revalidation.js",
+    "test:revalidation:prod": "node scripts/test-revalidation.js http://localhost:3000"
   },
   "dependencies": {
     "@google-recaptcha/react": "^2.1.1",
