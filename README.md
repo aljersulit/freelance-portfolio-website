@@ -16,6 +16,7 @@ This portfolio website serves a dual purpose:
 ## ✨ Key Features
 
 - **Fully Responsive Design** - Optimized for all devices and screen sizes
+- **Content Management System (CMS)** - Easily update website content, portfolio projects, and more through an intuitive admin dashboard.
 - **Scroll-Based Animations** - Smooth, engaging animations triggered by scroll events
 - **Interactive Contact Form** - Complete form submission system with validation
 - **Email Notifications** - Automated email system for both client and admin notifications
@@ -26,6 +27,9 @@ This portfolio website serves a dual purpose:
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js](https://nextjs.org/) - React-based web framework
+- **Headless CMS**: [Payload CMS](https://payloadcms.com/) - A flexible, headless CMS for managing website content
+- **Database**: - Vercel Postgres
+- **Storage**: - Vercel Blob Storage
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - **Animations**: [Motion](https://motion.dev/) - Animation library for React
@@ -42,6 +46,7 @@ This portfolio website serves a dual purpose:
 
 - Node.js 18.0 or later
 - pnpm package manager
+- Vercel Postgres database
 
 ### Installation
 
@@ -65,7 +70,7 @@ This portfolio website serves a dual purpose:
    ```env
    # Email Configuration
    SMTP_USER=your_email@gmail.com
-   SMTP_PASSWORD=your_app_password
+   SMTP_PASSWORD=your_generated_gmail_app_password
 
    # Google reCAPTCHA
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
@@ -73,6 +78,20 @@ This portfolio website serves a dual purpose:
 
    # Admin Email
    ADMIN_EMAIL=admin@example.com
+
+   # Payload CMS
+   PAYLOAD_SECRET=your_generated_payload_secret_string
+   SERVER_URL=http://localhost:3000
+   HOSTNAME=localhost
+
+   # Vercel blob Storage
+   BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
+
+   # Database
+   DATABASE_URL=your_vercel_postgres_url
+
+   # Vercel blob Storage
+   BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
    ```
 
 4. **Run the development server**
@@ -91,6 +110,23 @@ This portfolio website serves a dual purpose:
 pnpm build
 pnpm start
 ```
+
+## 📦 Scripts
+
+The following npm scripts are available for development and maintenance:
+
+- pnpm lint: Runs ESLint and Prettier to check for code style and quality.
+- pnpm email: Starts the development server for the React Email templates.
+- pnpm format: Formats code using Prettier.
+
+## CMS Configuration
+
+Payload CMS is integrated to provide a full-featured content management system. Key functionalities include:
+
+- **Admin Dashboard**: A secure and user-friendly interface to manage all website content.
+- **Dynamic Content**: Easily update text, images, and other content without touching the code.
+- **Collections**: Structured data models for managing different types of content, such as services, testimonials, or projects.
+- **Authentication**: Built-in user authentication for secure access to the admin panel.
 
 ## 📧 Contact Form Features
 
@@ -124,12 +160,6 @@ This is a personal portfolio project, but if you have suggestions or find any is
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **Alyssa Joy Sulit** - For the incredible design and creative direction
-- **Next.js Team** - For the amazing framework
-- **Vercel** - For seamless deployment
-- **All contributors** - To the open-source libraries used in this project
 
 ## 📞 Contact
 
